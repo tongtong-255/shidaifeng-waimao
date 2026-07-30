@@ -9,20 +9,23 @@
 <title>时代风科技 · 中国工厂全球化引擎</title>
 <style>
   :root {
-    --bg: #000;
-    --surface: #0a0a0a;
-    --card: rgba(255,255,255,0.04);
-    --border: rgba(255,255,255,0.08);
-    --text: #f5f5f7;
-    --text-secondary: #a1a1a6;
-    --text-tertiary: #6e6e73;
+    --bg: #f5f5f7;
+    --surface: #ffffff;
+    --card: rgba(255,255,255,0.72);
+    --card-hover: rgba(255,255,255,0.88);
+    --border: rgba(0,0,0,0.06);
+    --border-hover: rgba(0,0,0,0.12);
+    --text: #1d1d1f;
+    --text-secondary: #86868b;
+    --text-tertiary: #aeaeb2;
     --accent: #0071e3;
-    --accent-glow: rgba(0,113,227,0.3);
-    --gradient-1: linear-gradient(135deg, #0071e3 0%, #5e5ce6 50%, #ac8eff 100%);
-    --gradient-2: linear-gradient(135deg, #ff375f 0%, #ff6b35 50%, #ff9f0a 100%);
-    --gradient-mesh: radial-gradient(ellipse 80% 60% at 50% -20%, rgba(0,113,227,0.15), transparent),
-                    radial-gradient(ellipse 60% 50% at 80% 80%, rgba(94,92,230,0.1), transparent),
-                    radial-gradient(ellipse 50% 40% at 20% 60%, rgba(255,55,95,0.06), transparent);
+    --accent-hover: #0077ed;
+    --accent-glow: rgba(0,113,227,0.2);
+    --glass: rgba(255,255,255,0.64);
+    --glass-hover: rgba(255,255,255,0.85);
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+    --shadow-lg: 0 20px 40px rgba(0,0,0,0.08);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -31,11 +34,14 @@
     background: var(--bg); color: var(--text); line-height: 1.5;
     -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; overflow-x: hidden;
   }
+
+  /* Nav */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 24px; height: 52px;
     display: flex; align-items: center; justify-content: space-between;
     backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
-    background: rgba(0,0,0,0.72); border-bottom: 1px solid var(--border); font-size: 14px; font-weight: 500;
+    background: rgba(255,255,255,0.72); border-bottom: 1px solid var(--border);
+    font-size: 14px; font-weight: 500;
   }
   nav .logo { font-weight: 700; font-size: 16px; letter-spacing: -0.3px; }
   nav .nav-links { display: flex; gap: 24px; }
@@ -44,35 +50,33 @@
   nav .cta-btn {
     background: var(--accent); color: #fff; border: none; padding: 7px 16px;
     border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer;
-    transition: all 0.2s; text-decoration: none;
+    transition: all 0.3s; text-decoration: none;
   }
-  nav .cta-btn:hover { background: #0077ed; box-shadow: 0 0 20px var(--accent-glow); }
+  nav .cta-btn:hover { background: var(--accent-hover); box-shadow: 0 0 20px var(--accent-glow); transform: scale(1.03); }
 
+  /* Hero */
   .hero {
     min-height: 100vh; display: flex; align-items: center; justify-content: center;
     text-align: center; padding: 80px 24px 60px; position: relative; overflow: hidden;
+    background:
+      radial-gradient(ellipse 70% 50% at 50% -10%, rgba(0,113,227,0.06), transparent),
+      radial-gradient(ellipse 50% 40% at 80% 70%, rgba(94,92,230,0.04), transparent),
+      radial-gradient(ellipse 50% 40% at 20% 60%, rgba(255,55,95,0.03), transparent);
   }
-  .hero::before {
-    content: ''; position: absolute; inset: 0; background: var(--gradient-mesh);
-    animation: meshPulse 8s ease-in-out infinite;
-  }
-  @keyframes meshPulse { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
   .hero-content { position: relative; z-index: 1; max-width: 800px; }
   .hero-badge {
     display: inline-block; padding: 5px 14px; border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.15); font-size: 12px;
+    border: 1px solid rgba(0,0,0,0.1); font-size: 12px;
     color: var(--text-secondary); margin-bottom: 24px;
-    backdrop-filter: blur(10px); background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(10px); background: rgba(255,255,255,0.6);
   }
   .hero h1 {
     font-size: clamp(40px, 8vw, 80px); font-weight: 700; letter-spacing: -2px;
-    line-height: 1.05; margin-bottom: 8px;
-    background: var(--gradient-1); -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; background-clip: text;
+    line-height: 1.05; margin-bottom: 8px; color: var(--text);
   }
-  .hero h1 .alt {
-    background: var(--gradient-2); -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; background-clip: text;
+  .hero h1 .grad {
+    background: linear-gradient(135deg, #0071e3 0%, #5e5ce6 50%, #ff375f 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
   .hero .subtitle { font-size: clamp(17px, 3vw, 24px); color: var(--text-secondary); font-weight: 400; margin-bottom: 32px; }
   .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
@@ -81,70 +85,160 @@
     border-radius: 28px; font-size: 15px; font-weight: 600; cursor: pointer;
     text-decoration: none; transition: all 0.3s; letter-spacing: -0.2px;
   }
-  .btn-primary:hover { background: #0077ed; box-shadow: 0 0 40px var(--accent-glow); transform: translateY(-1px); }
+  .btn-primary:hover { background: var(--accent-hover); box-shadow: 0 0 40px var(--accent-glow); transform: translateY(-1px); }
   .btn-outline {
-    background: transparent; color: var(--text); border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.6); backdrop-filter: blur(10px);
+    color: var(--text); border: 1px solid rgba(0,0,0,0.1);
     padding: 13px 28px; border-radius: 28px; font-size: 15px; font-weight: 500;
     cursor: pointer; text-decoration: none; transition: all 0.3s; letter-spacing: -0.2px;
   }
-  .btn-outline:hover { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.04); }
+  .btn-outline:hover { border-color: rgba(0,0,0,0.2); background: rgba(255,255,255,0.85); box-shadow: var(--shadow-md); }
   .scroll-indicator {
     position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center; gap: 6px;
     animation: float 2s ease-in-out infinite; z-index: 1;
   }
   .scroll-indicator span { font-size: 11px; color: var(--text-tertiary); }
-  .scroll-indicator .line { width: 1px; height: 32px; background: rgba(255,255,255,0.15); }
+  .scroll-indicator .line { width: 1px; height: 32px; background: rgba(0,0,0,0.1); }
   @keyframes float { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-8px); } }
 
+  /* Sections */
   section { padding: 100px 24px; }
   .section-label { text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 2px; color: var(--accent); text-transform: uppercase; margin-bottom: 12px; }
   .section-title { text-align: center; font-size: clamp(28px, 5vw, 48px); font-weight: 700; letter-spacing: -1px; margin-bottom: 16px; line-height: 1.15; }
   .section-desc { text-align: center; font-size: 17px; color: var(--text-secondary); max-width: 560px; margin: 0 auto 48px; }
 
+  /* Stats */
   .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: var(--border); border-radius: 20px; overflow: hidden; max-width: 1000px; margin: 0 auto; }
-  .stat-card { background: var(--surface); padding: 32px 24px; text-align: center; transition: background 0.3s; }
-  .stat-card:hover { background: #111; }
-  .stat-num { font-size: 40px; font-weight: 700; letter-spacing: -1px; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 4px; }
+  .stat-card {
+    background: var(--card); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    padding: 32px 24px; text-align: center; transition: all 0.4s;
+  }
+  .stat-card:hover { background: var(--card-hover); }
+  .stat-num { font-size: 40px; font-weight: 700; letter-spacing: -1px; color: var(--accent); margin-bottom: 4px; }
   .stat-label { font-size: 14px; color: var(--text-secondary); }
 
+  /* Feature Cards */
   .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; max-width: 1100px; margin: 0 auto; }
   .feature-card {
-    background: var(--card); border: 1px solid var(--border); border-radius: 20px;
-    padding: 32px; transition: all 0.4s; position: relative; overflow: hidden;
+    background: var(--card); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border); border-radius: 20px; padding: 32px;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative; overflow: hidden; cursor: default;
   }
-  .feature-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--gradient-1); opacity: 0; transition: opacity 0.4s; }
-  .feature-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.16); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-  .feature-card:hover::before { opacity: 1; }
+  .feature-card::after {
+    content: ''; position: absolute; inset: 0; border-radius: 20px;
+    background: radial-gradient(ellipse at var(--mx, 50%) var(--my, 50%), rgba(0,113,227,0.08) 0%, transparent 60%);
+    opacity: 0; transition: opacity 0.4s; pointer-events: none;
+  }
+  .feature-card:hover::after { opacity: 1; }
+  .feature-card:hover {
+    background: var(--glass-hover); border-color: var(--border-hover);
+    transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    border-color: rgba(0,113,227,0.2);
+  }
   .feature-card .icon { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 20px; }
   .feature-card h4 { font-size: 18px; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.3px; }
   .feature-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
 
+  /* Process */
   .process-row { display: flex; gap: 0; max-width: 1000px; margin: 0 auto; overflow-x: auto; padding: 20px 0; }
   .process-step { flex: 1; min-width: 140px; text-align: center; position: relative; padding: 0 12px; }
-  .p-num { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-weight: 700; font-size: 18px; border: 2px solid rgba(255,255,255,0.15); transition: all 0.4s; }
-  .process-step:hover .p-num { border-color: var(--accent); box-shadow: 0 0 24px var(--accent-glow); }
+  .p-num {
+    width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; margin: 0 auto 14px; font-weight: 700; font-size: 18px;
+    border: 2px solid rgba(0,0,0,0.08); background: var(--card);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .process-step:hover .p-num {
+    border-color: var(--accent); box-shadow: 0 0 28px var(--accent-glow);
+    background: rgba(255,255,255,0.9); transform: scale(1.08);
+  }
   .p-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
   .p-desc { font-size: 12px; color: var(--text-tertiary); }
-  .process-connector { position: absolute; top: 22px; left: calc(50% + 24px); width: calc(100% - 48px); height: 1px; background: rgba(255,255,255,0.08); z-index: 0; }
+  .process-connector { position: absolute; top: 22px; left: calc(50% + 24px); width: calc(100% - 48px); height: 1px; background: var(--border); z-index: 0; }
   .process-step:last-child .process-connector { display: none; }
 
+  /* Case Studies */
   .case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; max-width: 1100px; margin: 0 auto; }
-  .case-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; transition: all 0.4s; }
-  .case-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); border-color: rgba(255,255,255,0.16); }
+  .case-card {
+    background: var(--card); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border); border-radius: 20px; overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .case-card:hover {
+    transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    border-color: rgba(0,113,227,0.15); background: var(--glass-hover);
+  }
   .case-header { padding: 28px 28px 0; }
   .case-header .brand { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
   .case-header .industry { font-size: 12px; color: var(--text-tertiary); margin-top: 2px; }
   .case-body { padding: 16px 28px 28px; }
-  .case-metric { display: inline-block; padding: 6px 14px; border-radius: 8px; background: rgba(255,255,255,0.05); font-size: 13px; margin: 6px 6px 0 0; }
+  .case-metric { display: inline-block; padding: 6px 14px; border-radius: 8px; background: rgba(0,113,227,0.06); font-size: 13px; margin: 6px 6px 0 0; }
   .case-metric strong { color: var(--accent); }
 
-  .cta-section { text-align: center; padding: 120px 24px; background: var(--gradient-mesh); position: relative; }
-  .cta-section h2 { font-size: clamp(28px, 5vw, 48px); font-weight: 700; letter-spacing: -1px; margin-bottom: 16px; }
-  .cta-section p { font-size: 17px; color: var(--text-secondary); margin-bottom: 32px; }
+  /* Contact Section */
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    max-width: 900px; margin: 0 auto;
+  }
+  .contact-info {
+    background: var(--card); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border); border-radius: 20px; padding: 32px;
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  .contact-info h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .contact-item {
+    display: flex; align-items: center; gap: 14px; padding: 12px 16px;
+    background: rgba(0,113,227,0.04); border-radius: 14px;
+    transition: all 0.3s; cursor: pointer; border: 1px solid transparent;
+  }
+  .contact-item:hover { background: rgba(0,113,227,0.08); border-color: rgba(0,113,227,0.15); }
+  .contact-item .ci-icon { font-size: 22px; flex-shrink: 0; }
+  .contact-item .ci-label { font-size: 11px; color: var(--text-tertiary); }
+  .contact-item .ci-value { font-size: 15px; font-weight: 600; color: var(--text); }
+  .copied-toast {
+    position: fixed; top: 72px; left: 50%; transform: translateX(-50%);
+    background: var(--text); color: #fff; padding: 10px 20px; border-radius: 20px;
+    font-size: 13px; z-index: 200; pointer-events: none;
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .copied-toast.show { opacity: 1; }
 
+  .contact-form {
+    background: var(--card); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border); border-radius: 20px; padding: 32px;
+  }
+  .contact-form h3 { font-size: 20px; font-weight: 700; margin-bottom: 20px; }
+  .form-group { margin-bottom: 14px; }
+  .form-group label { display: block; font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 6px; letter-spacing: 0.3px; }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%; padding: 11px 14px; border: 1px solid var(--border);
+    border-radius: 12px; font-size: 14px; font-family: inherit;
+    background: rgba(0,0,0,0.02); transition: all 0.3s; outline: none;
+    color: var(--text);
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,113,227,0.1); background: #fff;
+  }
+  .form-submit {
+    width: 100%; background: var(--accent); color: #fff; border: none;
+    padding: 13px; border-radius: 14px; font-size: 15px; font-weight: 600;
+    cursor: pointer; transition: all 0.3s; margin-top: 6px;
+  }
+  .form-submit:hover { background: var(--accent-hover); box-shadow: 0 4px 20px var(--accent-glow); }
+
+  /* CTA */
+  .cta-section {
+    text-align: center; padding: 80px 24px;
+    background: linear-gradient(180deg, rgba(0,113,227,0.03) 0%, rgba(94,92,230,0.04) 100%);
+  }
+
+  /* Footer */
   footer { padding: 24px; text-align: center; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-tertiary); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; max-width: 1100px; margin: 0 auto; }
 
+  /* Animations */
   .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
 
@@ -156,11 +250,14 @@
     .process-row { flex-wrap: wrap; gap: 20px; }
     .process-connector { display: none; }
     .process-step { min-width: 40%; flex: none; }
+    .contact-grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; text-align: center; }
   }
 </style>
 </head>
 <body>
+
+<div class="copied-toast" id="toast">已复制到剪贴板 ✓</div>
 
 <nav>
   <div class="logo">时代风</div>
@@ -168,24 +265,26 @@
     <a href="#services">服务</a>
     <a href="#process">流程</a>
     <a href="#cases">案例</a>
-    <a href="#about">关于</a>
+    <a href="#contact">联系</a>
   </div>
-  <a href="#cta" class="cta-btn">免费咨询</a>
+  <a href="#contact" class="cta-btn">免费咨询</a>
 </nav>
 
+<!-- Hero -->
 <section class="hero">
   <div class="hero-content fade-up visible">
     <div class="hero-badge">TikTok Official Partner · 官方认证服务商</div>
-    <h1>中国工厂<br><span class="alt">全球化引擎</span></h1>
+    <h1>中国工厂<br><span class="grad">全球化引擎</span></h1>
     <p class="subtitle">从一条短视频开始，让世界发现你的工厂</p>
     <div class="hero-actions">
-      <a href="#cta" class="btn-primary">开启全球增长 →</a>
+      <a href="#contact" class="btn-primary">开启全球增长 →</a>
       <a href="#process" class="btn-outline">了解如何运作</a>
     </div>
   </div>
   <div class="scroll-indicator"><span>Scroll</span><div class="line"></div></div>
 </section>
 
+<!-- Stats -->
 <section>
   <div class="stats-grid fade-up">
     <div class="stat-card"><div class="stat-num">500+</div><div class="stat-label">服务出海企业</div></div>
@@ -195,29 +294,31 @@
   </div>
 </section>
 
+<!-- Services -->
 <section id="services">
   <div class="section-label">What We Do</div>
   <div class="section-title">三大引擎，驱动增长</div>
   <p class="section-desc">我们不只是代运营，而是你的工厂海外市场部</p>
   <div class="cards-grid fade-up">
     <div class="feature-card">
-      <div class="icon" style="background:rgba(0,113,227,0.12);">🎬</div>
+      <div class="icon" style="background:rgba(0,113,227,0.08);">🎬</div>
       <h4>内容引擎</h4>
       <p>入企实拍 · 6大场景覆盖 · 航拍+微距+真人出镜。1分钟实景视频，胜过1000封开发信</p>
     </div>
     <div class="feature-card">
-      <div class="icon" style="background:rgba(94,92,230,0.12);">🎯</div>
+      <div class="icon" style="background:rgba(94,92,230,0.08);">🎯</div>
       <h4>获客引擎</h4>
       <p>算法推荐+精准投流，直接触达海外采购决策者。SQL商机模型，8-12问锁定高意向询盘</p>
     </div>
     <div class="feature-card">
-      <div class="icon" style="background:rgba(48,209,88,0.12);">⚡</div>
+      <div class="icon" style="background:rgba(48,209,88,0.08);">⚡</div>
       <h4>运营引擎</h4>
       <p>全托管式服务，PM+编导+摄影+剪辑+投流+运营，六人专属团队 × 一年持续陪跑</p>
     </div>
   </div>
 </section>
 
+<!-- Process -->
 <section id="process">
   <div class="section-label">How It Works</div>
   <div class="section-title">从零到一，只需 8 步</div>
@@ -234,6 +335,7 @@
   </div>
 </section>
 
+<!-- Case Studies -->
 <section id="cases">
   <div class="section-label">Case Studies</div>
   <div class="section-title">他们已在全球市场领先</div>
@@ -266,29 +368,155 @@
   </div>
 </section>
 
-<section class="cta-section" id="cta">
-  <div class="section-label">Let's Talk</div>
-  <h2>准备好让世界<br>看到你的工厂了吗？</h2>
-  <p>告诉我们你的产品和目标市场，给你一套完整的出海方案</p>
-  <a href="#" class="btn-primary" style="font-size:17px;padding:16px 36px;">立即咨询 →</a>
+<!-- Contact -->
+<section id="contact">
+  <div class="section-label">Get In Touch</div>
+  <div class="section-title">开启你的全球化之旅</div>
+  <p class="section-desc">留下信息，我们24小时内与你联系</p>
+
+  <div class="contact-grid fade-up">
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <h3>📞 联系方式</h3>
+      <p style="font-size:13px;color:var(--text-secondary);margin-top:-12px;">点击即可复制</p>
+      <div class="contact-item" onclick="copyText('138-xxxx-xxxx')">
+        <div class="ci-icon">📱</div>
+        <div>
+          <div class="ci-label">手机 / 微信</div>
+          <div class="ci-value">138-xxxx-xxxx</div>
+        </div>
+      </div>
+      <div class="contact-item" onclick="copyText('info@shidaifeng.com')">
+        <div class="ci-icon">✉️</div>
+        <div>
+          <div class="ci-label">电子邮箱</div>
+          <div class="ci-value">info@shidaifeng.com</div>
+        </div>
+      </div>
+      <div class="contact-item" onclick="copyText('河北时代风科技集团')">
+        <div class="ci-icon">📍</div>
+        <div>
+          <div class="ci-label">公司地址</div>
+          <div class="ci-value">河北省石家庄市</div>
+        </div>
+      </div>
+      <p style="font-size:11px;color:var(--text-tertiary);text-align:center;margin-top:4px;">
+        周一至周五 9:00 - 18:00
+      </p>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+      <h3>快速咨询</h3>
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label>姓名 *</label>
+          <input type="text" placeholder="您的姓名" required>
+        </div>
+        <div class="form-group">
+          <label>手机号 / 微信号 *</label>
+          <input type="text" placeholder="方便我们联系您" required>
+        </div>
+        <div class="form-group">
+          <label>公司名称</label>
+          <input type="text" placeholder="您的公司名称">
+        </div>
+        <div class="form-group">
+          <label>关注领域</label>
+          <select>
+            <option>TikTok海外获客</option>
+            <option>抖音国内获客</option>
+            <option>双端获客（国内+海外）</option>
+            <option>工厂直播方案</option>
+            <option>其他咨询</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>留言</label>
+          <textarea rows="2" placeholder="简单描述您的产品和需求（可选）"></textarea>
+        </div>
+        <button type="submit" class="form-submit">提交咨询 →</button>
+      </form>
+      <p style="font-size:11px;color:var(--text-tertiary);text-align:center;margin-top:10px;">
+        提交后我们将在 24 小时内与您联系
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-label">Let's Build</div>
+  <h2 style="font-size:clamp(28px, 5vw, 48px);font-weight:700;letter-spacing:-1px;margin-bottom:16px;">让世界看到<br>你的工厂</h2>
+  <p style="font-size:17px;color:var(--text-secondary);margin-bottom:32px;">从今天开始，每天都有海外客户找到你</p>
+  <a href="#contact" class="btn-primary" style="font-size:17px;padding:16px 36px;">立即咨询 →</a>
 </section>
 
 <footer>
   <span>© 2026 河北时代风科技集团</span>
-  <span>TikTok Shop 官方全托管招商合作伙伴 · 抖音电商官方专项服务商</span>
+  <span>TikTok Shop 官方全托管招商合作伙伴</span>
   <span>中国欧洲经济技术合作协会 副理事长单位</span>
 </footer>
 
 <script>
+  // Scroll animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const target = document.querySelector(link.getAttribute('href'));
       if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Copy to clipboard
+  function copyText(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 1500);
+    });
+  }
+
+  // Form submission
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = '已提交 ✓';
+    btn.style.background = '#34c759';
+    setTimeout(() => { btn.textContent = '提交咨询 →'; btn.style.background = ''; }, 2500);
+  }
+
+  // Glass morphism mouse tracking on feature cards
+  document.querySelectorAll('.feature-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      card.style.setProperty('--mx', x + '%');
+      card.style.setProperty('--my', y + '%');
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.setProperty('--mx', '50%');
+      card.style.setProperty('--my', '50%');
+    });
+  });
+
+  // Glass morphism mouse tracking on case cards
+  document.querySelectorAll('.case-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      card.style.background = `radial-gradient(ellipse at ${x}% ${y}%, rgba(0,113,227,0.06) 0%, rgba(255,255,255,0.72) 60%)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.background = '';
     });
   });
 </script>
