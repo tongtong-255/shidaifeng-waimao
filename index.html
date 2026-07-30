@@ -1,320 +1,380 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="format-detection" content="telephone=no">
-<meta property="og:title" content="外贸出海知识库 · 时代风科技">
-<meta property="og:description" content="系统学习TikTok外贸获客，从入门到精通，一站式知识平台">
 <title>外贸出海知识库 · 时代风科技</title>
 <style>
-  :root {
-    --bg: #f5f5f7; --surface: #fff;
-    --card: rgba(255,255,255,0.72); --card-hover: rgba(255,255,255,0.9);
-    --border: rgba(0,0,0,0.06); --border-hover: rgba(0,0,0,0.12);
-    --text: #1d1d1f; --text-secondary: #86868b; --text-tertiary: #aeaeb2;
-    --accent: #0071e3; --accent-hover: #0077ed; --accent-glow: rgba(0,113,227,0.2);
-    --green: #34c759; --orange: #ff9f0a; --purple: #5e5ce6; --red: #ff375f;
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Microsoft YaHei", sans-serif;
-    background: var(--bg); color: var(--text); line-height: 1.6;
-    -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; overflow-x: hidden;
-  }
+:root {
+  --bg:#f5f5f7; --surface:#fff; --text:#1d1d1f; --t2:#86868b; --t3:#aeaeb2;
+  --accent:#0071e3; --ah:#0077ed; --glow:rgba(0,113,227,0.2);
+  --card:rgba(255,255,255,0.72); --cardH:rgba(255,255,255,0.9);
+  --border:rgba(0,0,0,0.06); --borderH:rgba(0,0,0,0.12);
+  --g1:linear-gradient(135deg,#0071e3,#5e5ce6);
+  --g2:linear-gradient(135deg,#ff375f,#ff6b35);
+  --g3:linear-gradient(135deg,#30d158,#0ea5e9);
+  --g4:linear-gradient(135deg,#ff9f0a,#ff375f);
+  --g5:linear-gradient(135deg,#5e5ce6,#ac8eff);
+  --shadow:0 4px 20px rgba(0,0,0,0.06);
+  --radius:16px;
+}
+[data-theme="dark"] {
+  --bg:#0a0a0a; --surface:#111; --text:#f5f5f7; --t2:#a1a1a6; --t3:#6e6e73;
+  --card:rgba(255,255,255,0.04); --cardH:rgba(255,255,255,0.08);
+  --border:rgba(255,255,255,0.06); --borderH:rgba(255,255,255,0.14);
+  --shadow:0 4px 20px rgba(0,0,0,0.3);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--bg); color:var(--text); line-height:1.6;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  transition:background 0.3s,color 0.3s;
+}
 
-  /* Nav */
-  nav {
-    position:fixed; top:0; left:0; right:0; z-index:100; height:52px; padding:0 20px;
-    display:flex; align-items:center; justify-content:space-between;
-    backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%);
-    background:rgba(255,255,255,0.72); border-bottom:1px solid var(--border);
-  }
-  nav .logo { font-weight:700; font-size:15px; letter-spacing:-0.3px; display:flex; align-items:center; gap:8px; }
-  nav .logo span { font-size:11px; color:var(--accent); font-weight:500; background:rgba(0,113,227,0.08); padding:3px 8px; border-radius:10px; }
-  nav .cta-btn { background:var(--accent); color:#fff; border:none; padding:7px 16px; border-radius:20px; font-size:12px; font-weight:600; cursor:pointer; text-decoration:none; transition:all 0.3s; }
-  nav .cta-btn:hover { background:var(--accent-hover); box-shadow:0 0 20px var(--accent-glow); }
+/* Progress bar */
+#progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--g1);z-index:200;transition:width 0.1s;border-radius:0 3px 3px 0}
 
-  /* Layout */
-  .container { max-width:900px; margin:0 auto; padding:0 20px; }
-  section { padding:80px 0; }
-  .section-label { font-size:11px; font-weight:600; letter-spacing:2px; color:var(--accent); text-transform:uppercase; margin-bottom:8px; }
-  .section-title { font-size:clamp(26px,5vw,40px); font-weight:700; letter-spacing:-1px; margin-bottom:12px; line-height:1.15; }
-  .section-desc { font-size:16px; color:var(--text-secondary); margin-bottom:40px; line-height:1.6; }
+/* Nav */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;height:52px;padding:0 20px;
+  display:flex;align-items:center;justify-content:space-between;
+  backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);
+  background:var(--card);border-bottom:1px solid var(--border);transition:all 0.3s;
+}
+nav .logo{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px}
+nav .logo span{font-size:10px;color:var(--accent);background:rgba(0,113,227,0.1);padding:3px 8px;border-radius:10px;font-weight:500}
+nav .nav-r{display:flex;align-items:center;gap:12px}
+.theme-btn{
+  width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:var(--card);
+  cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;
+  transition:all 0.3s;backdrop-filter:blur(10px);
+}
+.theme-btn:hover{border-color:var(--borderH);box-shadow:var(--shadow)}
+.cta-btn{background:var(--accent);color:#fff;border:none;padding:7px 16px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.3s}
+.cta-btn:hover{background:var(--ah);box-shadow:0 0 20px var(--glow)}
 
-  /* Hero */
-  .hero {
-    min-height:85vh; display:flex; align-items:center; justify-content:center; text-align:center;
-    padding:80px 20px 60px; position:relative;
-    background: radial-gradient(ellipse 70% 50% at 50% -10%, rgba(0,113,227,0.05), transparent),
-                radial-gradient(ellipse 50% 40% at 80% 80%, rgba(94,92,230,0.03), transparent);
-  }
-  .hero h1 { font-size:clamp(34px,7vw,64px); font-weight:700; letter-spacing:-1.5px; line-height:1.08; margin-bottom:12px; }
-  .hero h1 .grad { background:linear-gradient(135deg,#0071e3 0%,#5e5ce6 60%,#ff375f 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-  .hero .sub { font-size:clamp(15px,2.5vw,19px); color:var(--text-secondary); margin-bottom:28px; }
-  .hero-stats { display:flex; gap:32px; justify-content:center; flex-wrap:wrap; margin-top:32px; }
-  .hero-stat { text-align:center; }
-  .hero-stat .hs-num { font-size:28px; font-weight:700; color:var(--accent); }
-  .hero-stat .hs-label { font-size:12px; color:var(--text-tertiary); }
+.container{max-width:900px;margin:0 auto;padding:0 20px}
+section{padding:80px 0}
 
-  .btn-primary {
-    background:var(--accent); color:#fff; border:none; padding:13px 28px; border-radius:28px;
-    font-size:15px; font-weight:600; cursor:pointer; text-decoration:none; transition:all 0.3s; display:inline-block;
-  }
-  .btn-primary:hover { background:var(--accent-hover); box-shadow:0 0 40px var(--accent-glow); transform:translateY(-1px); }
+/* Hero */
+.hero{
+  min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;
+  padding:80px 20px 60px;position:relative;overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;pointer-events:none}
+.hero-orb{
+  position:absolute;border-radius:50%;filter:blur(80px);opacity:0.5;
+  animation:orbFloat 12s ease-in-out infinite;
+}
+.hero-orb.o1{width:400px;height:400px;background:rgba(0,113,227,0.12);top:-100px;left:-100px;animation-delay:0s}
+.hero-orb.o2{width:300px;height:300px;background:rgba(255,55,95,0.1);bottom:-80px;right:-80px;animation-delay:-4s}
+.hero-orb.o3{width:250px;height:250px;background:rgba(94,92,230,0.1);top:50%;left:50%;animation-delay:-8s}
+@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.1)}66%{transform:translate(-30px,20px) scale(0.9)}}
+.hero-content{position:relative;z-index:2;max-width:700px}
+.hero-badge{
+  display:inline-block;padding:5px 14px;border-radius:20px;font-size:12px;
+  border:1px solid var(--border);color:var(--t2);margin-bottom:20px;
+  backdrop-filter:blur(10px);background:var(--card);
+}
+.hero h1{font-size:clamp(34px,7vw,60px);font-weight:700;letter-spacing:-1.5px;line-height:1.08;margin-bottom:12px}
+.hero h1 .grad{background:var(--g1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .sub{font-size:clamp(15px,2.5vw,19px);color:var(--t2);margin-bottom:28px}
+.search-box{
+  display:flex;align-items:center;max-width:420px;margin:0 auto 20px;
+  background:var(--card);border:1px solid var(--border);border-radius:28px;
+  padding:4px 4px 4px 18px;backdrop-filter:blur(10px);transition:all 0.3s;
+}
+.search-box:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,0.1)}
+.search-box input{
+  flex:1;border:none;background:none;font-size:14px;outline:none;color:var(--text);
+  font-family:inherit;
+}
+.search-box input::placeholder{color:var(--t3)}
+.search-box button{
+  background:var(--accent);color:#fff;border:none;padding:8px 18px;border-radius:24px;
+  font-size:13px;font-weight:600;cursor:pointer;transition:all 0.3s;
+}
+.search-box button:hover{background:var(--ah)}
 
-  /* Module Nav */
-  .module-nav {
-    display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:48px;
-    position:sticky; top:60px; z-index:50; padding:12px 0;
-    background:rgba(245,245,247,0.8); backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);
-  }
-  .module-nav a {
-    font-size:12px; font-weight:500; color:var(--text-secondary); text-decoration:none;
-    padding:6px 14px; border-radius:16px; transition:all 0.2s;
-    border:1px solid transparent; white-space:nowrap;
-  }
-  .module-nav a:hover, .module-nav a.active { color:var(--accent); background:rgba(0,113,227,0.06); border-color:rgba(0,113,227,0.15); }
+/* Module Grid */
+.mod-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;
+  max-width:1000px;margin:0 auto;
+}
+.mod-card{
+  background:var(--card);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid var(--border);border-radius:var(--radius);padding:24px 18px;
+  text-decoration:none;color:var(--text);transition:all 0.4s cubic-bezier(0.16,1,0.3,1);
+  position:relative;overflow:hidden;cursor:pointer;display:block;
+}
+.mod-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:var(--g1);transform:scaleX(0);transition:transform 0.4s;
+}
+.mod-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--borderH)}
+.mod-card:hover::after{transform:scaleX(1)}
+.mod-card .mc-icon{font-size:32px;margin-bottom:10px}
+.mod-card .mc-num{font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.mod-card .mc-title{font-size:15px;font-weight:700;margin-bottom:4px;letter-spacing:-0.3px}
+.mod-card .mc-desc{font-size:12px;color:var(--t2);line-height:1.5}
 
-  /* Cards */
-  .card {
-    background:var(--card); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
-    border:1px solid var(--border); border-radius:18px; padding:28px;
-    transition:all 0.4s; margin-bottom:16px;
-  }
-  .card:hover { background:var(--card-hover); border-color:var(--border-hover); box-shadow:0 4px 16px rgba(0,0,0,0.04); }
-  .card h3 { font-size:19px; font-weight:700; margin-bottom:8px; letter-spacing:-0.3px; }
-  .card h4 { font-size:16px; font-weight:600; margin:16px 0 8px; }
-  .card p, .card li { font-size:14px; color:var(--text-secondary); line-height:1.7; }
-  .card ul, .card ol { padding-left:20px; margin:8px 0; }
-  .card li { margin-bottom:4px; }
+/* Section header */
+.sec-label{font-size:11px;font-weight:600;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:8px}
+.sec-title{font-size:clamp(26px,5vw,38px);font-weight:700;letter-spacing:-1px;margin-bottom:12px;line-height:1.15}
+.sec-desc{font-size:16px;color:var(--t2);margin-bottom:40px;line-height:1.6}
 
-  /* Info Box */
-  .info-box {
-    border-radius:14px; padding:20px 24px; margin:16px 0; font-size:14px;
-    line-height:1.7; border:1px solid;
-  }
-  .info-box.tip { background:rgba(0,113,227,0.04); border-color:rgba(0,113,227,0.12); }
-  .info-box.warn { background:rgba(255,159,10,0.06); border-color:rgba(255,159,10,0.15); }
-  .info-box.success { background:rgba(52,199,89,0.05); border-color:rgba(52,199,89,0.12); }
-  .info-box strong { display:block; margin-bottom:4px; }
+/* Cards */
+.card{
+  background:var(--card);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid var(--border);border-radius:var(--radius);padding:28px;
+  transition:all 0.3s;margin-bottom:16px;
+}
+.card:hover{background:var(--cardH);box-shadow:var(--shadow)}
+.card h3{font-size:19px;font-weight:700;margin-bottom:8px}
+.card h4{font-size:15px;font-weight:600;margin:14px 0 6px}
+.card p,.card li{font-size:14px;color:var(--t2);line-height:1.7}
+.card ul,.card ol{padding-left:20px;margin:6px 0}
+.card li{margin-bottom:3px}
 
-  /* Table */
-  .tbl {
-    width:100%; border-collapse:collapse; font-size:13px; margin:12px 0;
-    border-radius:12px; overflow:hidden; border:1px solid var(--border);
-  }
-  .tbl th { background:rgba(0,0,0,0.03); font-weight:600; text-align:left; padding:10px 14px; font-size:12px; color:var(--text-secondary); }
-  .tbl td { padding:10px 14px; border-top:1px solid var(--border); }
-  .tbl tr:hover td { background:rgba(0,113,227,0.02); }
+/* Info boxes */
+.info{
+  border-radius:12px;padding:16px 20px;margin:14px 0;font-size:14px;line-height:1.7;border:1px solid;
+}
+.info.tip{background:rgba(0,113,227,0.04);border-color:rgba(0,113,227,0.12)}
+.info.warn{background:rgba(255,159,10,0.05);border-color:rgba(255,159,10,0.14)}
+.info.ok{background:rgba(52,199,89,0.05);border-color:rgba(52,199,89,0.12)}
+.info strong{display:block;margin-bottom:2px}
 
-  /* FAQ */
-  .faq-item {
-    border-bottom:1px solid var(--border); cursor:pointer;
-  }
-  .faq-q {
-    padding:18px 0; font-weight:600; font-size:15px; display:flex; justify-content:space-between; align-items:center;
-    transition:color 0.2s; user-select:none;
-  }
-  .faq-q:hover { color:var(--accent); }
-  .faq-q::after { content:'+'; font-size:20px; font-weight:300; color:var(--text-tertiary); transition:transform 0.3s; }
-  .faq-item.open .faq-q::after { content:'−'; transform:rotate(180deg); }
-  .faq-a { max-height:0; overflow:hidden; transition:max-height 0.4s ease, padding 0.4s; font-size:14px; color:var(--text-secondary); line-height:1.7; }
-  .faq-item.open .faq-a { max-height:500px; padding-bottom:18px; }
+/* Table */
+.tbl{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0;border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+.tbl th{background:rgba(0,0,0,0.03);font-weight:600;text-align:left;padding:10px 12px;font-size:12px;color:var(--t2)}
+.tbl td{padding:10px 12px;border-top:1px solid var(--border)}
+[data-theme="dark"] .tbl th{background:rgba(255,255,255,0.03)}
 
-  /* Tags */
-  .tag {
-    display:inline-block; padding:3px 10px; border-radius:10px; font-size:11px; font-weight:500;
-    margin:2px 4px 2px 0;
-  }
-  .tag.blue { background:rgba(0,113,227,0.08); color:var(--accent); }
-  .tag.green { background:rgba(52,199,89,0.1); color:var(--green); }
-  .tag.orange { background:rgba(255,159,10,0.1); color:var(--orange); }
-  .tag.purple { background:rgba(94,92,230,0.08); color:var(--purple); }
+/* Timeline */
+.tl{position:relative;padding-left:24px}
+.tl::before{content:'';position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:var(--border)}
+.tl-i{position:relative;margin-bottom:18px}
+.tl-i::before{content:'';position:absolute;left:-20px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);box-shadow:0 0 0 2px var(--accent)}
+.tl-i h4{font-size:15px;font-weight:600;margin-bottom:2px}
+.tl-i p{font-size:13px;color:var(--t2)}
 
-  /* Timeline */
-  .timeline { position:relative; padding-left:24px; }
-  .timeline::before { content:''; position:absolute; left:8px; top:4px; bottom:4px; width:2px; background:var(--border); }
-  .timeline-item { position:relative; margin-bottom:20px; }
-  .timeline-item::before { content:''; position:absolute; left:-20px; top:6px; width:10px; height:10px; border-radius:50%; background:var(--accent); border:2px solid #fff; box-shadow:0 0 0 2px var(--accent); }
-  .timeline-item h4 { font-size:15px; font-weight:600; margin-bottom:4px; }
-  .timeline-item p { font-size:13px; color:var(--text-secondary); }
+/* FAQ */
+.faq{border-bottom:1px solid var(--border);cursor:pointer}
+.faq-q{padding:16px 0;font-weight:600;font-size:15px;display:flex;justify-content:space-between;align-items:center;user-select:none;transition:color 0.2s}
+.faq-q:hover{color:var(--accent)}
+.faq-q::after{content:'+';font-size:20px;font-weight:300;color:var(--t3);transition:transform 0.3s}
+.faq.open .faq-q::after{content:'−'}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s;font-size:14px;color:var(--t2);line-height:1.7}
+.faq.open .faq-a{max-height:400px;padding-bottom:16px}
 
-  /* Contact */
-  .contact-row { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-  .contact-card {
-    background:var(--card); backdrop-filter:blur(10px); border:1px solid var(--border);
-    border-radius:18px; padding:24px; text-align:center; cursor:pointer; transition:all 0.3s;
-  }
-  .contact-card:hover { background:var(--card-hover); border-color:var(--accent); box-shadow:0 4px 20px var(--accent-glow); }
-  .contact-card .cc-icon { font-size:32px; margin-bottom:8px; }
-  .contact-card .cc-label { font-size:12px; color:var(--text-tertiary); }
-  .contact-card .cc-val { font-size:16px; font-weight:600; margin-top:2px; }
-  .copied-toast { position:fixed; top:72px; left:50%; transform:translateX(-50%); background:var(--text); color:#fff; padding:10px 20px; border-radius:20px; font-size:13px; z-index:200; pointer-events:none; opacity:0; transition:opacity 0.3s; }
-  .copied-toast.show { opacity:1; }
+/* Stats row */
+.stat-row{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin:20px 0}
+.stat-item{text-align:center}
+.stat-num{font-size:36px;font-weight:700;letter-spacing:-1px}
+.stat-lab{font-size:11px;color:var(--t3);margin-top:2px;text-transform:uppercase;letter-spacing:1px}
 
-  footer { text-align:center; padding:24px; border-top:1px solid var(--border); font-size:12px; color:var(--text-tertiary); }
+/* Tags */
+.tag{display:inline-block;padding:3px 10px;border-radius:10px;font-size:11px;font-weight:500;margin:2px 4px 2px 0}
+.tag.b{background:rgba(0,113,227,0.08);color:var(--accent)}
+.tag.g{background:rgba(52,199,89,0.1);color:#059669}
+.tag.o{background:rgba(255,159,10,0.1);color:#d97706}
+.tag.p{background:rgba(94,92,230,0.08);color:#5e5ce6}
 
-  .fade-up { opacity:0; transform:translateY(24px); transition:all 0.7s cubic-bezier(0.16,1,0.3,1); }
-  .fade-up.visible { opacity:1; transform:translateY(0); }
+/* Section themes */
+.s-blue{background:linear-gradient(180deg,transparent,rgba(0,113,227,0.03),transparent)}
+.s-purple{background:linear-gradient(180deg,transparent,rgba(94,92,230,0.03),transparent)}
+.s-warm{background:linear-gradient(180deg,transparent,rgba(255,159,10,0.03),transparent)}
 
-  @media (max-width:768px) {
-    section { padding:48px 0; }
-    .contact-row { grid-template-columns:1fr; }
-    .module-nav { overflow-x:auto; flex-wrap:nowrap; justify-content:flex-start; -webkit-overflow-scrolling:touch; }
-    .module-nav a { flex-shrink:0; }
-    .hero-stats { gap:16px; }
-  }
+/* Contact */
+.ct{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ct-card{
+  background:var(--card);backdrop-filter:blur(10px);border:1px solid var(--border);
+  border-radius:var(--radius);padding:24px;text-align:center;cursor:pointer;
+  transition:all 0.4s;
+}
+.ct-card:hover{background:var(--cardH);border-color:var(--accent);box-shadow:0 4px 24px var(--glow);transform:translateY(-2px)}
+.ct-icon{font-size:32px;margin-bottom:6px}
+.ct-lab{font-size:11px;color:var(--t3)}
+.ct-val{font-size:16px;font-weight:600;margin-top:2px}
+
+/* Toast */
+.toast{position:fixed;top:72px;left:50%;transform:translateX(-50%);background:var(--text);color:var(--bg);padding:10px 20px;border-radius:20px;font-size:13px;z-index:200;pointer-events:none;opacity:0;transition:opacity 0.3s}
+.toast.show{opacity:1}
+
+/* Back to top */
+#btt{
+  position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;
+  background:var(--card);border:1px solid var(--border);backdrop-filter:blur(10px);
+  cursor:pointer;z-index:100;display:flex;align-items:center;justify-content:center;
+  font-size:18px;opacity:0;transform:translateY(20px);transition:all 0.4s;
+  box-shadow:var(--shadow);
+}
+#btt.visible{opacity:1;transform:translateY(0)}
+#btt:hover{background:var(--cardH);border-color:var(--accent)}
+
+/* Animations */
+.fade-up{opacity:0;transform:translateY(24px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1)}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* Mobile */
+@media(max-width:768px){
+  section{padding:48px 0}
+  .ct{grid-template-columns:1fr}
+  .mod-grid{grid-template-columns:repeat(2,1fr)}
+  .search-box{max-width:100%}
+  .stat-row{gap:16px}
+  .stat-num{font-size:28px}
+}
 </style>
 </head>
 <body>
 
-<div class="copied-toast" id="toast">已复制到剪贴板 ✓</div>
+<div id="progress-bar"></div>
+<div class="toast" id="toast">已复制到剪贴板 ✓</div>
 
 <nav>
-  <div class="logo">时代风 <span>外贸知识库</span></div>
-  <a href="#contact" class="cta-btn">免费咨询</a>
+  <div class="logo">时代风 <span>知识库</span></div>
+  <div class="nav-r">
+    <button class="theme-btn" onclick="toggleTheme()" title="切换深色/浅色">🌓</button>
+    <a href="#contact" class="cta-btn">免费咨询</a>
+  </div>
 </nav>
 
-<!-- ==================== HERO ==================== -->
+<!-- ============ HERO ============ -->
 <section class="hero" id="top">
-  <div class="container" style="text-align:center;">
-    <h1>外贸出海<br><span class="grad">从入门到精通</span></h1>
-    <p class="sub">系统学习 TikTok 跨境获客，一站式掌握工厂出海的每一个环节</p>
-    <a href="#modules" class="btn-primary">开始学习 →</a>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="hs-num">8</div><div class="hs-label">学习模块</div></div>
-      <div class="hero-stat"><div class="hs-num">50+</div><div class="hs-label">知识卡片</div></div>
-      <div class="hero-stat"><div class="hs-num">500+</div><div class="hs-label">服务企业验证</div></div>
-      <div class="hero-stat"><div class="hs-num">∞</div><div class="hs-label">持续更新</div></div>
+  <div class="hero-bg"><div class="hero-orb o1"></div><div class="hero-orb o2"></div><div class="hero-orb o3"></div></div>
+  <div class="hero-content fade-up visible">
+    <div class="hero-badge">📚 外贸出海知识库 · 持续更新中</div>
+    <h1>从零到一学懂<br><span class="grad">TikTok外贸获客</span></h1>
+    <p class="sub">8大模块 · 50+知识点 · 500+企业验证 · 一个链接全部掌握</p>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="搜索知识库... 如"设备配置""SQL模型"">
+      <button onclick="searchSite()">搜索</button>
+    </div>
+    <div class="stat-row">
+      <div class="stat-item"><div class="stat-num" style="color:var(--accent)">8</div><div class="stat-lab">学习模块</div></div>
+      <div class="stat-item"><div class="stat-num" style="background:var(--g2);-webkit-background-clip:text;-webkit-text-fill-color:transparent">50+</div><div class="stat-lab">知识卡片</div></div>
+      <div class="stat-item"><div class="stat-num" style="background:var(--g3);-webkit-background-clip:text;-webkit-text-fill-color:transparent">500+</div><div class="stat-lab">企业验证</div></div>
+      <div class="stat-item"><div class="stat-num" style="background:var(--g4);-webkit-background-clip:text;-webkit-text-fill-color:transparent">∞</div><div class="stat-lab">持续更新</div></div>
     </div>
   </div>
 </section>
 
-<!-- ==================== MODULE NAV ==================== -->
-<div class="module-nav" id="modules">
-  <a href="#m1">基础入门</a>
-  <a href="#m2">设备与账号</a>
-  <a href="#m3">内容方法论</a>
-  <a href="#m4">全链路流程</a>
-  <a href="#m5">案例拆解</a>
-  <a href="#m6">政策合规</a>
-  <a href="#m7">获客转化</a>
-  <a href="#m8">常见问题</a>
-  <a href="#tools">工具箱</a>
-  <a href="#news">外贸晨报</a>
-</div>
-
-<!-- ==================== M1: 基础入门 ==================== -->
-<section id="m1">
+<!-- ============ MODULE INDEX ============ -->
+<section style="padding-top:0">
   <div class="container">
-    <div class="section-label">Module 1</div>
-    <div class="section-title">TikTok 外贸基础入门</div>
-    <p class="section-desc">如果你是第一次接触 TikTok 外贸，从这里开始。了解平台逻辑，看清行业大势。</p>
-
-    <div class="card fade-up">
-      <h3>📱 什么是 TikTok？为什么外贸工厂必须做？</h3>
-      <p>TikTok 是字节跳动旗下全球短视频平台，2017年上线，覆盖 <strong>150+ 国家和地区</strong>，支持 <strong>75+ 种语言</strong>，全球下载量超 <strong>57亿次</strong>，月活用户超 <strong>19亿</strong>。它是目前全球最活跃的短视频社交 App。</p>
-      <div class="info-box tip">
-        <strong>💡 关键认知</strong>
-        TikTok 不是"海外版抖音"，它是完全独立的全球产品。抖音服务中国市场，TikTok 覆盖全球。两者算法逻辑相似但运营策略完全不同。
-      </div>
-    </div>
-
-    <div class="card fade-up">
-      <h3>🏭 外贸获客渠道演变：为什么现在是TikTok？</h3>
-      <div class="timeline">
-        <div class="timeline-item"><h4>外贸1.0 — 展会时代</h4><p>广交会、行业展会、地推拜访。成本高（单次展会18-30万），时效短（3-5天），覆盖有限。</p></div>
-        <div class="timeline-item"><h4>外贸2.0 — B2B平台时代</h4><p>阿里巴巴国际站、中国制造网。竞价排名，流量越来越贵，同质化严重。</p></div>
-        <div class="timeline-item"><h4>外贸3.0 — 搜索引擎+社媒时代</h4><p>Google SEO/SEM + Facebook + LinkedIn。专业门槛高，内容要求高。</p></div>
-        <div class="timeline-item"><h4>外贸4.0 — 短视频内容时代 ⚡ 现在</h4><p>TikTok 兴趣推荐算法，把中国工厂精准推给海外采购商。一条视频 = 365天在线展会。</p></div>
-      </div>
-    </div>
-
-    <div class="card fade-up">
-      <h3>📊 关键数据：为什么TikTok是外贸最大蓝海？</h3>
-      <table class="tbl">
-        <tr><th>数据指标</th><th>数值</th><th>说明</th></tr>
-        <tr><td>#factory 播放量</td><td>100亿+</td><td>TikTok上工厂类内容总曝光</td></tr>
-        <tr><td>#tiktokmademebuyit</td><td>90亿+</td><td>用户因TikTok视频产生购买意愿</td></tr>
-        <tr><td>商家选择TikTok引流</td><td>49%</td><td>近半数跨境商家已在使用</td></tr>
-        <tr><td>用户愿直接联系B端工厂</td><td>21%</td><td>看到工厂视频后有意发起询盘</td></tr>
-        <tr><td>中小企业出海计划</td><td>Small Wins</td><td>TikTok官方推出扶持计划</td></tr>
-      </table>
-    </div>
-
-    <div class="card fade-up">
-      <h3>🔄 TikTok 独有优势：兴趣推荐的滚雪球效应</h3>
-      <p>TikTok 的核心威力在于<strong>"货找人"</strong>——它不是等人搜索，而是通过算法把你的工厂视频推给可能感兴趣的采购商。一个采购商看了你的视频 → 算法给相似的人推荐 → 更多人看到 → 更多人询盘 → 更多内容被算法加权 → 无限循环。</p>
-      <div class="info-box success">
-        <strong>✅ 亚马逊解决"卖货"（人找货），TikTok解决"被记住"（货找人）。两者互补，不是替代。</strong>
-      </div>
+    <div class="mod-grid fade-up">
+      <a href="#m1" class="mod-card"><div class="mc-icon">🌍</div><div class="mc-num">Module 1</div><div class="mc-title">基础入门</div><div class="mc-desc">TikTok是什么 · 为什么做 · 行业数据</div></a>
+      <a href="#m2" class="mod-card"><div class="mc-icon">🔧</div><div class="mc-num">Module 2</div><div class="mc-title">设备与账号</div><div class="mc-desc">手机选型 · 网络配置 · 矩阵布局</div></a>
+      <a href="#m3" class="mod-card"><div class="mc-icon">🎬</div><div class="mc-num">Module 3</div><div class="mc-title">内容方法论</div><div class="mc-desc">拍摄场景 · 文案公式 · 黄金6秒</div></a>
+      <a href="#m4" class="mod-card"><div class="mc-icon">🔗</div><div class="mc-num">Module 4</div><div class="mc-title">全链路流程</div><div class="mc-desc">8大环节 · 转化漏斗 · 交付闭环</div></a>
+      <a href="#m5" class="mod-card"><div class="mc-icon">🏆</div><div class="mc-num">Module 5</div><div class="mc-title">案例拆解</div><div class="mc-desc">三一重工 · 海康威视 · 沐梵光电</div></a>
+      <a href="#m6" class="mod-card"><div class="mc-icon">🛡️</div><div class="mc-num">Module 6</div><div class="mc-title">政策合规</div><div class="mc-desc">欧盟CE · 美国CPSC · TK规则</div></a>
+      <a href="#m7" class="mod-card"><div class="mc-icon">🎯</div><div class="mc-num">Module 7</div><div class="mc-title">获客转化</div><div class="mc-desc">SQL模型 · 话术框架 · 成交路径</div></a>
+      <a href="#m8" class="mod-card"><div class="mc-icon">💬</div><div class="mc-num">Module 8</div><div class="mc-title">常见问题</div><div class="mc-desc">6大FAQ · 避坑指南 · 实用建议</div></a>
     </div>
   </div>
 </section>
 
-<!-- ==================== M2: 设备与账号 ==================== -->
-<section id="m2">
+<!-- ============ M1 ============ -->
+<section id="m1" class="s-blue">
   <div class="container">
-    <div class="section-label">Module 2</div>
-    <div class="section-title">设备配置与账号搭建</div>
-    <p class="section-desc">正确的设备和账号设置是第一步。90%的新手在这里踩坑导致限流或封号。</p>
+    <div class="sec-label">Module 1</div>
+    <div class="sec-title">TikTok 外贸基础入门</div>
+    <p class="sec-desc">第一次接触 TikTok 外贸？从这里开始，看懂大趋势，理解底层逻辑。</p>
 
     <div class="card fade-up">
-      <h3>📱 设备选择建议</h3>
-      <table class="tbl">
-        <tr><th>设备</th><th>推荐</th><th>原因</th></tr>
-        <tr><td>手机</td><td>iPhone 12 及以上</td><td>系统稳定，相机效果好，TikTok对iOS优化更好</td></tr>
-        <tr><td>网络</td><td>独立专线IP（5M起）</td><td>稳定的海外网络环境，避免频繁切换IP被判定异常</td></tr>
-        <tr><td>数量</td><td>1个账号=1台手机</td><td>一机一号，避免多账号关联封禁</td></tr>
-      </table>
-      <div class="info-box warn">
-        <strong>⚠️ 新手最常犯的错误</strong>
-        用普通VPN频繁切换节点 → 账号被标记 → 0播放/限流。一定要用独立专线IP，保持IP稳定。
+      <h3>📱 TikTok 有多重要？几个数字说清楚</h3>
+      <div class="stat-row">
+        <div class="stat-item"><div class="stat-num" style="color:var(--accent)">57亿+</div><div class="stat-lab">全球下载量</div></div>
+        <div class="stat-item"><div class="stat-num" style="background:var(--g2);-webkit-background-clip:text;-webkit-text-fill-color:transparent">19亿</div><div class="stat-lab">月活跃用户</div></div>
+        <div class="stat-item"><div class="stat-num" style="background:var(--g3);-webkit-background-clip:text;-webkit-text-fill-color:transparent">150+</div><div class="stat-lab">覆盖国家</div></div>
+        <div class="stat-item"><div class="stat-num" style="background:var(--g5);-webkit-background-clip:text;-webkit-text-fill-color:transparent">75种</div><div class="stat-lab">支持语言</div></div>
+      </div>
+      <div class="info tip"><strong>💡 关键认知</strong>TikTok 不是"海外版抖音"，是独立的全球产品。两者算法相似，但运营策略完全不同。TikTok 独有优势：<strong>货找人</strong>——算法把你的工厂视频推给潜在采购商，而不是等他们搜索。</div>
+    </div>
+
+    <div class="card fade-up">
+      <h3>🏭 外贸获客渠道演变：你错过了哪一波？</h3>
+      <div class="tl">
+        <div class="tl-i"><h4>外贸1.0 — 展会时代</h4><p>广交会、行业展、地推拜访。单次参展18-30万，只持续3-5天。</p></div>
+        <div class="tl-i"><h4>外贸2.0 — B2B平台时代</h4><p>阿里国际站、中国制造网。竞价排名，流量越来越贵，同质化内卷。</p></div>
+        <div class="tl-i"><h4>外贸3.0 — 搜索+社媒时代</h4><p>Google SEO/SEM + Facebook + LinkedIn。专业门槛高，内容要求高。</p></div>
+        <div class="tl-i"><h4>外贸4.0 — 短视频内容时代 ⚡ 现在</h4><p>TikTok 兴趣推荐，中国工厂精准推给海外采购商。一条视频 = 365天在线展会。</p></div>
       </div>
     </div>
 
     <div class="card fade-up">
-      <h3>🔧 账号注册与设置清单</h3>
+      <h3>📊 B2B 关键数据</h3>
+      <table class="tbl">
+        <tr><th>指标</th><th>数值</th><th>意味着什么</th></tr>
+        <tr><td>#factory 播放量</td><td>100亿+</td><td>海外用户对工厂内容极度感兴趣</td></tr>
+        <tr><td>#tiktokmademebuyit</td><td>90亿+</td><td>用户因视频产生购买/采购意愿</td></tr>
+        <tr><td>商家用TikTok引流占比</td><td>49%</td><td>近半数跨境商家已布局</td></tr>
+        <tr><td>用户愿直接联系工厂</td><td>21%</td><td>看到视频后主动发起询盘</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ M2 ============ -->
+<section id="m2" class="s-purple">
+  <div class="container">
+    <div class="sec-label">Module 2</div>
+    <div class="sec-title">设备配置与账号搭建</div>
+    <p class="sec-desc">90%的新手在这里踩坑导致限流或封号。正确的基建是一切的基础。</p>
+
+    <div class="card fade-up">
+      <h3>📱 设备选择</h3>
+      <table class="tbl">
+        <tr><th>设备</th><th>推荐</th><th>为什么</th></tr>
+        <tr><td>手机</td><td>iPhone 12 及以上</td><td>系统稳定，相机好，TikTok对iOS优化更佳</td></tr>
+        <tr><td>网络</td><td>独立专线IP（5M起）</td><td>稳定海外网络环境，避免频繁切换IP被判异常</td></tr>
+        <tr><td>数量</td><td>1账号 = 1手机</td><td>一机一号，多账号共用设备会被关联封禁</td></tr>
+      </table>
+      <div class="info warn"><strong>⚠️ 血泪教训</strong>用普通VPN频繁切换节点 → 账号被标记异常 → 0播放/限流。必须用独立专线IP！</div>
+    </div>
+
+    <div class="card fade-up">
+      <h3>🔧 账号注册清单</h3>
       <ol>
-        <li><strong>注册方式</strong>：建议用 Gmail 或 Outlook 邮箱注册（不要用国内邮箱）</li>
-        <li><strong>生日设置</strong>：确保年龄 ≥ 18岁</li>
-        <li><strong>头像</strong>：用公司Logo或工厂实拍图</li>
-        <li><strong>Bio简介</strong>：用英文写清楚你是谁、做什么产品、为什么值得信任</li>
-        <li><strong>链接挂载</strong>：挂独立站链接、WhatsApp链接、Email</li>
-        <li><strong>Get Quote</strong>：开通询盘工具，这是B2B最重要的功能</li>
-        <li><strong>养号期</strong>：前3-5天正常刷视频、点赞评论，模拟真人行为后再发布</li>
+        <li>用 Gmail 或 Outlook 注册（不要用国内邮箱）</li>
+        <li>Bio 简介用英文写清楚：你是谁 + 做什么产品 + 为什么值得信任</li>
+        <li>挂载独立站链接 + WhatsApp链接 + Email</li>
+        <li>开通 <strong>Get Quote</strong> —— 这是B2B最重要的功能</li>
+        <li>前3-5天养号：正常刷视频、点赞评论，模拟真人行为</li>
       </ol>
     </div>
 
     <div class="card fade-up">
-      <h3>🌐 多平台矩阵布局建议</h3>
-      <p>不要把鸡蛋放在一个篮子里。建议同步布局：</p>
+      <h3>🌐 多平台矩阵布局</h3>
       <table class="tbl">
-        <tr><th>平台</th><th>作用</th><th>内容形式</th></tr>
+        <tr><th>平台</th><th>核心作用</th><th>内容形式</th></tr>
         <tr><td><strong>TikTok</strong></td><td>获客主战场，算法推荐精准</td><td>15-60秒短视频 + 直播</td></tr>
         <tr><td><strong>YouTube</strong></td><td>深度内容沉淀，SEO长尾流量</td><td>3-10分钟产品/工厂介绍</td></tr>
         <tr><td><strong>Facebook</strong></td><td>企业主页，客户案例展示</td><td>图文+视频+客户评价</td></tr>
-        <tr><td><strong>LinkedIn</strong></td><td>B2B决策者触达（80%B2B决策者活跃于此）</td><td>行业洞察+公司动态</td></tr>
+        <tr><td><strong>LinkedIn</strong></td><td>B2B决策者触达（80%决策者活跃）</td><td>行业洞察+公司动态</td></tr>
         <tr><td><strong>Instagram</strong></td><td>视觉展示，品牌调性</td><td>产品精修图+短视频</td></tr>
       </table>
     </div>
   </div>
 </section>
 
-<!-- ==================== M3: 内容方法论 ==================== -->
-<section id="m3">
+<!-- ============ M3 ============ -->
+<section id="m3" class="s-warm">
   <div class="container">
-    <div class="section-label">Module 3</div>
-    <div class="section-title">内容创作方法论</div>
-    <p class="section-desc">B2B工厂内容的核心不是"拍得多好看"，而是"让采购商看完就想联系你"。</p>
+    <div class="sec-label">Module 3</div>
+    <div class="sec-title">内容创作方法论</div>
+    <p class="sec-desc">B2B内容的核心不是"拍得多好看"，而是"让采购商看完就想联系你"。</p>
 
     <div class="card fade-up">
-      <h3>🎬 B2B工厂 6 大必拍场景</h3>
+      <h3>🎬 工厂 6 大必拍场景</h3>
       <table class="tbl">
-        <tr><th>场景</th><th>拍什么</th><th>传递什么信息</th></tr>
+        <tr><th>场景</th><th>拍什么</th><th>传递的信息</th></tr>
         <tr><td>1. 企业主IP</td><td>创始人/老板出镜讲产品</td><td>真实可信、有责任感</td></tr>
         <tr><td>2. 工厂规模</td><td>航拍全景+车间面积</td><td>规模实力、产能保障</td></tr>
         <tr><td>3. 生产设备</td><td>机器运转+技术参数</td><td>技术能力、品质控制</td></tr>
@@ -325,357 +385,328 @@
     </div>
 
     <div class="card fade-up">
-      <h3>✍️ B2B短视频"黄金6秒"原则</h3>
-      <p>TikTok 的完播率决定推荐量。前6秒抓不住用户，后面内容再好也没人看。</p>
-      <div class="info-box tip">
-        <strong>💡 黄金6秒公式</strong>
-        第1秒：视觉效果冲击（火花四溅的焊接、高速运转的机器、震撼的航拍）<br>
-        第2-3秒：展示核心产品/工艺<br>
-        第4-6秒：暗示"还有更多"引导继续看
-      </div>
-    </div>
-
-    <div class="card fade-up">
-      <h3>📝 B2B文案公式（英文）</h3>
+      <h3>✍️ 黄金6秒 + B2B文案公式</h3>
+      <div class="info tip"><strong>💡 黄金6秒原则</strong>第1秒视觉冲击（火花四溅、高速运转、震撼航拍）→ 第2-3秒展示核心产品 → 第4-6秒暗示"还有更多"</div>
       <table class="tbl">
-        <tr><th>要素</th><th>示例</th></tr>
-        <tr><td>Hook（钩子）</td><td>"How we make steel pipes in our China factory"</td></tr>
-        <tr><td>Value（价值）</td><td>"20 years experience, exported to 50+ countries"</td></tr>
-        <tr><td>CTA（行动号召）</td><td>"DM for price list" / "Click link in bio for quote"</td></tr>
-        <tr><td>Hashtags</td><td>#factory #manufacturing #steelpipe #chinafactory #[your industry]</td></tr>
+        <tr><th>要素</th><th>作用</th><th>示例</th></tr>
+        <tr><td>Hook</td><td>钩住注意力</td><td>"How we make steel pipes in our China factory"</td></tr>
+        <tr><td>Value</td><td>展示价值</td><td>"20 years experience, exported to 50+ countries"</td></tr>
+        <tr><td>CTA</td><td>引导行动</td><td>"DM for price list" / "Link in bio for quote"</td></tr>
+        <tr><td>Hashtags</td><td>助力推荐</td><td>#factory #manufacturing #[your product] #chinafactory</td></tr>
       </table>
     </div>
 
     <div class="card fade-up">
-      <h3>🎯 B2B vs B2C 内容策略差异</h3>
+      <h3>🎯 B2B vs B2C 内容策略对比</h3>
       <table class="tbl">
         <tr><th>维度</th><th>B2C（零售）</th><th>B2B（工厂批发）</th></tr>
         <tr><td>目标用户</td><td>终端消费者</td><td>采购经理、进口商、批发商</td></tr>
-        <tr><td>核心卖点</td><td>颜值、价格、趣味</td><td>产能、品质、交期、认证</td></tr>
+        <tr><td>核心卖点</td><td>颜值、价格、有趣</td><td>产能、品质、交期、认证</td></tr>
         <tr><td>内容风格</td><td>娱乐化、潮流感</td><td>真实、专业、透明</td></tr>
         <tr><td>转化路径</td><td>小黄车→直接下单</td><td>视频→私信→WhatsApp→谈判→成交</td></tr>
-        <tr><td>发布频率</td><td>每天1-3条</td><td>每天1-2条，贵在持续</td></tr>
       </table>
     </div>
   </div>
 </section>
 
-<!-- ==================== M4: 全链路流程 ==================== -->
+<!-- ============ M4 ============ -->
 <section id="m4">
   <div class="container">
-    <div class="section-label">Module 4</div>
-    <div class="section-title">外贸全链路：从流量到交付</div>
-    <p class="section-desc">外贸不只是"拿订单"，而是一个完整的系统工程。理解全链路，才能把控每一个环节。</p>
+    <div class="sec-label">Module 4</div>
+    <div class="sec-title">外贸全链路：从流量到交付</div>
+    <p class="sec-desc">外贸不只是拿订单，而是一个完整的系统工程。掌控全链路，才能稳定增长。</p>
 
     <div class="card fade-up">
       <h3>🔗 8 大核心环节</h3>
-      <div class="timeline">
-        <div class="timeline-item"><h4>① 市场洞察 & 账号基建</h4><p>目标市场分析 → 竞品调研 → 账号定位 → 设备搭建 → 独立站部署</p></div>
-        <div class="timeline-item"><h4>② 内容生产 & 矩阵搭建</h4><p>入企实拍 → 6大场景 → 脚本策划 → 多语种翻译 → 视频剪辑（200条/年）</p></div>
-        <div class="timeline-item"><h4>③ 流量获取 & 精准触达</h4><p>自然流算法推荐 → TikTok Ads 定向投放 → 直播引流 → 多平台分发</p></div>
-        <div class="timeline-item"><h4>④ 询盘获取 & 线索转化</h4><p>Get Quote → 评论区互动 → 私信 → WhatsApp/Email → SQL商机筛选</p></div>
-        <div class="timeline-item"><h4>⑤ 商务谈判 & 订单成交</h4><p>报价 → 打样 → 验厂 → PI合同 → TT/LC付款 → 多语种客服</p></div>
-        <div class="timeline-item"><h4>⑥ 跨境物流 & 关务交付</h4><p>生产排期 → 质检 → 报关 → 海运/空运/铁路 → 海外仓 → 尾程配送</p></div>
-        <div class="timeline-item"><h4>⑦ 收汇结算 & 资金回笼</h4><p>20+货币收款 → 合规结汇 → T+1回款 → 智能风控</p></div>
-        <div class="timeline-item"><h4>⑧ 售后服务 & 复购裂变</h4><p>客诉处理 → 定期回访 → 新品推荐 → 转介绍 → 品牌沉淀</p></div>
+      <div class="tl">
+        <div class="tl-i"><h4>① 市场洞察 & 账号基建</h4><p>目标市场分析 → 竞品调研 → 账号定位 → 设备搭建 → 独立站部署</p></div>
+        <div class="tl-i"><h4>② 内容生产 & 矩阵搭建</h4><p>入企实拍 → 6大场景 → 脚本策划 → 多语种翻译 → 视频剪辑</p></div>
+        <div class="tl-i"><h4>③ 流量获取 & 精准触达</h4><p>自然流算法推荐 → TikTok Ads 定向投放 → 直播引流 → 多平台分发</p></div>
+        <div class="tl-i"><h4>④ 询盘获取 & 线索转化</h4><p>Get Quote → 评论区互动 → 私信 → WhatsApp/Email → SQL 筛选</p></div>
+        <div class="tl-i"><h4>⑤ 商务谈判 & 订单成交</h4><p>报价 → 打样 → 验厂 → PI合同 → TT/LC付款 → 多语种客服</p></div>
+        <div class="tl-i"><h4>⑥ 跨境物流 & 关务交付</h4><p>生产排期 → 质检 → 报关 → 海运/空运/铁路 → 海外仓 → 尾程配送</p></div>
+        <div class="tl-i"><h4>⑦ 收汇结算 & 资金回笼</h4><p>20+货币收款 → 合规结汇 → T+1回款 → 智能风控</p></div>
+        <div class="tl-i"><h4>⑧ 售后服务 & 复购裂变</h4><p>客诉处理 → 定期回访 → 新品推荐 → 转介绍 → 品牌沉淀</p></div>
       </div>
     </div>
 
     <div class="card fade-up">
-      <h3>📈 获客转化漏斗（从曝光到复购）</h3>
+      <h3>📈 转化漏斗</h3>
       <table class="tbl">
-        <tr><th>层级</th><th>阶段</th><th>关键动作</th><th>参考转化率</th></tr>
-        <tr><td>1</td><td>内容曝光</td><td>视频推送到目标用户</td><td>100%（基准）</td></tr>
-        <tr><td>2</td><td>主页/独立站访问</td><td>点击头像或链接</td><td>3-5%</td></tr>
-        <tr><td>3</td><td>互动询盘</td><td>评论/私信/Get Quote</td><td>1-2%</td></tr>
-        <tr><td>4</td><td>SQL有效线索</td><td>8-12问筛选高意向</td><td>0.3-0.8%</td></tr>
-        <tr><td>5</td><td>样品/验厂</td><td>打样确认→信任建立</td><td>0.1-0.3%</td></tr>
-        <tr><td>6</td><td>成交订单</td><td>合同→定金→生产</td><td>0.05-0.15%</td></tr>
+        <tr><th>层级</th><th>阶段</th><th>参考转化率</th></tr>
+        <tr><td>1</td><td>内容曝光 → 全球采购商看到你</td><td>100%（基准）</td></tr>
+        <tr><td>2</td><td>主页/独立站访问</td><td>3-5%</td></tr>
+        <tr><td>3</td><td>互动询盘（评论/私信/Get Quote）</td><td>1-2%</td></tr>
+        <tr><td>4</td><td>SQL有效线索（8-12问筛选）</td><td>0.3-0.8%</td></tr>
+        <tr><td>5</td><td>样品/验厂</td><td>0.1-0.3%</td></tr>
+        <tr><td>6</td><td>成交订单</td><td>0.05-0.15%</td></tr>
       </table>
     </div>
   </div>
 </section>
 
-<!-- ==================== M5: 案例拆解 ==================== -->
-<section id="m5">
+<!-- ============ M5 ============ -->
+<section id="m5" class="s-blue">
   <div class="container">
-    <div class="section-label">Module 5</div>
-    <div class="section-title">行业案例深度拆解</div>
-    <p class="section-desc">真实案例，真实数据，来自时代风服务过的 500+ 企业。</p>
+    <div class="sec-label">Module 5</div>
+    <div class="sec-title">行业案例深度拆解</div>
+    <p class="sec-desc">真实案例，真实数据。来自时代风服务过的 500+ 企业。</p>
 
     <div class="card fade-up">
-      <h3>🏗️ 案例一：三一重工 — 全球工程机械巨头</h3>
-      <p><span class="tag blue">重型机械</span><span class="tag green">品牌曝光</span></p>
-      <p>通过 TikTok 企业号矩阵运营，展示全球工程案例、设备实拍、技术实力。<strong>单视频最高30万播放，累计粉丝30万+。</strong></p>
-      <div class="info-box success"><strong>✅ 关键策略</strong> 不追求"爆款"，而是持续输出高质量内容建立品牌信任。工程机械客单价高、决策周期长，TikTok 的价值在于让采购商"提前认识你"。</div>
+      <h3>🏗️ 三一重工 <span class="tag b">重型机械</span><span class="tag g">品牌曝光</span></h3>
+      <p>通过 TikTok 企业号矩阵，展示全球工程案例与设备实拍。<strong>单视频最高30万播放，累计粉丝30万+。</strong></p>
+      <div class="info ok"><strong>✅ 策略</strong>不追求"爆款"，持续高质量内容建立品牌信任。重工机械客单价高、决策周期长，TikTok 让采购商"提前认识你"。</div>
     </div>
 
     <div class="card fade-up">
-      <h3>📹 案例二：海康威视 — 安防电子龙头</h3>
-      <p><span class="tag blue">安防电子</span><span class="tag purple">爆款内容</span></p>
-      <p>产品应用场景实拍 + 技术细节展示。<strong>单视频播放量134万，粉丝15万+。</strong>一条视频带来的品牌曝光相当于一场中型展会的观众量。</p>
+      <h3>📹 海康威视 <span class="tag b">安防电子</span><span class="tag p">爆款内容</span></h3>
+      <p>产品应用场景实拍 + 技术细节展示。<strong>单视频播放量134万，粉丝15万+。</strong></p>
     </div>
 
     <div class="card fade-up">
-      <h3>💡 案例三：广东沐梵光电 — LED透明显示</h3>
-      <p><span class="tag blue">LED光电</span><span class="tag orange">高转化</span></p>
-      <p>专注展示透明LED屏在全球地标建筑的应用案例。<strong>一条57万播放视频，带来173条有效询盘</strong>——超过阿里国际站2个月的询盘总量，而成本不到展会的1/10。</p>
-      <div class="info-box tip"><strong>💡 启示</strong> 工业品B2B的"爆款"标准不同于消费品。57万播放对消费品不算高，但对B2B来说，播放精准（行业采购商看到）+ 高转化才是核心。</div>
+      <h3>💡 广东沐梵光电 <span class="tag b">LED光电</span><span class="tag o">高转化</span></h3>
+      <p>展示透明LED屏在全球地标建筑的应用。<strong>一条57万播放视频 = 173条有效询盘</strong>，超过阿里国际站2个月的询盘量之和，成本不到展会的1/10。</p>
+      <div class="info tip"><strong>💡 启示</strong>B2B"爆款"标准不同于消费品。57万播放对消费品不算高，但对B2B来说，播放精准（行业采购商看到）+ 高转化才是核心。</div>
     </div>
   </div>
 </section>
 
-<!-- ==================== M6: 政策合规 ==================== -->
+<!-- ============ M6 ============ -->
 <section id="m6">
   <div class="container">
-    <div class="section-label">Module 6</div>
-    <div class="section-title">平台政策与合规指南</div>
-    <p class="section-desc">政策变化快，合规是底线。不了解规则，辛苦做的账号可能一夜归零。</p>
+    <div class="sec-label">Module 6</div>
+    <div class="sec-title">平台政策与合规指南</div>
+    <p class="sec-desc">政策变化快，合规是底线。不了解规则，辛苦做的账号可能一夜归零。</p>
 
     <div class="card fade-up">
-      <h3>🇪🇺 欧盟合规要求（2026年7月已生效）</h3>
+      <h3>🇪🇺 欧盟（2026年7月已生效）</h3>
       <table class="tbl">
         <tr><th>法规</th><th>核心要求</th><th>影响</th></tr>
-        <tr><td>150欧以下包裹加税</td><td>3欧元/件固定关税</td><td>低客单价产品利润大幅压缩，必须考虑海外仓</td></tr>
-        <tr><td>CE/UKCA认证</td><td>电子电器、纺织品必须提交资质</td><td>无资质=无法上架，9月30日起存量商品将被下架</td></tr>
-        <tr><td>GPSR通用产品安全法规</td><td>平台为责任主体</td><td>TikTok Shop已强制要求全量资质核查</td></tr>
+        <tr><td>150欧以下包裹加税</td><td>3欧元/件固定关税</td><td>低客单价必须考虑海外仓</td></tr>
+        <tr><td>CE/UKCA认证</td><td>电子电器、纺织品必须提交</td><td>无资质=无法上架</td></tr>
+        <tr><td>GPSR安全法规</td><td>平台承担全部核查责任</td><td>9月30日起存量商品回扫下架</td></tr>
       </table>
     </div>
 
     <div class="card fade-up">
-      <h3>🇺🇸 美国合规要求</h3>
+      <h3>🇺🇸 美国</h3>
       <table class="tbl">
-        <tr><th>法规</th><th>核心要求</th><th>影响</th></tr>
-        <tr><td>CPSC eFiling</td><td>消费品合规证书清关前电子申报</td><td>$800以下小包同样在监管范围，无豁免</td></tr>
-        <tr><td>保证金新规</td><td>基础$1500+类目保证金+风险保证金</td><td>违规成本从"固定"变为"动态浮动"</td></tr>
+        <tr><th>法规</th><th>核心要求</th></tr>
+        <tr><td>CPSC eFiling</td><td>消费品合规证书清关前电子申报，$800以下小包同样监管</td></tr>
+        <tr><td>保证金新规</td><td>基础$1500 + 类目保证金 + 风险浮动保证金（最高$10000）</td></tr>
       </table>
-      <div class="info-box warn"><strong>⚠️ 重要提醒</strong> 2026年7月起，TikTok美区、欧盟区合规要求进入了"铁腕执法"阶段。不合规 = 货物扣关 + 店铺封禁 + 保证金扣除。建议每个出海工厂都配置专门的合规人员或委托专业服务商。</div>
     </div>
 
     <div class="card fade-up">
-      <h3>🛡️ TikTok 平台规则核心要点</h3>
+      <h3>🛡️ TikTok 平台 6 条红线</h3>
       <ol>
-        <li><strong>一机一号</strong>：一台设备只登一个TikTok账号，多账号共用设备会被关联封禁</li>
-        <li><strong>IP稳定</strong>：必须使用独立稳定的海外IP，频繁切换是限流的第一大原因</li>
-        <li><strong>内容原创</strong>：搬运/混剪内容会被降权，原创实拍才是正道</li>
-        <li><strong>AI内容标注</strong>：使用AI生成的内容必须在发布时标注"AI辅助创作"</li>
-        <li><strong>禁止多平台联播</strong>：同一场直播不能同时在多个平台播出</li>
-        <li><strong>直播拍卖=最终销售</strong>：买家不得因"改变主意"退货，仅质量问题可售后</li>
+        <li>一机一号一IP，绝对不要共用</li>
+        <li>内容必须原创，搬运=降权</li>
+        <li>AI生成内容必须标注"AI辅助创作"</li>
+        <li>禁止同一场直播多平台联播</li>
+        <li>直播拍卖视为"最终销售"，不可无理由退货</li>
+        <li>账号归属权写进合同（标准版合同约定归甲方）</li>
       </ol>
     </div>
   </div>
 </section>
 
-<!-- ==================== M7: 获客转化 ==================== -->
-<section id="m7">
+<!-- ============ M7 ============ -->
+<section id="m7" class="s-purple">
   <div class="container">
-    <div class="section-label">Module 7</div>
-    <div class="section-title">获客转化 SQL 模型</div>
-    <p class="section-desc">流量不值钱，精准询盘才值钱。学会把"看视频的人"变成"给你打钱的人"。</p>
+    <div class="sec-label">Module 7</div>
+    <div class="sec-title">获客转化 SQL 模型</div>
+    <p class="sec-desc">流量不值钱，精准询盘才值钱。把"看视频的人"变成"给你打钱的人"。</p>
 
     <div class="card fade-up">
-      <h3>🎯 SQL (Sales Qualified Lead) 商机模型</h3>
-      <p>传统的"有询盘就甩给业务员"效率极低。SQL模型通过 <strong>8-12个关键问题</strong> 在Get Quote环节就筛选出真正有采购意向的客户：</p>
+      <h3>🎯 SQL 8-12问筛选法</h3>
+      <p>传统"有询盘就甩给业务员"效率极低。在 Get Quote 环节预设这些问题：</p>
       <ol>
-        <li>What product are you interested in?（你对什么产品感兴趣？）</li>
-        <li>What quantity do you need?（你需要多少量？）</li>
-        <li>Which country will the goods ship to?（目的港是哪个国家？）</li>
-        <li>When do you need the goods?（你什么时候要货？）</li>
-        <li>Have you imported from China before?（你之前从中国进口过吗？）</li>
-        <li>What's your budget range?（你的预算范围？）</li>
-        <li>Do you have any certification requirements?（有认证要求吗？）</li>
-        <li>Would you like a sample first?（需要先打样吗？）</li>
+        <li>What product are you interested in?</li>
+        <li>What quantity do you need?</li>
+        <li>Which country will the goods ship to?</li>
+        <li>When do you need the goods?</li>
+        <li>Have you imported from China before?</li>
+        <li>What's your budget range?</li>
+        <li>Do you have certification requirements?</li>
+        <li>Would you like a sample first?</li>
       </ol>
-      <div class="info-box success"><strong>✅ 效果</strong> 通过SQL筛选后，业务员跟进的不再是"泛流量"，而是有明确采购需求的高意向客户，转化效率提升3-5倍。</div>
+      <div class="info ok"><strong>✅ 效果</strong>SQL筛选后，业务员跟进的不再是泛流量，转化效率提升3-5倍。</div>
     </div>
 
     <div class="card fade-up">
-      <h3>💬 从询盘到成交：WhatsApp 承接话术</h3>
+      <h3>💬 WhatsApp 承接话术框架</h3>
       <table class="tbl">
-        <tr><th>阶段</th><th>话术要点</th><th>示例</th></tr>
-        <tr><td>初次回复</td><td>快速响应（< 5分钟）+ 自我介绍</td><td>"Hi, thanks for your inquiry! I'm [name] from [factory]. We've been making [product] for [X] years..."</td></tr>
-        <tr><td>需求确认</td><td>追问关键信息，确认SQL</td><td>"Could you share the specifications/quantity/timeline you're looking for?"</td></tr>
-        <tr><td>价值展示</td><td>发工厂实拍图/视频+认证+客户案例</td><td>"Here's a video of our production line. We're ISO certified and have exported to [countries]."</td></tr>
-        <tr><td>推动成交</td><td>提供样品方案+限时报价</td><td>"We can send you a sample within 3 days. Our current lead time is X weeks — shall I prepare a PI?"</td></tr>
+        <tr><th>阶段</th><th>要点</th></tr>
+        <tr><td>初次回复</td><td>5分钟内响应 + 自我介绍 + 工厂年限</td></tr>
+        <tr><td>需求确认</td><td>追问规格/数量/交期</td></tr>
+        <tr><td>价值展示</td><td>发工厂实拍视频 + 认证 + 客户案例</td></tr>
+        <tr><td>推动成交</td><td>提供样品方案 + 限时报价 + 准备PI</td></tr>
       </table>
     </div>
   </div>
 </section>
 
-<!-- ==================== M8: FAQ ==================== -->
+<!-- ============ M8 ============ -->
 <section id="m8">
   <div class="container">
-    <div class="section-label">Module 8</div>
-    <div class="section-title">常见问题 FAQ</div>
-    <p class="section-desc">500+ 工厂最常问的问题，一次讲清楚。</p>
+    <div class="sec-label">Module 8</div>
+    <div class="sec-title">常见问题 FAQ</div>
+    <p class="sec-desc">500+ 工厂最常问的6个问题，一次讲清楚。</p>
 
     <div class="card fade-up">
-      <div class="faq-item open">
-        <div class="faq-q">Q: TikTok外贸多久能看到效果？</div>
-        <div class="faq-a">通常第1个月是基建期（账号搭建+养号+内容测试），第2-3个月进入优化期（算法逐步认识你的账号），<strong>第4个月起陆续会有稳定询盘</strong>。超过6个月无正向数据需要重新评估策略。B2B是长线生意，不要用消费品"爆单"的期待来衡量。</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Q: 我不会英语/没有外语团队怎么办？</div>
-        <div class="faq-a">三个方案：① 使用翻译工具（Google Translate + DeepL），TikTok本身支持75种语言自动翻译；② 使用AI配音工具给视频配外语旁白；③ 委托专业代运营团队（如时代风），从内容制作到询盘回复全包。现在技术条件下，语言不是障碍。</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Q: 一台手机、一个人能做吗？启动成本多少？</div>
-        <div class="faq-a">可以，但效果有限。最低配置：二手iPhone 12（约2000元）+ 海外专线网络（约100元/月）+ 每天1小时拍视频 = 每月不到500元成本。但一个人的产出有限（月产20-30条视频），且缺乏多语种、投流、数据分析等专业能力。建议先个人试水1-2个月，验证产品有市场后再扩大投入。</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Q: 找代运营和自己做，怎么选？</div>
-        <div class="faq-a">问自己三个问题：① 有稳定产出内容的时间和团队吗？② 身边有懂TikTok算法和用户心理的人吗？③ 能接受前3个月可能无明显效果吗？<strong>如果三个答案都是"否"，找靠谱代运营更划算。</strong>一年3-8万的代运营费用，远低于自建团队35-70万/年的人力成本，也低于一次海外展会18-30万的费用。</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Q: 什么产品适合做TikTok B2B？</div>
-        <div class="faq-a"><strong>几乎所有工业品都适合，但效果最好的几类：</strong>① 机械设备（有视觉冲击力，生产过程本身就吸引人）；② 建材五金（应用场景广泛，容易拍）；③ 电子元器件（精密制造展示技术实力）；④ 汽车零部件（全球需求量大）；⑤ 包装印刷（展示多样性和定制能力）。关键不是产品类型，而是<strong>有没有把生产过程拍出"解压感"和"专业度"</strong>。</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Q: TikTok账号被封了怎么办？</div>
-        <div class="faq-a">先判断原因：① 网络环境问题（最常见）→ 换专线IP重新注册；② 内容违规（搬运、侵权）→ 申诉+整改；③ 多账号关联 → 彻底隔离设备。预防 > 补救：<strong>严格一机一号一IP、内容100%原创、不要买粉刷数据。</strong>账号归属权要写进服务合同（时代风标准合同约定账号归甲方所有）。</div>
-      </div>
+      <div class="faq open"><div class="faq-q">Q: TikTok外贸多久能看到效果？</div><div class="faq-a">第1个月基建期（搭建+养号+测试），第2-3个月优化期（算法认识你），<strong>第4个月起陆续有稳定询盘</strong>。超过6个月无数据需重新评估。B2B是长线生意，不要用消费品"爆单"的期待衡量。</div></div>
+      <div class="faq"><div class="faq-q">Q: 我不会英语/没有外语团队怎么办？</div><div class="faq-a">三种方案：① 翻译工具（DeepL + Google Translate），TikTok支持75种语言自动翻译；② AI配音工具给视频配外语旁白；③ 委托专业代运营团队全包。</div></div>
+      <div class="faq"><div class="faq-q">Q: 一个人一台手机能启动吗？成本多少？</div><div class="faq-a">可以！最低配置：二手iPhone 12（约2000元）+ 海外专线（约100元/月）+ 每天1小时拍视频 = 月成本不到500元。建议先试水1-2个月，验证了再扩大投入。</div></div>
+      <div class="faq"><div class="faq-q">Q: 找代运营还是自己做？</div><div class="faq-a">自问三题：有稳定产出内容的团队吗？有人懂TikTok算法吗？能接受前3个月无明显效果吗？<strong>三个都是"否" → 找靠谱代运营更划算。</strong>一年3-8万的代运营费，远低于自建团队35-70万/年的人力成本。</div></div>
+      <div class="faq"><div class="faq-q">Q: 什么产品最适合做TikTok B2B？</div><div class="faq-a"><strong>几乎所有工业品都适合。</strong>效果最好的：机械设备（视觉冲击力强）、建材五金（应用场景广）、电子元器件（展示技术实力）、汽车零部件（全球需求大）。关键是<strong>把生产过程拍出"解压感"和"专业度"</strong>。</div></div>
+      <div class="faq"><div class="faq-q">Q: TikTok账号被封了怎么办？</div><div class="faq-a">先判断原因：① 网络问题（最常见）→ 换专线IP重新注册；② 内容违规 → 申诉+整改；③ 多账号关联 → 彻底隔离设备。<strong>预防 > 补救：严格一机一号一IP、100%原创、不买粉刷数据。</strong></div></div>
     </div>
   </div>
 </section>
 
-<!-- ==================== TOOLS ==================== -->
-<section id="tools">
+<!-- ============ TOOLS & NEWS ============ -->
+<section id="tools" class="s-warm">
   <div class="container">
-    <div class="section-label">Resources</div>
-    <div class="section-title">外贸资源工具箱</div>
-    <p class="section-desc">我们筛选的实用工具，提高效率、降低成本。</p>
-
-    <div class="card fade-up">
-      <h3>🛠️ 工具推荐清单</h3>
+    <div class="sec-label">Resources</div>
+    <div class="sec-title">工具箱 & 今日晨报</div>
+    <div class="card fade-up" style="margin-bottom:24px">
+      <h3>🛠️ 推荐工具</h3>
       <table class="tbl">
-        <tr><th>类别</th><th>工具</th><th>用途</th><th>费用</th></tr>
-        <tr><td>翻译</td><td>DeepL / Google Translate</td><td>多语种文案翻译</td><td>免费/付费</td></tr>
-        <tr><td>剪辑</td><td>CapCut（剪映海外版）</td><td>TikTok官方推荐剪辑工具</td><td>免费</td></tr>
-        <tr><td>设计</td><td>Canva</td><td>封面图+产品图设计</td><td>免费/Pro</td></tr>
-        <tr><td>数据分析</td><td>TikTok Analytics /  Kalodata</td><td>账号数据+竞品分析</td><td>免费/付费</td></tr>
-        <tr><td>独立站</td><td>Shopify</td><td>品牌独立站搭建</td><td>$29/月起</td></tr>
-        <tr><td>客户管理</td><td>WhatsApp Business / HubSpot</td><td>客户沟通+CRM管理</td><td>免费</td></tr>
-        <tr><td>支付收款</td><td>连连 / 万里汇 / Payoneer</td><td>跨境收款+合规结汇</td><td>按比例</td></tr>
-        <tr><td>物流查询</td><td>17TRACK / 快递100</td><td>国际物流轨迹追踪</td><td>免费</td></tr>
+        <tr><th>类别</th><th>工具</th><th>用途</th></tr>
+        <tr><td>翻译</td><td>DeepL / Google Translate</td><td>多语种文案翻译</td></tr>
+        <tr><td>剪辑</td><td>CapCut（剪映海外版）</td><td>TikTok官方推荐</td></tr>
+        <tr><td>设计</td><td>Canva</td><td>封面图+产品图</td></tr>
+        <tr><td>数据分析</td><td>TikTok Analytics / Kalodata</td><td>账号+竞品分析</td></tr>
+        <tr><td>独立站</td><td>Shopify</td><td>品牌独立站搭建（$29/月起）</td></tr>
+        <tr><td>CRM</td><td>WhatsApp Business / HubSpot</td><td>客户沟通+管理</td></tr>
+        <tr><td>收款</td><td>连连 / 万里汇 / Payoneer</td><td>跨境收款+结汇</td></tr>
+        <tr><td>物流</td><td>17TRACK</td><td>国际物流追踪</td></tr>
       </table>
     </div>
 
     <div class="card fade-up">
-      <h3>📋 外贸必备文档模板</h3>
+      <h3>📰 今日外贸晨报 · 2026年7月30日</h3>
       <ul>
-        <li><strong>PI（形式发票）模板</strong> — 客户确认订单后第一时间发出的标准文件</li>
-        <li><strong>报价单模板</strong> — FOB/CIF/DDP 不同贸易术语的标准报价格式</li>
-        <li><strong>验厂Checklist</strong> — 客户验厂前需要准备的文件和现场清单</li>
-        <li><strong>出口报关单证清单</strong> — 商检、报关、原产地证等全套文件列表</li>
-        <li><strong>客户跟进SOP</strong> — 从询盘到成交的标准化跟进流程</li>
-      </ul>
-      <p style="font-size:13px;color:var(--text-tertiary);margin-top:8px;">📩 以上模板可联系我们免费获取</p>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== NEWS ==================== -->
-<section id="news">
-  <div class="container">
-    <div class="section-label">Daily Briefing</div>
-    <div class="section-title">今日外贸晨报</div>
-    <p class="section-desc">2026年7月30日 · 最新外贸与TikTok政策动态</p>
-
-    <div class="card fade-up">
-      <h3>📊 上半年外贸数据</h3>
-      <p>2026年上半年进出口总值<strong>25.47万亿元</strong>，同比增长 <strong>16.9%</strong>，历史同期首破25万亿。出口14.73万亿（+13.4%），民企贡献近6成增量。机电产品出口9.36万亿（+20.1%），高技术产品出口3.26万亿（+39%）。</p>
-    </div>
-
-    <div class="card fade-up">
-      <h3>📋 TikTok 7月重大政策</h3>
-      <ul>
-        <li>🇪🇺 <strong>欧盟电子电器/纺织品合规今日生效</strong>（7月30日）：新品上架必须提交CE/UKCA资质</li>
-        <li>🇺🇸 <strong>美区保证金升级三级架构</strong>：基础$1500+类目保证金+风险浮动保证金</li>
-        <li>🇪🇺 <strong>8个欧洲新站点开放入驻</strong>：波兰、荷兰、比利时、捷克等</li>
-        <li>🌏 <strong>东南亚跨境结算优化</strong>：运费补贴3个自然日内结算</li>
-      </ul>
-    </div>
-
-    <div class="card fade-up">
-      <h3>🔥 行业趋势速递</h3>
-      <ul>
-        <li>"厂播"全面爆发：石家庄780+企业开播，敬业集团200个账号矩阵，线上年销售2.84亿</li>
-        <li>"新新三样"（AI、机器人、创新药）成出口新名片，机器人出口62.9亿元（+18.6%）</li>
-        <li>智能制造+社媒获客成为外贸增长双引擎</li>
+        <li>📊 上半年进出口总值<strong>25.47万亿</strong>（+16.9%），出口14.73万亿（+13.4%）</li>
+        <li>🇪🇺 欧盟电子电器/纺织品合规<strong>今日生效</strong>，新品必须提交CE/UKCA</li>
+        <li>🇺🇸 美区保证金升级三级架构，违规成本动态浮动</li>
+        <li>🇪🇺 TikTok欧洲8个新站点开放：波兰、荷兰、比利时、捷克等</li>
+        <li>🔥 "厂播"全面爆发：石家庄780+企业开播，叉车厂AI主播24小时直播</li>
+        <li>🤖 "新新三样"（AI、机器人、创新药）成出口新名片</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- ==================== CONTACT ==================== -->
+<!-- ============ CONTACT ============ -->
 <section id="contact">
   <div class="container">
-    <div class="section-label">Get In Touch</div>
-    <div class="section-title">开始你的全球化之旅</div>
-    <p class="section-desc">不管你是准备启动，还是已经在做但效果不理想，我们帮你诊断。</p>
-    <div class="contact-row fade-up">
-      <div class="contact-card" onclick="copyText('138-xxxx-xxxx')">
-        <div class="cc-icon">📱</div>
-        <div class="cc-label">点击复制手机号 / 微信</div>
-        <div class="cc-val">138-xxxx-xxxx</div>
-      </div>
-      <div class="contact-card" onclick="copyText('info@shidaifeng.com')">
-        <div class="cc-icon">✉️</div>
-        <div class="cc-label">点击复制邮箱</div>
-        <div class="cc-val">info@shidaifeng.com</div>
-      </div>
+    <div class="sec-label">Get In Touch</div>
+    <div class="sec-title">开始你的全球化之旅</div>
+    <p class="sec-desc">不管你是准备启动，还是已经在做但效果不理想，我们帮你诊断。</p>
+    <div class="ct fade-up">
+      <div class="ct-card" onclick="copyText('138-xxxx-xxxx')"><div class="ct-icon">📱</div><div class="ct-lab">点击复制手机号 / 微信</div><div class="ct-val">138-xxxx-xxxx</div></div>
+      <div class="ct-card" onclick="copyText('info@shidaifeng.com')"><div class="ct-icon">✉️</div><div class="ct-lab">点击复制邮箱</div><div class="ct-val">info@shidaifeng.com</div></div>
     </div>
-    <p style="text-align:center;margin-top:24px;font-size:13px;color:var(--text-tertiary);">📍 河北 · 石家庄 &nbsp;|&nbsp; 🕐 周一至周五 9:00-18:00 &nbsp;|&nbsp; 24小时内回复</p>
+    <p style="text-align:center;margin-top:20px;font-size:13px;color:var(--t3)">📍 河北 · 石家庄 &nbsp;|&nbsp; 🕐 周一至周五 9:00-18:00 &nbsp;|&nbsp; 24小时内回复</p>
   </div>
 </section>
 
-<footer>
-  <div>© 2026 河北时代风科技集团 · TikTok官方认证服务商 · 中国欧洲经济技术合作协会副理事长单位</div>
-  <div style="margin-top:4px;">国内赋能 · 跨境链接 · 助力中国品牌全球增长</div>
+<footer style="text-align:center;padding:24px;border-top:1px solid var(--border);font-size:12px;color:var(--t3)">
+  © 2026 河北时代风科技集团 · TikTok官方认证服务商 · 中国欧洲经济技术合作协会副理事长单位<br>
+  <span style="font-size:11px">国内赋能 · 跨境链接 · 助力中国品牌全球增长</span>
 </footer>
 
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
 <script>
-  // Scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+// Progress bar
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  document.getElementById('progress-bar').style.width=h>0?(window.scrollY/h)*100+'%':'0%';
+});
 
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = document.querySelector(link.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+// Back to top
+const btt=document.getElementById('btt');
+window.addEventListener('scroll',()=>btt.classList.toggle('visible',window.scrollY>600));
+
+// Animations
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.08});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+// FAQ
+document.querySelectorAll('.faq').forEach(f=>{
+  f.querySelector('.faq-q').addEventListener('click',()=>f.classList.toggle('open'));
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
   });
+});
 
-  // Copy
-  function copyText(text) {
-    navigator.clipboard.writeText(text).then(() => {
-      const toast = document.getElementById('toast');
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 1500);
-    });
-  }
-
-  // FAQ toggle
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.querySelector('.faq-q').addEventListener('click', () => {
-      item.classList.toggle('open');
-    });
+// Copy
+function copyText(txt){
+  navigator.clipboard.writeText(txt).then(()=>{
+    const toast=document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(()=>toast.classList.remove('show'),1500);
   });
+}
 
-  // Active nav highlight
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.module-nav a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
-    navLinks.forEach(a => {
-      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-    });
+// Theme toggle
+function toggleTheme(){
+  const html=document.documentElement;
+  const curr=html.getAttribute('data-theme');
+  const next=curr==='dark'?'light':'dark';
+  html.setAttribute('data-theme',next);
+  try{localStorage.setItem('theme',next)}catch(e){}
+}
+try{
+  const saved=localStorage.getItem('theme');
+  if(saved)document.documentElement.setAttribute('data-theme',saved);
+}catch(e){}
+
+// Search
+function searchSite(){
+  const q=document.getElementById('searchInput').value.toLowerCase().trim();
+  if(!q)return;
+  const sections=document.querySelectorAll('section[id]');
+  let found=null;
+  sections.forEach(s=>{
+    if(s.textContent.toLowerCase().includes(q)&&!found)found=s;
   });
+  if(found){found.scrollIntoView({behavior:'smooth',block:'start'});}
+  else{alert('没有找到相关内容，试试"设备""SQL""FAQ"等关键词');}
+}
+document.getElementById('searchInput').addEventListener('keydown',e=>{if(e.key==='Enter')searchSite();});
+
+// Count-up animation for stat numbers
+const countObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target;
+    const target=parseInt(el.textContent.replace(/[^0-9]/g,''));
+    if(isNaN(target))return;
+    const dur=1500,start=performance.now();
+    function tick(now){
+      const p=Math.min((now-start)/dur,1);
+      const v=Math.floor(p*target);
+      el.textContent=v+(target>=1000?'+':'');
+      if(p<1)requestAnimationFrame(tick);
+      else el.textContent=target+(target>=1000?'+':'');
+    }
+    requestAnimationFrame(tick);
+    countObserver.unobserve(el);
+  });
+},{threshold:0.5});
+document.querySelectorAll('.stat-num').forEach(el=>countObserver.observe(el));
 </script>
 </body>
 </html>
