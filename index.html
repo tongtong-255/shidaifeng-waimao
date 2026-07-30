@@ -4,254 +4,168 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="format-detection" content="telephone=no">
-<meta property="og:title" content="时代风科技 · 中国工厂全球化引擎">
-<meta property="og:description" content="TikTok官方认证服务商，赋能中国制造货通全球">
-<title>时代风科技 · 中国工厂全球化引擎</title>
+<meta property="og:title" content="外贸出海知识库 · 时代风科技">
+<meta property="og:description" content="系统学习TikTok外贸获客，从入门到精通，一站式知识平台">
+<title>外贸出海知识库 · 时代风科技</title>
 <style>
   :root {
-    --bg: #f5f5f7;
-    --surface: #ffffff;
-    --card: rgba(255,255,255,0.72);
-    --card-hover: rgba(255,255,255,0.88);
-    --border: rgba(0,0,0,0.06);
-    --border-hover: rgba(0,0,0,0.12);
-    --text: #1d1d1f;
-    --text-secondary: #86868b;
-    --text-tertiary: #aeaeb2;
-    --accent: #0071e3;
-    --accent-hover: #0077ed;
-    --accent-glow: rgba(0,113,227,0.2);
-    --glass: rgba(255,255,255,0.64);
-    --glass-hover: rgba(255,255,255,0.85);
-    --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
-    --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
-    --shadow-lg: 0 20px 40px rgba(0,0,0,0.08);
+    --bg: #f5f5f7; --surface: #fff;
+    --card: rgba(255,255,255,0.72); --card-hover: rgba(255,255,255,0.9);
+    --border: rgba(0,0,0,0.06); --border-hover: rgba(0,0,0,0.12);
+    --text: #1d1d1f; --text-secondary: #86868b; --text-tertiary: #aeaeb2;
+    --accent: #0071e3; --accent-hover: #0077ed; --accent-glow: rgba(0,113,227,0.2);
+    --green: #34c759; --orange: #ff9f0a; --purple: #5e5ce6; --red: #ff375f;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "PingFang SC", "Microsoft YaHei", sans-serif;
-    background: var(--bg); color: var(--text); line-height: 1.5;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.6;
     -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; overflow-x: hidden;
   }
 
   /* Nav */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 24px; height: 52px;
-    display: flex; align-items: center; justify-content: space-between;
-    backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
-    background: rgba(255,255,255,0.72); border-bottom: 1px solid var(--border);
-    font-size: 14px; font-weight: 500;
+    position:fixed; top:0; left:0; right:0; z-index:100; height:52px; padding:0 20px;
+    display:flex; align-items:center; justify-content:space-between;
+    backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%);
+    background:rgba(255,255,255,0.72); border-bottom:1px solid var(--border);
   }
-  nav .logo { font-weight: 700; font-size: 16px; letter-spacing: -0.3px; }
-  nav .nav-links { display: flex; gap: 24px; }
-  nav .nav-links a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; font-size: 13px; }
-  nav .nav-links a:hover { color: var(--text); }
-  nav .cta-btn {
-    background: var(--accent); color: #fff; border: none; padding: 7px 16px;
-    border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer;
-    transition: all 0.3s; text-decoration: none;
-  }
-  nav .cta-btn:hover { background: var(--accent-hover); box-shadow: 0 0 20px var(--accent-glow); transform: scale(1.03); }
+  nav .logo { font-weight:700; font-size:15px; letter-spacing:-0.3px; display:flex; align-items:center; gap:8px; }
+  nav .logo span { font-size:11px; color:var(--accent); font-weight:500; background:rgba(0,113,227,0.08); padding:3px 8px; border-radius:10px; }
+  nav .cta-btn { background:var(--accent); color:#fff; border:none; padding:7px 16px; border-radius:20px; font-size:12px; font-weight:600; cursor:pointer; text-decoration:none; transition:all 0.3s; }
+  nav .cta-btn:hover { background:var(--accent-hover); box-shadow:0 0 20px var(--accent-glow); }
+
+  /* Layout */
+  .container { max-width:900px; margin:0 auto; padding:0 20px; }
+  section { padding:80px 0; }
+  .section-label { font-size:11px; font-weight:600; letter-spacing:2px; color:var(--accent); text-transform:uppercase; margin-bottom:8px; }
+  .section-title { font-size:clamp(26px,5vw,40px); font-weight:700; letter-spacing:-1px; margin-bottom:12px; line-height:1.15; }
+  .section-desc { font-size:16px; color:var(--text-secondary); margin-bottom:40px; line-height:1.6; }
 
   /* Hero */
   .hero {
-    min-height: 100vh; display: flex; align-items: center; justify-content: center;
-    text-align: center; padding: 80px 24px 60px; position: relative; overflow: hidden;
-    background:
-      radial-gradient(ellipse 70% 50% at 50% -10%, rgba(0,113,227,0.06), transparent),
-      radial-gradient(ellipse 50% 40% at 80% 70%, rgba(94,92,230,0.04), transparent),
-      radial-gradient(ellipse 50% 40% at 20% 60%, rgba(255,55,95,0.03), transparent);
+    min-height:85vh; display:flex; align-items:center; justify-content:center; text-align:center;
+    padding:80px 20px 60px; position:relative;
+    background: radial-gradient(ellipse 70% 50% at 50% -10%, rgba(0,113,227,0.05), transparent),
+                radial-gradient(ellipse 50% 40% at 80% 80%, rgba(94,92,230,0.03), transparent);
   }
-  .hero-content { position: relative; z-index: 1; max-width: 800px; }
-  .hero-badge {
-    display: inline-block; padding: 5px 14px; border-radius: 20px;
-    border: 1px solid rgba(0,0,0,0.1); font-size: 12px;
-    color: var(--text-secondary); margin-bottom: 24px;
-    backdrop-filter: blur(10px); background: rgba(255,255,255,0.6);
-  }
-  .hero h1 {
-    font-size: clamp(40px, 8vw, 80px); font-weight: 700; letter-spacing: -2px;
-    line-height: 1.05; margin-bottom: 8px; color: var(--text);
-  }
-  .hero h1 .grad {
-    background: linear-gradient(135deg, #0071e3 0%, #5e5ce6 50%, #ff375f 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-  .hero .subtitle { font-size: clamp(17px, 3vw, 24px); color: var(--text-secondary); font-weight: 400; margin-bottom: 32px; }
-  .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .hero h1 { font-size:clamp(34px,7vw,64px); font-weight:700; letter-spacing:-1.5px; line-height:1.08; margin-bottom:12px; }
+  .hero h1 .grad { background:linear-gradient(135deg,#0071e3 0%,#5e5ce6 60%,#ff375f 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .hero .sub { font-size:clamp(15px,2.5vw,19px); color:var(--text-secondary); margin-bottom:28px; }
+  .hero-stats { display:flex; gap:32px; justify-content:center; flex-wrap:wrap; margin-top:32px; }
+  .hero-stat { text-align:center; }
+  .hero-stat .hs-num { font-size:28px; font-weight:700; color:var(--accent); }
+  .hero-stat .hs-label { font-size:12px; color:var(--text-tertiary); }
+
   .btn-primary {
-    background: var(--accent); color: #fff; border: none; padding: 13px 28px;
-    border-radius: 28px; font-size: 15px; font-weight: 600; cursor: pointer;
-    text-decoration: none; transition: all 0.3s; letter-spacing: -0.2px;
+    background:var(--accent); color:#fff; border:none; padding:13px 28px; border-radius:28px;
+    font-size:15px; font-weight:600; cursor:pointer; text-decoration:none; transition:all 0.3s; display:inline-block;
   }
-  .btn-primary:hover { background: var(--accent-hover); box-shadow: 0 0 40px var(--accent-glow); transform: translateY(-1px); }
-  .btn-outline {
-    background: rgba(255,255,255,0.6); backdrop-filter: blur(10px);
-    color: var(--text); border: 1px solid rgba(0,0,0,0.1);
-    padding: 13px 28px; border-radius: 28px; font-size: 15px; font-weight: 500;
-    cursor: pointer; text-decoration: none; transition: all 0.3s; letter-spacing: -0.2px;
-  }
-  .btn-outline:hover { border-color: rgba(0,0,0,0.2); background: rgba(255,255,255,0.85); box-shadow: var(--shadow-md); }
-  .scroll-indicator {
-    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 6px;
-    animation: float 2s ease-in-out infinite; z-index: 1;
-  }
-  .scroll-indicator span { font-size: 11px; color: var(--text-tertiary); }
-  .scroll-indicator .line { width: 1px; height: 32px; background: rgba(0,0,0,0.1); }
-  @keyframes float { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-8px); } }
+  .btn-primary:hover { background:var(--accent-hover); box-shadow:0 0 40px var(--accent-glow); transform:translateY(-1px); }
 
-  /* Sections */
-  section { padding: 100px 24px; }
-  .section-label { text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 2px; color: var(--accent); text-transform: uppercase; margin-bottom: 12px; }
-  .section-title { text-align: center; font-size: clamp(28px, 5vw, 48px); font-weight: 700; letter-spacing: -1px; margin-bottom: 16px; line-height: 1.15; }
-  .section-desc { text-align: center; font-size: 17px; color: var(--text-secondary); max-width: 560px; margin: 0 auto 48px; }
+  /* Module Nav */
+  .module-nav {
+    display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:48px;
+    position:sticky; top:60px; z-index:50; padding:12px 0;
+    background:rgba(245,245,247,0.8); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .module-nav a {
+    font-size:12px; font-weight:500; color:var(--text-secondary); text-decoration:none;
+    padding:6px 14px; border-radius:16px; transition:all 0.2s;
+    border:1px solid transparent; white-space:nowrap;
+  }
+  .module-nav a:hover, .module-nav a.active { color:var(--accent); background:rgba(0,113,227,0.06); border-color:rgba(0,113,227,0.15); }
 
-  /* Stats */
-  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: var(--border); border-radius: 20px; overflow: hidden; max-width: 1000px; margin: 0 auto; }
-  .stat-card {
-    background: var(--card); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    padding: 32px 24px; text-align: center; transition: all 0.4s;
+  /* Cards */
+  .card {
+    background:var(--card); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    border:1px solid var(--border); border-radius:18px; padding:28px;
+    transition:all 0.4s; margin-bottom:16px;
   }
-  .stat-card:hover { background: var(--card-hover); }
-  .stat-num { font-size: 40px; font-weight: 700; letter-spacing: -1px; color: var(--accent); margin-bottom: 4px; }
-  .stat-label { font-size: 14px; color: var(--text-secondary); }
+  .card:hover { background:var(--card-hover); border-color:var(--border-hover); box-shadow:0 4px 16px rgba(0,0,0,0.04); }
+  .card h3 { font-size:19px; font-weight:700; margin-bottom:8px; letter-spacing:-0.3px; }
+  .card h4 { font-size:16px; font-weight:600; margin:16px 0 8px; }
+  .card p, .card li { font-size:14px; color:var(--text-secondary); line-height:1.7; }
+  .card ul, .card ol { padding-left:20px; margin:8px 0; }
+  .card li { margin-bottom:4px; }
 
-  /* Feature Cards */
-  .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; max-width: 1100px; margin: 0 auto; }
-  .feature-card {
-    background: var(--card); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--border); border-radius: 20px; padding: 32px;
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative; overflow: hidden; cursor: default;
+  /* Info Box */
+  .info-box {
+    border-radius:14px; padding:20px 24px; margin:16px 0; font-size:14px;
+    line-height:1.7; border:1px solid;
   }
-  .feature-card::after {
-    content: ''; position: absolute; inset: 0; border-radius: 20px;
-    background: radial-gradient(ellipse at var(--mx, 50%) var(--my, 50%), rgba(0,113,227,0.08) 0%, transparent 60%);
-    opacity: 0; transition: opacity 0.4s; pointer-events: none;
-  }
-  .feature-card:hover::after { opacity: 1; }
-  .feature-card:hover {
-    background: var(--glass-hover); border-color: var(--border-hover);
-    transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-    border-color: rgba(0,113,227,0.2);
-  }
-  .feature-card .icon { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 20px; }
-  .feature-card h4 { font-size: 18px; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.3px; }
-  .feature-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+  .info-box.tip { background:rgba(0,113,227,0.04); border-color:rgba(0,113,227,0.12); }
+  .info-box.warn { background:rgba(255,159,10,0.06); border-color:rgba(255,159,10,0.15); }
+  .info-box.success { background:rgba(52,199,89,0.05); border-color:rgba(52,199,89,0.12); }
+  .info-box strong { display:block; margin-bottom:4px; }
 
-  /* Process */
-  .process-row { display: flex; gap: 0; max-width: 1000px; margin: 0 auto; overflow-x: auto; padding: 20px 0; }
-  .process-step { flex: 1; min-width: 140px; text-align: center; position: relative; padding: 0 12px; }
-  .p-num {
-    width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center;
-    justify-content: center; margin: 0 auto 14px; font-weight: 700; font-size: 18px;
-    border: 2px solid rgba(0,0,0,0.08); background: var(--card);
-    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Table */
+  .tbl {
+    width:100%; border-collapse:collapse; font-size:13px; margin:12px 0;
+    border-radius:12px; overflow:hidden; border:1px solid var(--border);
   }
-  .process-step:hover .p-num {
-    border-color: var(--accent); box-shadow: 0 0 28px var(--accent-glow);
-    background: rgba(255,255,255,0.9); transform: scale(1.08);
-  }
-  .p-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
-  .p-desc { font-size: 12px; color: var(--text-tertiary); }
-  .process-connector { position: absolute; top: 22px; left: calc(50% + 24px); width: calc(100% - 48px); height: 1px; background: var(--border); z-index: 0; }
-  .process-step:last-child .process-connector { display: none; }
+  .tbl th { background:rgba(0,0,0,0.03); font-weight:600; text-align:left; padding:10px 14px; font-size:12px; color:var(--text-secondary); }
+  .tbl td { padding:10px 14px; border-top:1px solid var(--border); }
+  .tbl tr:hover td { background:rgba(0,113,227,0.02); }
 
-  /* Case Studies */
-  .case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; max-width: 1100px; margin: 0 auto; }
-  .case-card {
-    background: var(--card); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--border); border-radius: 20px; overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  /* FAQ */
+  .faq-item {
+    border-bottom:1px solid var(--border); cursor:pointer;
   }
-  .case-card:hover {
-    transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-    border-color: rgba(0,113,227,0.15); background: var(--glass-hover);
+  .faq-q {
+    padding:18px 0; font-weight:600; font-size:15px; display:flex; justify-content:space-between; align-items:center;
+    transition:color 0.2s; user-select:none;
   }
-  .case-header { padding: 28px 28px 0; }
-  .case-header .brand { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
-  .case-header .industry { font-size: 12px; color: var(--text-tertiary); margin-top: 2px; }
-  .case-body { padding: 16px 28px 28px; }
-  .case-metric { display: inline-block; padding: 6px 14px; border-radius: 8px; background: rgba(0,113,227,0.06); font-size: 13px; margin: 6px 6px 0 0; }
-  .case-metric strong { color: var(--accent); }
+  .faq-q:hover { color:var(--accent); }
+  .faq-q::after { content:'+'; font-size:20px; font-weight:300; color:var(--text-tertiary); transition:transform 0.3s; }
+  .faq-item.open .faq-q::after { content:'−'; transform:rotate(180deg); }
+  .faq-a { max-height:0; overflow:hidden; transition:max-height 0.4s ease, padding 0.4s; font-size:14px; color:var(--text-secondary); line-height:1.7; }
+  .faq-item.open .faq-a { max-height:500px; padding-bottom:18px; }
 
-  /* Contact Section */
-  .contact-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
-    max-width: 900px; margin: 0 auto;
+  /* Tags */
+  .tag {
+    display:inline-block; padding:3px 10px; border-radius:10px; font-size:11px; font-weight:500;
+    margin:2px 4px 2px 0;
   }
-  .contact-info {
-    background: var(--card); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--border); border-radius: 20px; padding: 32px;
-    display: flex; flex-direction: column; gap: 20px;
-  }
-  .contact-info h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
-  .contact-item {
-    display: flex; align-items: center; gap: 14px; padding: 12px 16px;
-    background: rgba(0,113,227,0.04); border-radius: 14px;
-    transition: all 0.3s; cursor: pointer; border: 1px solid transparent;
-  }
-  .contact-item:hover { background: rgba(0,113,227,0.08); border-color: rgba(0,113,227,0.15); }
-  .contact-item .ci-icon { font-size: 22px; flex-shrink: 0; }
-  .contact-item .ci-label { font-size: 11px; color: var(--text-tertiary); }
-  .contact-item .ci-value { font-size: 15px; font-weight: 600; color: var(--text); }
-  .copied-toast {
-    position: fixed; top: 72px; left: 50%; transform: translateX(-50%);
-    background: var(--text); color: #fff; padding: 10px 20px; border-radius: 20px;
-    font-size: 13px; z-index: 200; pointer-events: none;
-    opacity: 0; transition: opacity 0.3s;
-  }
-  .copied-toast.show { opacity: 1; }
+  .tag.blue { background:rgba(0,113,227,0.08); color:var(--accent); }
+  .tag.green { background:rgba(52,199,89,0.1); color:var(--green); }
+  .tag.orange { background:rgba(255,159,10,0.1); color:var(--orange); }
+  .tag.purple { background:rgba(94,92,230,0.08); color:var(--purple); }
 
-  .contact-form {
-    background: var(--card); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--border); border-radius: 20px; padding: 32px;
-  }
-  .contact-form h3 { font-size: 20px; font-weight: 700; margin-bottom: 20px; }
-  .form-group { margin-bottom: 14px; }
-  .form-group label { display: block; font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 6px; letter-spacing: 0.3px; }
-  .form-group input, .form-group textarea, .form-group select {
-    width: 100%; padding: 11px 14px; border: 1px solid var(--border);
-    border-radius: 12px; font-size: 14px; font-family: inherit;
-    background: rgba(0,0,0,0.02); transition: all 0.3s; outline: none;
-    color: var(--text);
-  }
-  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-    border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,113,227,0.1); background: #fff;
-  }
-  .form-submit {
-    width: 100%; background: var(--accent); color: #fff; border: none;
-    padding: 13px; border-radius: 14px; font-size: 15px; font-weight: 600;
-    cursor: pointer; transition: all 0.3s; margin-top: 6px;
-  }
-  .form-submit:hover { background: var(--accent-hover); box-shadow: 0 4px 20px var(--accent-glow); }
+  /* Timeline */
+  .timeline { position:relative; padding-left:24px; }
+  .timeline::before { content:''; position:absolute; left:8px; top:4px; bottom:4px; width:2px; background:var(--border); }
+  .timeline-item { position:relative; margin-bottom:20px; }
+  .timeline-item::before { content:''; position:absolute; left:-20px; top:6px; width:10px; height:10px; border-radius:50%; background:var(--accent); border:2px solid #fff; box-shadow:0 0 0 2px var(--accent); }
+  .timeline-item h4 { font-size:15px; font-weight:600; margin-bottom:4px; }
+  .timeline-item p { font-size:13px; color:var(--text-secondary); }
 
-  /* CTA */
-  .cta-section {
-    text-align: center; padding: 80px 24px;
-    background: linear-gradient(180deg, rgba(0,113,227,0.03) 0%, rgba(94,92,230,0.04) 100%);
+  /* Contact */
+  .contact-row { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .contact-card {
+    background:var(--card); backdrop-filter:blur(10px); border:1px solid var(--border);
+    border-radius:18px; padding:24px; text-align:center; cursor:pointer; transition:all 0.3s;
   }
+  .contact-card:hover { background:var(--card-hover); border-color:var(--accent); box-shadow:0 4px 20px var(--accent-glow); }
+  .contact-card .cc-icon { font-size:32px; margin-bottom:8px; }
+  .contact-card .cc-label { font-size:12px; color:var(--text-tertiary); }
+  .contact-card .cc-val { font-size:16px; font-weight:600; margin-top:2px; }
+  .copied-toast { position:fixed; top:72px; left:50%; transform:translateX(-50%); background:var(--text); color:#fff; padding:10px 20px; border-radius:20px; font-size:13px; z-index:200; pointer-events:none; opacity:0; transition:opacity 0.3s; }
+  .copied-toast.show { opacity:1; }
 
-  /* Footer */
-  footer { padding: 24px; text-align: center; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-tertiary); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; max-width: 1100px; margin: 0 auto; }
+  footer { text-align:center; padding:24px; border-top:1px solid var(--border); font-size:12px; color:var(--text-tertiary); }
 
-  /* Animations */
-  .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .fade-up { opacity:0; transform:translateY(24px); transition:all 0.7s cubic-bezier(0.16,1,0.3,1); }
+  .fade-up.visible { opacity:1; transform:translateY(0); }
 
-  @media (max-width: 768px) {
-    nav .nav-links { display: none; }
-    section { padding: 64px 16px; }
-    .hero h1 { font-size: 36px; letter-spacing: -1px; }
-    .stats-grid { grid-template-columns: 1fr 1fr; }
-    .process-row { flex-wrap: wrap; gap: 20px; }
-    .process-connector { display: none; }
-    .process-step { min-width: 40%; flex: none; }
-    .contact-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; text-align: center; }
+  @media (max-width:768px) {
+    section { padding:48px 0; }
+    .contact-row { grid-template-columns:1fr; }
+    .module-nav { overflow-x:auto; flex-wrap:nowrap; justify-content:flex-start; -webkit-overflow-scrolling:touch; }
+    .module-nav a { flex-shrink:0; }
+    .hero-stats { gap:16px; }
   }
 </style>
 </head>
@@ -260,209 +174,471 @@
 <div class="copied-toast" id="toast">已复制到剪贴板 ✓</div>
 
 <nav>
-  <div class="logo">时代风</div>
-  <div class="nav-links">
-    <a href="#services">服务</a>
-    <a href="#process">流程</a>
-    <a href="#cases">案例</a>
-    <a href="#contact">联系</a>
-  </div>
+  <div class="logo">时代风 <span>外贸知识库</span></div>
   <a href="#contact" class="cta-btn">免费咨询</a>
 </nav>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-content fade-up visible">
-    <div class="hero-badge">TikTok Official Partner · 官方认证服务商</div>
-    <h1>中国工厂<br><span class="grad">全球化引擎</span></h1>
-    <p class="subtitle">从一条短视频开始，让世界发现你的工厂</p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn-primary">开启全球增长 →</a>
-      <a href="#process" class="btn-outline">了解如何运作</a>
-    </div>
-  </div>
-  <div class="scroll-indicator"><span>Scroll</span><div class="line"></div></div>
-</section>
-
-<!-- Stats -->
-<section>
-  <div class="stats-grid fade-up">
-    <div class="stat-card"><div class="stat-num">500+</div><div class="stat-label">服务出海企业</div></div>
-    <div class="stat-card"><div class="stat-num">$10亿+</div><div class="stat-label">累计GMV增长</div></div>
-    <div class="stat-card"><div class="stat-num">3.5亿+</div><div class="stat-label">孵化账号总粉丝</div></div>
-    <div class="stat-card"><div class="stat-num">80+</div><div class="stat-label">覆盖国家与地区</div></div>
-  </div>
-</section>
-
-<!-- Services -->
-<section id="services">
-  <div class="section-label">What We Do</div>
-  <div class="section-title">三大引擎，驱动增长</div>
-  <p class="section-desc">我们不只是代运营，而是你的工厂海外市场部</p>
-  <div class="cards-grid fade-up">
-    <div class="feature-card">
-      <div class="icon" style="background:rgba(0,113,227,0.08);">🎬</div>
-      <h4>内容引擎</h4>
-      <p>入企实拍 · 6大场景覆盖 · 航拍+微距+真人出镜。1分钟实景视频，胜过1000封开发信</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon" style="background:rgba(94,92,230,0.08);">🎯</div>
-      <h4>获客引擎</h4>
-      <p>算法推荐+精准投流，直接触达海外采购决策者。SQL商机模型，8-12问锁定高意向询盘</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon" style="background:rgba(48,209,88,0.08);">⚡</div>
-      <h4>运营引擎</h4>
-      <p>全托管式服务，PM+编导+摄影+剪辑+投流+运营，六人专属团队 × 一年持续陪跑</p>
+<!-- ==================== HERO ==================== -->
+<section class="hero" id="top">
+  <div class="container" style="text-align:center;">
+    <h1>外贸出海<br><span class="grad">从入门到精通</span></h1>
+    <p class="sub">系统学习 TikTok 跨境获客，一站式掌握工厂出海的每一个环节</p>
+    <a href="#modules" class="btn-primary">开始学习 →</a>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hs-num">8</div><div class="hs-label">学习模块</div></div>
+      <div class="hero-stat"><div class="hs-num">50+</div><div class="hs-label">知识卡片</div></div>
+      <div class="hero-stat"><div class="hs-num">500+</div><div class="hs-label">服务企业验证</div></div>
+      <div class="hero-stat"><div class="hs-num">∞</div><div class="hs-label">持续更新</div></div>
     </div>
   </div>
 </section>
 
-<!-- Process -->
-<section id="process">
-  <div class="section-label">How It Works</div>
-  <div class="section-title">从零到一，只需 8 步</div>
-  <p class="section-desc">标准化的交付流程，每一个节点都可追踪</p>
-  <div class="process-row fade-up">
-    <div class="process-step"><div class="p-num">1</div><div class="process-connector"></div><div class="p-title">深度调研</div><div class="p-desc">行业·竞品·市场分析</div></div>
-    <div class="process-step"><div class="p-num">2</div><div class="process-connector"></div><div class="p-title">定制方案</div><div class="p-desc">精细化运营SOP</div></div>
-    <div class="process-step"><div class="p-num">3</div><div class="process-connector"></div><div class="p-title">账号基建</div><div class="p-desc">TK+独立站+全社媒</div></div>
-    <div class="process-step"><div class="p-num">4</div><div class="process-connector"></div><div class="p-title">入企实拍</div><div class="p-desc">6大场景·3机位</div></div>
-    <div class="process-step"><div class="p-num">5</div><div class="process-connector"></div><div class="p-title">内容运营</div><div class="p-desc">200条视频·日更</div></div>
-    <div class="process-step"><div class="p-num">6</div><div class="process-connector"></div><div class="p-title">投放优化</div><div class="p-desc">精准定向·ROI最大化</div></div>
-    <div class="process-step"><div class="p-num">7</div><div class="process-connector"></div><div class="p-title">询盘转化</div><div class="p-desc">SQL筛选·线索交付</div></div>
-    <div class="process-step"><div class="p-num">8</div><div class="p-title">持续增长</div><div class="p-desc">数据复盘·策略迭代</div></div>
-  </div>
-</section>
+<!-- ==================== MODULE NAV ==================== -->
+<div class="module-nav" id="modules">
+  <a href="#m1">基础入门</a>
+  <a href="#m2">设备与账号</a>
+  <a href="#m3">内容方法论</a>
+  <a href="#m4">全链路流程</a>
+  <a href="#m5">案例拆解</a>
+  <a href="#m6">政策合规</a>
+  <a href="#m7">获客转化</a>
+  <a href="#m8">常见问题</a>
+  <a href="#tools">工具箱</a>
+  <a href="#news">外贸晨报</a>
+</div>
 
-<!-- Case Studies -->
-<section id="cases">
-  <div class="section-label">Case Studies</div>
-  <div class="section-title">他们已在全球市场领先</div>
-  <p class="section-desc">从重工机械到精密制造，真实可见的增长</p>
-  <div class="case-grid fade-up">
-    <div class="case-card">
-      <div class="case-header"><div class="brand">三一重工</div><div class="industry">重型机械</div></div>
-      <div class="case-body">
-        <div class="case-metric"><strong>30万+</strong> 粉丝</div>
-        <div class="case-metric"><strong>30万</strong> 单视频播放</div>
-        <p style="margin-top:14px;font-size:13px;color:var(--text-secondary);">全球工程机械巨头，通过TikTok建立品牌影响力矩阵</p>
+<!-- ==================== M1: 基础入门 ==================== -->
+<section id="m1">
+  <div class="container">
+    <div class="section-label">Module 1</div>
+    <div class="section-title">TikTok 外贸基础入门</div>
+    <p class="section-desc">如果你是第一次接触 TikTok 外贸，从这里开始。了解平台逻辑，看清行业大势。</p>
+
+    <div class="card fade-up">
+      <h3>📱 什么是 TikTok？为什么外贸工厂必须做？</h3>
+      <p>TikTok 是字节跳动旗下全球短视频平台，2017年上线，覆盖 <strong>150+ 国家和地区</strong>，支持 <strong>75+ 种语言</strong>，全球下载量超 <strong>57亿次</strong>，月活用户超 <strong>19亿</strong>。它是目前全球最活跃的短视频社交 App。</p>
+      <div class="info-box tip">
+        <strong>💡 关键认知</strong>
+        TikTok 不是"海外版抖音"，它是完全独立的全球产品。抖音服务中国市场，TikTok 覆盖全球。两者算法逻辑相似但运营策略完全不同。
       </div>
     </div>
-    <div class="case-card">
-      <div class="case-header"><div class="brand">海康威视</div><div class="industry">安防电子</div></div>
-      <div class="case-body">
-        <div class="case-metric"><strong>134万</strong> 单视频播放</div>
-        <div class="case-metric"><strong>15万+</strong> 粉丝</div>
-        <p style="margin-top:14px;font-size:13px;color:var(--text-secondary);">一条视频百万级曝光，精准触达海外采购决策者</p>
+
+    <div class="card fade-up">
+      <h3>🏭 外贸获客渠道演变：为什么现在是TikTok？</h3>
+      <div class="timeline">
+        <div class="timeline-item"><h4>外贸1.0 — 展会时代</h4><p>广交会、行业展会、地推拜访。成本高（单次展会18-30万），时效短（3-5天），覆盖有限。</p></div>
+        <div class="timeline-item"><h4>外贸2.0 — B2B平台时代</h4><p>阿里巴巴国际站、中国制造网。竞价排名，流量越来越贵，同质化严重。</p></div>
+        <div class="timeline-item"><h4>外贸3.0 — 搜索引擎+社媒时代</h4><p>Google SEO/SEM + Facebook + LinkedIn。专业门槛高，内容要求高。</p></div>
+        <div class="timeline-item"><h4>外贸4.0 — 短视频内容时代 ⚡ 现在</h4><p>TikTok 兴趣推荐算法，把中国工厂精准推给海外采购商。一条视频 = 365天在线展会。</p></div>
       </div>
     </div>
-    <div class="case-card">
-      <div class="case-header"><div class="brand">广东沐梵光电</div><div class="industry">LED / 透明显示</div></div>
-      <div class="case-body">
-        <div class="case-metric"><strong>87国</strong> 覆盖</div>
-        <div class="case-metric"><strong>173条</strong> 单视频询盘</div>
-        <p style="margin-top:14px;font-size:13px;color:var(--text-secondary);">一条57万播放视频 = 阿里国际站2个月有效询盘量</p>
+
+    <div class="card fade-up">
+      <h3>📊 关键数据：为什么TikTok是外贸最大蓝海？</h3>
+      <table class="tbl">
+        <tr><th>数据指标</th><th>数值</th><th>说明</th></tr>
+        <tr><td>#factory 播放量</td><td>100亿+</td><td>TikTok上工厂类内容总曝光</td></tr>
+        <tr><td>#tiktokmademebuyit</td><td>90亿+</td><td>用户因TikTok视频产生购买意愿</td></tr>
+        <tr><td>商家选择TikTok引流</td><td>49%</td><td>近半数跨境商家已在使用</td></tr>
+        <tr><td>用户愿直接联系B端工厂</td><td>21%</td><td>看到工厂视频后有意发起询盘</td></tr>
+        <tr><td>中小企业出海计划</td><td>Small Wins</td><td>TikTok官方推出扶持计划</td></tr>
+      </table>
+    </div>
+
+    <div class="card fade-up">
+      <h3>🔄 TikTok 独有优势：兴趣推荐的滚雪球效应</h3>
+      <p>TikTok 的核心威力在于<strong>"货找人"</strong>——它不是等人搜索，而是通过算法把你的工厂视频推给可能感兴趣的采购商。一个采购商看了你的视频 → 算法给相似的人推荐 → 更多人看到 → 更多人询盘 → 更多内容被算法加权 → 无限循环。</p>
+      <div class="info-box success">
+        <strong>✅ 亚马逊解决"卖货"（人找货），TikTok解决"被记住"（货找人）。两者互补，不是替代。</strong>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Contact -->
+<!-- ==================== M2: 设备与账号 ==================== -->
+<section id="m2">
+  <div class="container">
+    <div class="section-label">Module 2</div>
+    <div class="section-title">设备配置与账号搭建</div>
+    <p class="section-desc">正确的设备和账号设置是第一步。90%的新手在这里踩坑导致限流或封号。</p>
+
+    <div class="card fade-up">
+      <h3>📱 设备选择建议</h3>
+      <table class="tbl">
+        <tr><th>设备</th><th>推荐</th><th>原因</th></tr>
+        <tr><td>手机</td><td>iPhone 12 及以上</td><td>系统稳定，相机效果好，TikTok对iOS优化更好</td></tr>
+        <tr><td>网络</td><td>独立专线IP（5M起）</td><td>稳定的海外网络环境，避免频繁切换IP被判定异常</td></tr>
+        <tr><td>数量</td><td>1个账号=1台手机</td><td>一机一号，避免多账号关联封禁</td></tr>
+      </table>
+      <div class="info-box warn">
+        <strong>⚠️ 新手最常犯的错误</strong>
+        用普通VPN频繁切换节点 → 账号被标记 → 0播放/限流。一定要用独立专线IP，保持IP稳定。
+      </div>
+    </div>
+
+    <div class="card fade-up">
+      <h3>🔧 账号注册与设置清单</h3>
+      <ol>
+        <li><strong>注册方式</strong>：建议用 Gmail 或 Outlook 邮箱注册（不要用国内邮箱）</li>
+        <li><strong>生日设置</strong>：确保年龄 ≥ 18岁</li>
+        <li><strong>头像</strong>：用公司Logo或工厂实拍图</li>
+        <li><strong>Bio简介</strong>：用英文写清楚你是谁、做什么产品、为什么值得信任</li>
+        <li><strong>链接挂载</strong>：挂独立站链接、WhatsApp链接、Email</li>
+        <li><strong>Get Quote</strong>：开通询盘工具，这是B2B最重要的功能</li>
+        <li><strong>养号期</strong>：前3-5天正常刷视频、点赞评论，模拟真人行为后再发布</li>
+      </ol>
+    </div>
+
+    <div class="card fade-up">
+      <h3>🌐 多平台矩阵布局建议</h3>
+      <p>不要把鸡蛋放在一个篮子里。建议同步布局：</p>
+      <table class="tbl">
+        <tr><th>平台</th><th>作用</th><th>内容形式</th></tr>
+        <tr><td><strong>TikTok</strong></td><td>获客主战场，算法推荐精准</td><td>15-60秒短视频 + 直播</td></tr>
+        <tr><td><strong>YouTube</strong></td><td>深度内容沉淀，SEO长尾流量</td><td>3-10分钟产品/工厂介绍</td></tr>
+        <tr><td><strong>Facebook</strong></td><td>企业主页，客户案例展示</td><td>图文+视频+客户评价</td></tr>
+        <tr><td><strong>LinkedIn</strong></td><td>B2B决策者触达（80%B2B决策者活跃于此）</td><td>行业洞察+公司动态</td></tr>
+        <tr><td><strong>Instagram</strong></td><td>视觉展示，品牌调性</td><td>产品精修图+短视频</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== M3: 内容方法论 ==================== -->
+<section id="m3">
+  <div class="container">
+    <div class="section-label">Module 3</div>
+    <div class="section-title">内容创作方法论</div>
+    <p class="section-desc">B2B工厂内容的核心不是"拍得多好看"，而是"让采购商看完就想联系你"。</p>
+
+    <div class="card fade-up">
+      <h3>🎬 B2B工厂 6 大必拍场景</h3>
+      <table class="tbl">
+        <tr><th>场景</th><th>拍什么</th><th>传递什么信息</th></tr>
+        <tr><td>1. 企业主IP</td><td>创始人/老板出镜讲产品</td><td>真实可信、有责任感</td></tr>
+        <tr><td>2. 工厂规模</td><td>航拍全景+车间面积</td><td>规模实力、产能保障</td></tr>
+        <tr><td>3. 生产设备</td><td>机器运转+技术参数</td><td>技术能力、品质控制</td></tr>
+        <tr><td>4. 产品工艺</td><td>微距拍摄+加工流程</td><td>细节品质、工匠精神</td></tr>
+        <tr><td>5. 展厅/仓库</td><td>产品陈列+库存实拍</td><td>品类丰富、现货供应</td></tr>
+        <tr><td>6. 日常发货</td><td>装箱+物流+集装箱</td><td>真实出货、全球交付</td></tr>
+      </table>
+    </div>
+
+    <div class="card fade-up">
+      <h3>✍️ B2B短视频"黄金6秒"原则</h3>
+      <p>TikTok 的完播率决定推荐量。前6秒抓不住用户，后面内容再好也没人看。</p>
+      <div class="info-box tip">
+        <strong>💡 黄金6秒公式</strong>
+        第1秒：视觉效果冲击（火花四溅的焊接、高速运转的机器、震撼的航拍）<br>
+        第2-3秒：展示核心产品/工艺<br>
+        第4-6秒：暗示"还有更多"引导继续看
+      </div>
+    </div>
+
+    <div class="card fade-up">
+      <h3>📝 B2B文案公式（英文）</h3>
+      <table class="tbl">
+        <tr><th>要素</th><th>示例</th></tr>
+        <tr><td>Hook（钩子）</td><td>"How we make steel pipes in our China factory"</td></tr>
+        <tr><td>Value（价值）</td><td>"20 years experience, exported to 50+ countries"</td></tr>
+        <tr><td>CTA（行动号召）</td><td>"DM for price list" / "Click link in bio for quote"</td></tr>
+        <tr><td>Hashtags</td><td>#factory #manufacturing #steelpipe #chinafactory #[your industry]</td></tr>
+      </table>
+    </div>
+
+    <div class="card fade-up">
+      <h3>🎯 B2B vs B2C 内容策略差异</h3>
+      <table class="tbl">
+        <tr><th>维度</th><th>B2C（零售）</th><th>B2B（工厂批发）</th></tr>
+        <tr><td>目标用户</td><td>终端消费者</td><td>采购经理、进口商、批发商</td></tr>
+        <tr><td>核心卖点</td><td>颜值、价格、趣味</td><td>产能、品质、交期、认证</td></tr>
+        <tr><td>内容风格</td><td>娱乐化、潮流感</td><td>真实、专业、透明</td></tr>
+        <tr><td>转化路径</td><td>小黄车→直接下单</td><td>视频→私信→WhatsApp→谈判→成交</td></tr>
+        <tr><td>发布频率</td><td>每天1-3条</td><td>每天1-2条，贵在持续</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== M4: 全链路流程 ==================== -->
+<section id="m4">
+  <div class="container">
+    <div class="section-label">Module 4</div>
+    <div class="section-title">外贸全链路：从流量到交付</div>
+    <p class="section-desc">外贸不只是"拿订单"，而是一个完整的系统工程。理解全链路，才能把控每一个环节。</p>
+
+    <div class="card fade-up">
+      <h3>🔗 8 大核心环节</h3>
+      <div class="timeline">
+        <div class="timeline-item"><h4>① 市场洞察 & 账号基建</h4><p>目标市场分析 → 竞品调研 → 账号定位 → 设备搭建 → 独立站部署</p></div>
+        <div class="timeline-item"><h4>② 内容生产 & 矩阵搭建</h4><p>入企实拍 → 6大场景 → 脚本策划 → 多语种翻译 → 视频剪辑（200条/年）</p></div>
+        <div class="timeline-item"><h4>③ 流量获取 & 精准触达</h4><p>自然流算法推荐 → TikTok Ads 定向投放 → 直播引流 → 多平台分发</p></div>
+        <div class="timeline-item"><h4>④ 询盘获取 & 线索转化</h4><p>Get Quote → 评论区互动 → 私信 → WhatsApp/Email → SQL商机筛选</p></div>
+        <div class="timeline-item"><h4>⑤ 商务谈判 & 订单成交</h4><p>报价 → 打样 → 验厂 → PI合同 → TT/LC付款 → 多语种客服</p></div>
+        <div class="timeline-item"><h4>⑥ 跨境物流 & 关务交付</h4><p>生产排期 → 质检 → 报关 → 海运/空运/铁路 → 海外仓 → 尾程配送</p></div>
+        <div class="timeline-item"><h4>⑦ 收汇结算 & 资金回笼</h4><p>20+货币收款 → 合规结汇 → T+1回款 → 智能风控</p></div>
+        <div class="timeline-item"><h4>⑧ 售后服务 & 复购裂变</h4><p>客诉处理 → 定期回访 → 新品推荐 → 转介绍 → 品牌沉淀</p></div>
+      </div>
+    </div>
+
+    <div class="card fade-up">
+      <h3>📈 获客转化漏斗（从曝光到复购）</h3>
+      <table class="tbl">
+        <tr><th>层级</th><th>阶段</th><th>关键动作</th><th>参考转化率</th></tr>
+        <tr><td>1</td><td>内容曝光</td><td>视频推送到目标用户</td><td>100%（基准）</td></tr>
+        <tr><td>2</td><td>主页/独立站访问</td><td>点击头像或链接</td><td>3-5%</td></tr>
+        <tr><td>3</td><td>互动询盘</td><td>评论/私信/Get Quote</td><td>1-2%</td></tr>
+        <tr><td>4</td><td>SQL有效线索</td><td>8-12问筛选高意向</td><td>0.3-0.8%</td></tr>
+        <tr><td>5</td><td>样品/验厂</td><td>打样确认→信任建立</td><td>0.1-0.3%</td></tr>
+        <tr><td>6</td><td>成交订单</td><td>合同→定金→生产</td><td>0.05-0.15%</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== M5: 案例拆解 ==================== -->
+<section id="m5">
+  <div class="container">
+    <div class="section-label">Module 5</div>
+    <div class="section-title">行业案例深度拆解</div>
+    <p class="section-desc">真实案例，真实数据，来自时代风服务过的 500+ 企业。</p>
+
+    <div class="card fade-up">
+      <h3>🏗️ 案例一：三一重工 — 全球工程机械巨头</h3>
+      <p><span class="tag blue">重型机械</span><span class="tag green">品牌曝光</span></p>
+      <p>通过 TikTok 企业号矩阵运营，展示全球工程案例、设备实拍、技术实力。<strong>单视频最高30万播放，累计粉丝30万+。</strong></p>
+      <div class="info-box success"><strong>✅ 关键策略</strong> 不追求"爆款"，而是持续输出高质量内容建立品牌信任。工程机械客单价高、决策周期长，TikTok 的价值在于让采购商"提前认识你"。</div>
+    </div>
+
+    <div class="card fade-up">
+      <h3>📹 案例二：海康威视 — 安防电子龙头</h3>
+      <p><span class="tag blue">安防电子</span><span class="tag purple">爆款内容</span></p>
+      <p>产品应用场景实拍 + 技术细节展示。<strong>单视频播放量134万，粉丝15万+。</strong>一条视频带来的品牌曝光相当于一场中型展会的观众量。</p>
+    </div>
+
+    <div class="card fade-up">
+      <h3>💡 案例三：广东沐梵光电 — LED透明显示</h3>
+      <p><span class="tag blue">LED光电</span><span class="tag orange">高转化</span></p>
+      <p>专注展示透明LED屏在全球地标建筑的应用案例。<strong>一条57万播放视频，带来173条有效询盘</strong>——超过阿里国际站2个月的询盘总量，而成本不到展会的1/10。</p>
+      <div class="info-box tip"><strong>💡 启示</strong> 工业品B2B的"爆款"标准不同于消费品。57万播放对消费品不算高，但对B2B来说，播放精准（行业采购商看到）+ 高转化才是核心。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== M6: 政策合规 ==================== -->
+<section id="m6">
+  <div class="container">
+    <div class="section-label">Module 6</div>
+    <div class="section-title">平台政策与合规指南</div>
+    <p class="section-desc">政策变化快，合规是底线。不了解规则，辛苦做的账号可能一夜归零。</p>
+
+    <div class="card fade-up">
+      <h3>🇪🇺 欧盟合规要求（2026年7月已生效）</h3>
+      <table class="tbl">
+        <tr><th>法规</th><th>核心要求</th><th>影响</th></tr>
+        <tr><td>150欧以下包裹加税</td><td>3欧元/件固定关税</td><td>低客单价产品利润大幅压缩，必须考虑海外仓</td></tr>
+        <tr><td>CE/UKCA认证</td><td>电子电器、纺织品必须提交资质</td><td>无资质=无法上架，9月30日起存量商品将被下架</td></tr>
+        <tr><td>GPSR通用产品安全法规</td><td>平台为责任主体</td><td>TikTok Shop已强制要求全量资质核查</td></tr>
+      </table>
+    </div>
+
+    <div class="card fade-up">
+      <h3>🇺🇸 美国合规要求</h3>
+      <table class="tbl">
+        <tr><th>法规</th><th>核心要求</th><th>影响</th></tr>
+        <tr><td>CPSC eFiling</td><td>消费品合规证书清关前电子申报</td><td>$800以下小包同样在监管范围，无豁免</td></tr>
+        <tr><td>保证金新规</td><td>基础$1500+类目保证金+风险保证金</td><td>违规成本从"固定"变为"动态浮动"</td></tr>
+      </table>
+      <div class="info-box warn"><strong>⚠️ 重要提醒</strong> 2026年7月起，TikTok美区、欧盟区合规要求进入了"铁腕执法"阶段。不合规 = 货物扣关 + 店铺封禁 + 保证金扣除。建议每个出海工厂都配置专门的合规人员或委托专业服务商。</div>
+    </div>
+
+    <div class="card fade-up">
+      <h3>🛡️ TikTok 平台规则核心要点</h3>
+      <ol>
+        <li><strong>一机一号</strong>：一台设备只登一个TikTok账号，多账号共用设备会被关联封禁</li>
+        <li><strong>IP稳定</strong>：必须使用独立稳定的海外IP，频繁切换是限流的第一大原因</li>
+        <li><strong>内容原创</strong>：搬运/混剪内容会被降权，原创实拍才是正道</li>
+        <li><strong>AI内容标注</strong>：使用AI生成的内容必须在发布时标注"AI辅助创作"</li>
+        <li><strong>禁止多平台联播</strong>：同一场直播不能同时在多个平台播出</li>
+        <li><strong>直播拍卖=最终销售</strong>：买家不得因"改变主意"退货，仅质量问题可售后</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== M7: 获客转化 ==================== -->
+<section id="m7">
+  <div class="container">
+    <div class="section-label">Module 7</div>
+    <div class="section-title">获客转化 SQL 模型</div>
+    <p class="section-desc">流量不值钱，精准询盘才值钱。学会把"看视频的人"变成"给你打钱的人"。</p>
+
+    <div class="card fade-up">
+      <h3>🎯 SQL (Sales Qualified Lead) 商机模型</h3>
+      <p>传统的"有询盘就甩给业务员"效率极低。SQL模型通过 <strong>8-12个关键问题</strong> 在Get Quote环节就筛选出真正有采购意向的客户：</p>
+      <ol>
+        <li>What product are you interested in?（你对什么产品感兴趣？）</li>
+        <li>What quantity do you need?（你需要多少量？）</li>
+        <li>Which country will the goods ship to?（目的港是哪个国家？）</li>
+        <li>When do you need the goods?（你什么时候要货？）</li>
+        <li>Have you imported from China before?（你之前从中国进口过吗？）</li>
+        <li>What's your budget range?（你的预算范围？）</li>
+        <li>Do you have any certification requirements?（有认证要求吗？）</li>
+        <li>Would you like a sample first?（需要先打样吗？）</li>
+      </ol>
+      <div class="info-box success"><strong>✅ 效果</strong> 通过SQL筛选后，业务员跟进的不再是"泛流量"，而是有明确采购需求的高意向客户，转化效率提升3-5倍。</div>
+    </div>
+
+    <div class="card fade-up">
+      <h3>💬 从询盘到成交：WhatsApp 承接话术</h3>
+      <table class="tbl">
+        <tr><th>阶段</th><th>话术要点</th><th>示例</th></tr>
+        <tr><td>初次回复</td><td>快速响应（< 5分钟）+ 自我介绍</td><td>"Hi, thanks for your inquiry! I'm [name] from [factory]. We've been making [product] for [X] years..."</td></tr>
+        <tr><td>需求确认</td><td>追问关键信息，确认SQL</td><td>"Could you share the specifications/quantity/timeline you're looking for?"</td></tr>
+        <tr><td>价值展示</td><td>发工厂实拍图/视频+认证+客户案例</td><td>"Here's a video of our production line. We're ISO certified and have exported to [countries]."</td></tr>
+        <tr><td>推动成交</td><td>提供样品方案+限时报价</td><td>"We can send you a sample within 3 days. Our current lead time is X weeks — shall I prepare a PI?"</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== M8: FAQ ==================== -->
+<section id="m8">
+  <div class="container">
+    <div class="section-label">Module 8</div>
+    <div class="section-title">常见问题 FAQ</div>
+    <p class="section-desc">500+ 工厂最常问的问题，一次讲清楚。</p>
+
+    <div class="card fade-up">
+      <div class="faq-item open">
+        <div class="faq-q">Q: TikTok外贸多久能看到效果？</div>
+        <div class="faq-a">通常第1个月是基建期（账号搭建+养号+内容测试），第2-3个月进入优化期（算法逐步认识你的账号），<strong>第4个月起陆续会有稳定询盘</strong>。超过6个月无正向数据需要重新评估策略。B2B是长线生意，不要用消费品"爆单"的期待来衡量。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q: 我不会英语/没有外语团队怎么办？</div>
+        <div class="faq-a">三个方案：① 使用翻译工具（Google Translate + DeepL），TikTok本身支持75种语言自动翻译；② 使用AI配音工具给视频配外语旁白；③ 委托专业代运营团队（如时代风），从内容制作到询盘回复全包。现在技术条件下，语言不是障碍。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q: 一台手机、一个人能做吗？启动成本多少？</div>
+        <div class="faq-a">可以，但效果有限。最低配置：二手iPhone 12（约2000元）+ 海外专线网络（约100元/月）+ 每天1小时拍视频 = 每月不到500元成本。但一个人的产出有限（月产20-30条视频），且缺乏多语种、投流、数据分析等专业能力。建议先个人试水1-2个月，验证产品有市场后再扩大投入。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q: 找代运营和自己做，怎么选？</div>
+        <div class="faq-a">问自己三个问题：① 有稳定产出内容的时间和团队吗？② 身边有懂TikTok算法和用户心理的人吗？③ 能接受前3个月可能无明显效果吗？<strong>如果三个答案都是"否"，找靠谱代运营更划算。</strong>一年3-8万的代运营费用，远低于自建团队35-70万/年的人力成本，也低于一次海外展会18-30万的费用。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q: 什么产品适合做TikTok B2B？</div>
+        <div class="faq-a"><strong>几乎所有工业品都适合，但效果最好的几类：</strong>① 机械设备（有视觉冲击力，生产过程本身就吸引人）；② 建材五金（应用场景广泛，容易拍）；③ 电子元器件（精密制造展示技术实力）；④ 汽车零部件（全球需求量大）；⑤ 包装印刷（展示多样性和定制能力）。关键不是产品类型，而是<strong>有没有把生产过程拍出"解压感"和"专业度"</strong>。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q: TikTok账号被封了怎么办？</div>
+        <div class="faq-a">先判断原因：① 网络环境问题（最常见）→ 换专线IP重新注册；② 内容违规（搬运、侵权）→ 申诉+整改；③ 多账号关联 → 彻底隔离设备。预防 > 补救：<strong>严格一机一号一IP、内容100%原创、不要买粉刷数据。</strong>账号归属权要写进服务合同（时代风标准合同约定账号归甲方所有）。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TOOLS ==================== -->
+<section id="tools">
+  <div class="container">
+    <div class="section-label">Resources</div>
+    <div class="section-title">外贸资源工具箱</div>
+    <p class="section-desc">我们筛选的实用工具，提高效率、降低成本。</p>
+
+    <div class="card fade-up">
+      <h3>🛠️ 工具推荐清单</h3>
+      <table class="tbl">
+        <tr><th>类别</th><th>工具</th><th>用途</th><th>费用</th></tr>
+        <tr><td>翻译</td><td>DeepL / Google Translate</td><td>多语种文案翻译</td><td>免费/付费</td></tr>
+        <tr><td>剪辑</td><td>CapCut（剪映海外版）</td><td>TikTok官方推荐剪辑工具</td><td>免费</td></tr>
+        <tr><td>设计</td><td>Canva</td><td>封面图+产品图设计</td><td>免费/Pro</td></tr>
+        <tr><td>数据分析</td><td>TikTok Analytics /  Kalodata</td><td>账号数据+竞品分析</td><td>免费/付费</td></tr>
+        <tr><td>独立站</td><td>Shopify</td><td>品牌独立站搭建</td><td>$29/月起</td></tr>
+        <tr><td>客户管理</td><td>WhatsApp Business / HubSpot</td><td>客户沟通+CRM管理</td><td>免费</td></tr>
+        <tr><td>支付收款</td><td>连连 / 万里汇 / Payoneer</td><td>跨境收款+合规结汇</td><td>按比例</td></tr>
+        <tr><td>物流查询</td><td>17TRACK / 快递100</td><td>国际物流轨迹追踪</td><td>免费</td></tr>
+      </table>
+    </div>
+
+    <div class="card fade-up">
+      <h3>📋 外贸必备文档模板</h3>
+      <ul>
+        <li><strong>PI（形式发票）模板</strong> — 客户确认订单后第一时间发出的标准文件</li>
+        <li><strong>报价单模板</strong> — FOB/CIF/DDP 不同贸易术语的标准报价格式</li>
+        <li><strong>验厂Checklist</strong> — 客户验厂前需要准备的文件和现场清单</li>
+        <li><strong>出口报关单证清单</strong> — 商检、报关、原产地证等全套文件列表</li>
+        <li><strong>客户跟进SOP</strong> — 从询盘到成交的标准化跟进流程</li>
+      </ul>
+      <p style="font-size:13px;color:var(--text-tertiary);margin-top:8px;">📩 以上模板可联系我们免费获取</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== NEWS ==================== -->
+<section id="news">
+  <div class="container">
+    <div class="section-label">Daily Briefing</div>
+    <div class="section-title">今日外贸晨报</div>
+    <p class="section-desc">2026年7月30日 · 最新外贸与TikTok政策动态</p>
+
+    <div class="card fade-up">
+      <h3>📊 上半年外贸数据</h3>
+      <p>2026年上半年进出口总值<strong>25.47万亿元</strong>，同比增长 <strong>16.9%</strong>，历史同期首破25万亿。出口14.73万亿（+13.4%），民企贡献近6成增量。机电产品出口9.36万亿（+20.1%），高技术产品出口3.26万亿（+39%）。</p>
+    </div>
+
+    <div class="card fade-up">
+      <h3>📋 TikTok 7月重大政策</h3>
+      <ul>
+        <li>🇪🇺 <strong>欧盟电子电器/纺织品合规今日生效</strong>（7月30日）：新品上架必须提交CE/UKCA资质</li>
+        <li>🇺🇸 <strong>美区保证金升级三级架构</strong>：基础$1500+类目保证金+风险浮动保证金</li>
+        <li>🇪🇺 <strong>8个欧洲新站点开放入驻</strong>：波兰、荷兰、比利时、捷克等</li>
+        <li>🌏 <strong>东南亚跨境结算优化</strong>：运费补贴3个自然日内结算</li>
+      </ul>
+    </div>
+
+    <div class="card fade-up">
+      <h3>🔥 行业趋势速递</h3>
+      <ul>
+        <li>"厂播"全面爆发：石家庄780+企业开播，敬业集团200个账号矩阵，线上年销售2.84亿</li>
+        <li>"新新三样"（AI、机器人、创新药）成出口新名片，机器人出口62.9亿元（+18.6%）</li>
+        <li>智能制造+社媒获客成为外贸增长双引擎</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
 <section id="contact">
-  <div class="section-label">Get In Touch</div>
-  <div class="section-title">开启你的全球化之旅</div>
-  <p class="section-desc">留下信息，我们24小时内与你联系</p>
-
-  <div class="contact-grid fade-up">
-    <!-- Contact Info -->
-    <div class="contact-info">
-      <h3>📞 联系方式</h3>
-      <p style="font-size:13px;color:var(--text-secondary);margin-top:-12px;">点击即可复制</p>
-      <div class="contact-item" onclick="copyText('138-xxxx-xxxx')">
-        <div class="ci-icon">📱</div>
-        <div>
-          <div class="ci-label">手机 / 微信</div>
-          <div class="ci-value">138-xxxx-xxxx</div>
-        </div>
+  <div class="container">
+    <div class="section-label">Get In Touch</div>
+    <div class="section-title">开始你的全球化之旅</div>
+    <p class="section-desc">不管你是准备启动，还是已经在做但效果不理想，我们帮你诊断。</p>
+    <div class="contact-row fade-up">
+      <div class="contact-card" onclick="copyText('138-xxxx-xxxx')">
+        <div class="cc-icon">📱</div>
+        <div class="cc-label">点击复制手机号 / 微信</div>
+        <div class="cc-val">138-xxxx-xxxx</div>
       </div>
-      <div class="contact-item" onclick="copyText('info@shidaifeng.com')">
-        <div class="ci-icon">✉️</div>
-        <div>
-          <div class="ci-label">电子邮箱</div>
-          <div class="ci-value">info@shidaifeng.com</div>
-        </div>
+      <div class="contact-card" onclick="copyText('info@shidaifeng.com')">
+        <div class="cc-icon">✉️</div>
+        <div class="cc-label">点击复制邮箱</div>
+        <div class="cc-val">info@shidaifeng.com</div>
       </div>
-      <div class="contact-item" onclick="copyText('河北时代风科技集团')">
-        <div class="ci-icon">📍</div>
-        <div>
-          <div class="ci-label">公司地址</div>
-          <div class="ci-value">河北省石家庄市</div>
-        </div>
-      </div>
-      <p style="font-size:11px;color:var(--text-tertiary);text-align:center;margin-top:4px;">
-        周一至周五 9:00 - 18:00
-      </p>
     </div>
-
-    <!-- Contact Form -->
-    <div class="contact-form">
-      <h3>快速咨询</h3>
-      <form id="contactForm" onsubmit="handleSubmit(event)">
-        <div class="form-group">
-          <label>姓名 *</label>
-          <input type="text" placeholder="您的姓名" required>
-        </div>
-        <div class="form-group">
-          <label>手机号 / 微信号 *</label>
-          <input type="text" placeholder="方便我们联系您" required>
-        </div>
-        <div class="form-group">
-          <label>公司名称</label>
-          <input type="text" placeholder="您的公司名称">
-        </div>
-        <div class="form-group">
-          <label>关注领域</label>
-          <select>
-            <option>TikTok海外获客</option>
-            <option>抖音国内获客</option>
-            <option>双端获客（国内+海外）</option>
-            <option>工厂直播方案</option>
-            <option>其他咨询</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>留言</label>
-          <textarea rows="2" placeholder="简单描述您的产品和需求（可选）"></textarea>
-        </div>
-        <button type="submit" class="form-submit">提交咨询 →</button>
-      </form>
-      <p style="font-size:11px;color:var(--text-tertiary);text-align:center;margin-top:10px;">
-        提交后我们将在 24 小时内与您联系
-      </p>
-    </div>
+    <p style="text-align:center;margin-top:24px;font-size:13px;color:var(--text-tertiary);">📍 河北 · 石家庄 &nbsp;|&nbsp; 🕐 周一至周五 9:00-18:00 &nbsp;|&nbsp; 24小时内回复</p>
   </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-  <div class="section-label">Let's Build</div>
-  <h2 style="font-size:clamp(28px, 5vw, 48px);font-weight:700;letter-spacing:-1px;margin-bottom:16px;">让世界看到<br>你的工厂</h2>
-  <p style="font-size:17px;color:var(--text-secondary);margin-bottom:32px;">从今天开始，每天都有海外客户找到你</p>
-  <a href="#contact" class="btn-primary" style="font-size:17px;padding:16px 36px;">立即咨询 →</a>
 </section>
 
 <footer>
-  <span>© 2026 河北时代风科技集团</span>
-  <span>TikTok Shop 官方全托管招商合作伙伴</span>
-  <span>中国欧洲经济技术合作协会 副理事长单位</span>
+  <div>© 2026 河北时代风科技集团 · TikTok官方认证服务商 · 中国欧洲经济技术合作协会副理事长单位</div>
+  <div style="margin-top:4px;">国内赋能 · 跨境链接 · 助力中国品牌全球增长</div>
 </footer>
 
 <script>
   // Scroll animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
   // Smooth scroll
@@ -470,11 +646,11 @@
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const target = document.querySelector(link.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 
-  // Copy to clipboard
+  // Copy
   function copyText(text) {
     navigator.clipboard.writeText(text).then(() => {
       const toast = document.getElementById('toast');
@@ -483,40 +659,21 @@
     });
   }
 
-  // Form submission
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.form-submit');
-    btn.textContent = '已提交 ✓';
-    btn.style.background = '#34c759';
-    setTimeout(() => { btn.textContent = '提交咨询 →'; btn.style.background = ''; }, 2500);
-  }
-
-  // Glass morphism mouse tracking on feature cards
-  document.querySelectorAll('.feature-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-      card.style.setProperty('--mx', x + '%');
-      card.style.setProperty('--my', y + '%');
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.setProperty('--mx', '50%');
-      card.style.setProperty('--my', '50%');
+  // FAQ toggle
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      item.classList.toggle('open');
     });
   });
 
-  // Glass morphism mouse tracking on case cards
-  document.querySelectorAll('.case-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-      card.style.background = `radial-gradient(ellipse at ${x}% ${y}%, rgba(0,113,227,0.06) 0%, rgba(255,255,255,0.72) 60%)`;
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.background = '';
+  // Active nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.module-nav a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
     });
   });
 </script>
