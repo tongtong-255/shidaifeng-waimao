@@ -6,148 +6,161 @@
 <meta name="description" content="王嘉豪 · 帮助中国制造企业通过 TikTok 和海外社媒连接全球市场">
 <title>王嘉豪 · 中国制造出海顾问</title>
 <style>
-  :root{
-    --cream:#faf8f5;--warm:#f5f0ea;--white:#fffdfa;--text:#2c2416;--t2:#6b5e4f;
-    --t3:#a89880;--accent:#c77d4b;--ah:#b06a38;--glow:rgba(199,125,75,0.18);
-    --card:rgba(255,253,250,0.7);--cardH:rgba(255,253,250,0.94);
-    --border:rgba(0,0,0,0.05);--borderH:rgba(0,0,0,0.1);
-    --g1:linear-gradient(135deg,#c77d4b 0%,#d4a574 100%);
-    --g2:linear-gradient(135deg,#b5653e 0%,#d4845a 100%);
-    --g3:linear-gradient(135deg,#8b7e6a 0%,#a89880 100%);
-    --mesh:radial-gradient(ellipse 70% 50% at 50% -10%,rgba(199,125,75,0.06),transparent),
-           radial-gradient(ellipse 50% 40% at 80% 80%,rgba(181,101,62,0.04),transparent);
-    --radius:20px;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif;
-    background:var(--cream);color:var(--text);line-height:1.6;overflow-x:hidden;
-  }
-  .w{max-width:720px;margin:0 auto;padding:0 24px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif;color:#1d1d1f;line-height:1.5}
 
-  nav{
-    position:sticky;top:0;z-index:100;height:52px;display:flex;align-items:center;
-    justify-content:space-between;padding:0 24px;
-    backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);
-    background:rgba(250,248,245,0.72);border-bottom:1px solid var(--border);
-  }
-  nav .nl{font-weight:650;font-size:15px;letter-spacing:-0.3px}
-  nav .nr{display:flex;gap:20px;align-items:center}
-  nav .nr a{font-size:13px;color:var(--t2);text-decoration:none;font-weight:500;transition:color 0.15s}
-  nav .nr a:hover{color:var(--text)}
-  nav .cta{background:var(--accent);color:#fff;border:none;padding:7px 16px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.2s}
-  nav .cta:hover{background:var(--ah);box-shadow:0 0 18px var(--glow)}
+/* Nav */
+nav{position:sticky;top:0;z-index:100;height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(255,255,255,0.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.08)}
+nav .nl{font-weight:600;font-size:14px}
+nav .nr{display:flex;gap:20px;align-items:center}
+nav .nr a{font-size:12px;color:#6e6e73;text-decoration:none;transition:color 0.15s}
+nav .nr a:hover{color:#1d1d1f}
+.dark-nav{background:rgba(0,0,0,0.8)!important;border-bottom:1px solid rgba(255,255,255,0.08)!important}
+.dark-nav .nl{color:#f5f5f7!important}
+.dark-nav .nr a{color:#a1a1a6!important}
+.dark-nav .nr a:hover{color:#f5f5f7!important}
 
-  section{padding:80px 0}
+/* Section base */
+section{padding:120px 24px}
+.sec-w{max-width:880px;margin:0 auto}
 
-  .eyebrow{font-size:11px;font-weight:600;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:12px}
-  h2{font-size:clamp(28px,5vw,38px);font-weight:700;letter-spacing:-0.5px;line-height:1.15;margin-bottom:12px}
-  h3{font-size:18px;font-weight:650;letter-spacing:-0.3px;margin-bottom:8px}
-  h4{font-size:15px;font-weight:600;margin:22px 0 6px}
-  p{color:var(--t2);line-height:1.75;margin-bottom:12px}
-  strong{color:var(--text);font-weight:600}
-  ul,ol{padding-left:20px;margin:8px 0 16px;color:var(--t2);line-height:1.8}
-  li{margin-bottom:3px}
+/* Dark section */
+.dark{background:#000;color:#f5f5f7}
+.dark h2,.dark h3,.dark h4,.dark .eyebrow,.dark strong{color:#f5f5f7}
+.dark p,.dark li,.dark td{color:#a1a1a6}
+.dark .eyebrow{color:#86868b}
 
-  /* Glass card - warm */
-  .gcard{
-    background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-    border:1px solid var(--border);border-radius:var(--radius);padding:28px;
-    transition:all 0.45s cubic-bezier(0.16,1,0.3,1);margin-bottom:14px;position:relative;overflow:hidden;
-  }
-  .gcard::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--g1);opacity:0;transition:opacity 0.45s}
-  .gcard:hover{background:var(--cardH);border-color:var(--borderH);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.05)}
-  .gcard:hover::before{opacity:1}
+/* Light section */
+.light{background:#fbfbfd}
+.light2{background:#fff}
 
-  /* Tables */
-  .tbl{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0 20px;border-radius:14px;overflow:hidden;border:1px solid var(--border)}
-  .tbl th{text-align:left;padding:10px 14px;font-size:11px;font-weight:600;color:var(--t3);letter-spacing:0.8px;text-transform:uppercase;background:rgba(0,0,0,0.015)}
-  .tbl td{padding:12px 14px;border-top:1px solid var(--border);color:var(--t2);line-height:1.6}
+/* Typography */
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+h2{font-size:clamp(36px,6vw,64px);font-weight:600;letter-spacing:-1.5px;line-height:1.08;margin-bottom:20px}
+h3{font-size:24px;font-weight:600;letter-spacing:-0.5px;margin-bottom:10px}
+h4{font-size:17px;font-weight:600;margin:20px 0 6px}
+p{line-height:1.7;margin-bottom:12px}
+strong{font-weight:600}
+ul,ol{padding-left:22px;margin:10px 0 18px;line-height:1.8}
+li{margin-bottom:4px}
+a{color:inherit}
 
-  .note{padding:18px 22px;margin:20px 0;border-radius:16px;font-size:14px;line-height:1.7;color:var(--t2);border:1px solid}
-  .note.tip{background:rgba(199,125,75,0.05);border-color:rgba(199,125,75,0.14)}
-  .note.warn{background:rgba(220,80,60,0.04);border-color:rgba(220,80,60,0.12)}
-  .note strong{display:block;margin-bottom:3px;font-size:13px;color:var(--text)}
+/* Apple cards */
+.apple-card{border-radius:20px;padding:40px;transition:all 0.3s}
+.apple-card-dark{background:#1a1a1a}
+.apple-card-dark:hover{background:#222}
+.apple-card-light{background:#fff;border:1px solid #e8e8ed}
+.apple-card-light:hover{box-shadow:0 4px 24px rgba(0,0,0,0.06)}
 
-  /* Timeline */
-  .tl{padding-left:20px;border-left:1px solid #e5ddd3;margin:14px 0 6px}
-  .tl-i{position:relative;margin-bottom:18px;padding-left:20px}
-  .tl-i::before{content:'';position:absolute;left:-27px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
-  .tl-i h4{font-size:15px;font-weight:600;margin:0 0 2px}
-  .tl-i p{font-size:14px;color:var(--t2);margin:0}
+/* Module grid */
+.mod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:32px 0}
+.mod-grid a{background:#1a1a1a;border-radius:16px;padding:28px 20px;text-decoration:none;color:#f5f5f7;transition:all 0.3s;display:block}
+.mod-grid a:hover{background:#252525;transform:scale(1.02)}
+.mod-grid a .mn{font-size:10px;color:#86868b;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.mod-grid a .mt{font-size:16px;font-weight:600;margin-bottom:4px}
+.mod-grid a .md{font-size:12px;color:#a1a1a6;line-height:1.4}
 
-  .faq{border-bottom:1px solid var(--border);cursor:pointer}
-  .faq-q{padding:18px 0;font-weight:550;font-size:15px;display:flex;justify-content:space-between;align-items:center;user-select:none;transition:color 0.15s}
-  .faq-q:hover{color:var(--accent)}
-  .faq-q::after{content:'+';font-size:20px;font-weight:300;color:var(--t3);transition:transform 0.25s}
-  .faq.open .faq-q::after{content:'−'}
-  .faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s;font-size:14px;color:var(--t2);line-height:1.7}
-  .faq.open .faq-a{max-height:500px;padding-bottom:18px}
+/* Service grid */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
 
-  .tag{display:inline-block;padding:2px 10px;border-radius:10px;font-size:11px;font-weight:600;margin-right:6px}
-  .tag.b{background:rgba(199,125,75,0.08);color:var(--accent)}
-  .tag.g{background:rgba(139,126,106,0.1);color:#6b5e4f}
+/* Belief grid */
+.belief-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:32px 0}
 
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+/* Daily card */
+.daily-card{background:#1a1a1a;border-radius:20px;padding:32px 40px;margin:32px 0}
+.daily-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 32px;font-size:14px;line-height:1.7}
 
-  /* Module index */
-  .mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}
-  .mgrid a{
-    background:var(--card);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-    border:1px solid var(--border);border-radius:18px;padding:22px 18px;
-    text-decoration:none;color:var(--text);transition:all 0.4s cubic-bezier(0.16,1,0.3,1);
-  }
-  .mgrid a:hover{background:var(--cardH);border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,0.05)}
-  .mgrid a .mn{font-size:10px;color:var(--t3);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:8px}
-  .mgrid a .mt{font-size:15px;font-weight:650;margin-bottom:2px}
-  .mgrid a .md{font-size:12px;color:var(--t2);line-height:1.4}
+/* Stats */
+.stats{display:flex;gap:48px;flex-wrap:wrap;margin:28px 0}
+.stats .sn{font-size:56px;font-weight:600;letter-spacing:-2px;line-height:1}
+.stats .sl{font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-top:6px}
 
-  .sr{display:flex;gap:40px;flex-wrap:wrap;margin:24px 0}
-  .sr-n{font-size:44px;font-weight:700;letter-spacing:-1px;line-height:1}
-  .sr-l{font-size:10px;color:var(--t3);letter-spacing:1.5px;text-transform:uppercase;margin-top:6px}
+/* Tables */
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin:16px 0 24px}
+.tbl th{text-align:left;padding:12px 16px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,0.1)}
+.tbl td{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,0.05);line-height:1.6}
+.light .tbl th{border-bottom-color:#e5e5e5;color:#86868b}
+.light .tbl td{border-bottom-color:#f0f0f0;color:#555}
 
-  .btn{display:inline-block;padding:14px 28px;border-radius:28px;font-size:15px;font-weight:600;text-decoration:none;transition:all 0.25s;letter-spacing:-0.2px}
-  .btn-p{background:var(--accent);color:#fff}
-  .btn-p:hover{background:var(--ah);box-shadow:0 0 32px var(--glow);transform:translateY(-1px)}
-  .btn-o{background:transparent;color:var(--text);border:1px solid var(--border)}
-  .btn-o:hover{border-color:var(--accent);background:var(--cardH)}
+/* Info callout */
+.note{padding:18px 24px;margin:20px 0;border-radius:14px;font-size:14px;line-height:1.7;border-left:3px solid}
+.dark .note{background:rgba(255,255,255,0.04)}
+.dark .note.tip{border-left-color:#2997ff}
+.dark .note.warn{border-left-color:#ff453a}
+.light .note{background:#f5f5f7}
+.light .note.tip{border-left-color:#0071e3}
+.light .note.warn{border-left-color:#e55}
+.note strong{display:block;margin-bottom:4px;font-size:13px}
 
-  .ct{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
-  .ct-i{
-    background:var(--card);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-    border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;
-    cursor:pointer;transition:all 0.4s;
-  }
-  .ct-i:hover{border-color:var(--accent);background:var(--cardH);box-shadow:0 4px 24px var(--glow);transform:translateY(-2px)}
-  .ct-i .cv{font-size:18px;font-weight:650}
-  .ct-i .cl{font-size:11px;color:var(--t3);letter-spacing:0.5px;margin-top:4px}
+/* Timeline */
+.tl{padding-left:20px;border-left:1px solid rgba(255,255,255,0.15);margin:16px 0}
+.light .tl{border-left-color:#d5d5d8}
+.tl-i{position:relative;margin-bottom:20px;padding-left:22px}
+.tl-i::before{content:'';position:absolute;left:-28px;top:8px;width:10px;height:10px;border-radius:50%}
+.dark .tl-i::before{background:#2997ff}
+.light .tl-i::before{background:#0071e3}
+.tl-i h4{font-size:16px;font-weight:600;margin:0 0 3px}
+.tl-i p{font-size:14px;margin:0}
 
-  .profile{display:flex;align-items:flex-start;gap:18px}
-  .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#e8ddd0,#f0e8dc);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;color:var(--accent);flex-shrink:0}
+/* FAQ */
+.faq{border-bottom:1px solid rgba(255,255,255,0.08);cursor:pointer}
+.light .faq{border-bottom-color:#e8e8ed}
+.faq-q{padding:20px 0;font-size:16px;font-weight:500;display:flex;justify-content:space-between;align-items:center;user-select:none;transition:color 0.15s}
+.dark .faq-q:hover{color:#2997ff}
+.light .faq-q:hover{color:#0071e3}
+.faq-q::after{content:'+';font-size:22px;font-weight:300}
+.dark .faq-q::after{color:#86868b}
+.light .faq-q::after{color:#aeaeb2}
+.faq.open .faq-q::after{content:'−'}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s;font-size:15px;line-height:1.7}
+.dark .faq-a{color:#a1a1a6}
+.light .faq-a{color:#6e6e73}
+.faq.open .faq-a{max-height:500px;padding-bottom:20px}
 
-  .bg-sub{background:var(--warm)}
-  footer{padding:36px 24px;border-top:1px solid var(--border);font-size:12px;color:var(--t3);text-align:center;line-height:2}
+.tag{display:inline-block;padding:3px 10px;border-radius:8px;font-size:11px;font-weight:500;margin-right:6px}
+.dark .tag{background:rgba(255,255,255,0.08);color:#a1a1a6}
+.light .tag{background:#f0f0f0;color:#6e6e73}
 
-  .fade-up{opacity:0;transform:translateY(20px);transition:all 0.6s cubic-bezier(0.16,1,0.3,1)}
-  .fade-up.on{opacity:1;transform:translateY(0)}
+/* Profile */
+.profile{display:flex;align-items:flex-start;gap:20px}
+.avatar{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700;flex-shrink:0}
+.dark .avatar{background:#1a1a1a;color:#86868b}
+.light .avatar{background:#f0f0f0;color:#999}
 
-  @media(max-width:640px){
-    section{padding:56px 0}
-    h2{font-size:26px}
-    .grid2,.grid3,.mgrid{grid-template-columns:1fr 1fr}
-    .ct{grid-template-columns:1fr}
-    .sr{gap:24px}
-    .sr-n{font-size:32px}
-    .profile{flex-direction:column}
-    nav .nr a:not(.cta){display:none}
-  }
+/* CTAs */
+.btn{display:inline-block;padding:14px 32px;border-radius:28px;font-size:16px;font-weight:500;text-decoration:none;transition:all 0.25s;letter-spacing:-0.2px}
+.btn-d{background:#f5f5f7;color:#000}
+.btn-d:hover{background:#fff}
+.btn-l{background:#000;color:#fff}
+.btn-l:hover{background:#1d1d1f}
+.btn-o{background:transparent;color:#2997ff;border:1px solid #2997ff}
+.btn-o:hover{background:#2997ff;color:#fff}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.contact-item{background:#1a1a1a;border-radius:20px;padding:28px;text-align:center;cursor:pointer;transition:all 0.3s}
+.contact-item:hover{background:#222;transform:scale(1.02)}
+.contact-item .cv{font-size:20px;font-weight:600;color:#f5f5f7}
+.contact-item .cl{font-size:12px;color:#86868b;margin-top:6px}
+
+footer{padding:32px 24px;text-align:center;font-size:12px;color:#6e6e73;line-height:2;border-top:1px solid #e8e8ed}
+
+@media(max-width:768px){
+  section{padding:72px 20px}
+  h2{font-size:32px}
+  .mod-grid{grid-template-columns:1fr 1fr}
+  .svc-grid,.belief-grid{grid-template-columns:1fr}
+  .daily-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .stats{gap:28px}
+  .stats .sn{font-size:40px}
+  nav .nr a:not(:last-child){display:none}
+}
 </style>
 </head>
 <body>
 
-<nav>
+<nav id="navbar">
   <div class="nl">王嘉豪</div>
   <div class="nr">
     <a href="#daily">晨报</a>
@@ -155,326 +168,299 @@
     <a href="#services">服务</a>
     <a href="#knowledge">知识库</a>
     <a href="#about">关于</a>
-    <a href="#contact" class="cta">联系</a>
+    <a href="#contact">联系</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<section style="padding:56px 0 40px;background:var(--mesh);position:relative;overflow:hidden">
-  <div class="w" style="position:relative;z-index:1">
-    <div class="profile" style="margin-bottom:36px">
+<!-- ==================== HERO - DARK ==================== -->
+<section class="dark" style="padding:80px 24px 80px">
+  <div class="sec-w">
+    <div class="profile" style="margin-bottom:40px">
       <div class="avatar">王</div>
       <div>
-        <p style="font-size:14px;color:var(--t2);margin:0;font-weight:500">王嘉豪</p>
-        <p style="font-size:13px;color:var(--t3);margin:2px 0 0">中国制造出海顾问 · 河北石家庄</p>
-        <p style="font-size:13px;color:var(--t3);margin:0"><a href="tel:19933103902" style="color:var(--accent);text-decoration:none">19933103902</a></p>
+        <p style="font-size:16px;color:#f5f5f7;margin:0;font-weight:500">王嘉豪</p>
+        <p style="font-size:14px;color:#86868b;margin:2px 0 0">中国制造出海顾问 · 河北石家庄</p>
+        <p style="font-size:14px;color:#86868b;margin:0">19933103902</p>
       </div>
     </div>
-
-    <h1 style="font-size:clamp(36px,6vw,56px);font-weight:700;letter-spacing:-1px;line-height:1.08;margin-bottom:16px">
-      帮助中国制造企业<br>
-      <span style="background:var(--g1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">连接全球市场</span>
+    <h1 style="font-size:clamp(44px,8vw,80px);font-weight:600;letter-spacing:-2px;line-height:1.05;margin-bottom:20px;color:#f5f5f7">
+      帮助中国制造<br>连接全球市场
     </h1>
-    <p style="font-size:18px;color:var(--t2);max-width:480px;line-height:1.7;margin-bottom:12px">
-      通过 TikTok 海外营销、社媒运营和数字化获客体系，让海外采购商主动找到你。
+    <p style="font-size:clamp(17px,2.5vw,22px);color:#a1a1a6;max-width:560px;line-height:1.6;margin-bottom:12px">
+      通过 TikTok 海外营销、社媒运营和数字化获客体系，让海外采购商主动找到你的工厂。
     </p>
-
-    <div class="sr">
-      <div><div class="sr-n" style="color:var(--accent)">500+</div><div class="sr-l">服务企业</div></div>
-      <div><div class="sr-n" style="background:var(--g2);-webkit-background-clip:text;-webkit-text-fill-color:transparent">$10亿+</div><div class="sr-l">客户 GMV</div></div>
-      <div><div class="sr-n" style="background:var(--g3);-webkit-background-clip:text;-webkit-text-fill-color:transparent">80+</div><div class="sr-l">覆盖国家</div></div>
+    <div class="stats">
+      <div><div class="sn" style="color:#2997ff">500+</div><div class="sl" style="color:#86868b">服务企业</div></div>
+      <div><div class="sn" style="color:#f5f5f7">$10亿+</div><div class="sl" style="color:#86868b">客户 GMV</div></div>
+      <div><div class="sn" style="color:#f5f5f7">80+</div><div class="sl" style="color:#86868b">覆盖国家</div></div>
     </div>
-
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
-      <a href="#knowledge" class="btn btn-p">浏览知识库 →</a>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px">
+      <a href="#knowledge" class="btn btn-d">浏览知识库</a>
       <a href="#about" class="btn btn-o">了解更多</a>
     </div>
   </div>
 </section>
 
-<!-- DAILY BRIEFING -->
-<section id="daily" style="padding:32px 0 48px">
-  <div class="w">
-    <div style="background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
-        <span style="font-size:11px;font-weight:600;letter-spacing:2px;color:var(--accent);text-transform:uppercase">今日外贸晨报</span>
-        <span style="font-size:12px;color:var(--t3)">2026.07.31</span>
+<!-- ==================== DAILY - LIGHT ==================== -->
+<section id="daily" class="light" style="padding:56px 24px">
+  <div class="sec-w">
+    <div class="daily-card">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+        <span style="font-size:11px;font-weight:600;letter-spacing:2px;color:#2997ff;text-transform:uppercase">今日外贸晨报</span>
+        <span style="font-size:13px;color:#86868b">2026.07.31</span>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;font-size:13px;color:var(--t2);line-height:1.7">
-        <div>📊 上半年进出口总值 <strong>25.47万亿</strong>（+16.9%），机电产品出口增 20.1%</div>
-        <div>🇪🇺 欧盟 CE/UKCA 合规已生效，9月30日前存量须补齐资质</div>
-        <div>🇺🇸 TikTok 美区保证金新规：最高 $10,000 浮动</div>
-        <div>🔥 河北"厂播"爆发：AI 虚拟主播 24h 直播成新趋势</div>
-        <div>🤖 新新三样（AI/机器人/创新药）出口占比持续攀升</div>
-        <div>🌏 TikTok 欧洲 8 个新站点开放：波兰、荷兰、比利时等</div>
+      <div class="daily-grid">
+        <div>📊 上半年进出口 <strong>25.47万亿</strong>（+16.9%），机电产品出口增 20.1%</div>
+        <div>🇪🇺 欧盟 CE/UKCA 合规已生效，9月30日前存量须补齐</div>
+        <div>🇺🇸 美区保证金新规：最高 $10,000 浮动</div>
+        <div>🔥 河北"厂播"爆发：AI 虚拟主播 24h 直播成趋势</div>
+        <div>🤖 "新新三样"（AI/机器人/创新药）出口持续攀升</div>
+        <div>🌏 TikTok 欧洲 8 个新站点开放：波兰、荷兰、比利时</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BELIEFS -->
-<section id="beliefs" style="padding-top:48px">
-  <div class="w">
-    <div class="eyebrow">核心观点</div>
+<!-- ==================== BELIEFS - DARK ==================== -->
+<section id="beliefs" class="dark">
+  <div class="sec-w">
+    <div class="eyebrow" style="color:#2997ff">核心观点</div>
     <h2>三个基本判断</h2>
-    <div class="grid3" style="margin-top:24px">
-      <div class="gcard">
-        <div style="font-size:30px;margin-bottom:14px">🏭</div>
-        <h3 style="font-size:16px">中国制造没有品质问题，只有可见度问题</h3>
-        <p style="font-size:13px;color:var(--t2);margin:0">TikTok 上 #factory 话题 100 亿次播放。海外采购商想找源头工厂——他们只是不知道你的存在。</p>
+    <div class="belief-grid">
+      <div class="apple-card apple-card-dark">
+        <div style="font-size:36px;margin-bottom:16px">🏭</div>
+        <h3 style="font-size:19px">中国制造没有品质问题，只有可见度问题</h3>
+        <p style="font-size:14px;margin:0">TikTok #factory 话题 100 亿次播放。海外采购商想找源头工厂——他们只是不知道你的存在。</p>
       </div>
-      <div class="gcard">
-        <div style="font-size:30px;margin-bottom:14px">🎯</div>
-        <h3 style="font-size:16px">未来外贸的竞争，本质是获客能力的竞争</h3>
-        <p style="font-size:13px;color:var(--t2);margin:0">产品同质化，价格内卷。一套持续获客的系统，会随时间积累越来越值钱。</p>
+      <div class="apple-card apple-card-dark">
+        <div style="font-size:36px;margin-bottom:16px">🎯</div>
+        <h3 style="font-size:19px">未来外贸竞争，本质是获客能力的竞争</h3>
+        <p style="font-size:14px;margin:0">产品同质化，价格内卷。一套持续获客的系统，会随时间积累越来越值钱。</p>
       </div>
-      <div class="gcard">
-        <div style="font-size:30px;margin-bottom:14px">💡</div>
-        <h3 style="font-size:16px">最大的瓶颈不是语言，不是资金</h3>
-        <p style="font-size:13px;color:var(--t2);margin:0">是认知。大多数工厂老板不知道 TikTok 上有采购商在主动找工厂。这个认知差就是机会。</p>
+      <div class="apple-card apple-card-dark">
+        <div style="font-size:36px;margin-bottom:16px">💡</div>
+        <h3 style="font-size:19px">最大瓶颈不是语言和资金</h3>
+        <p style="font-size:14px;margin:0">是认知。大多数工厂老板不知道 TikTok 上有采购商在主动找工厂。这个认知差就是机会。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services" class="bg-sub">
-  <div class="w">
-    <div class="eyebrow">服务体系</div>
+<!-- ==================== SERVICES - LIGHT ==================== -->
+<section id="services" class="light2">
+  <div class="sec-w">
+    <div class="eyebrow" style="color:#0071e3">服务体系</div>
     <h2>海外客户开发系统</h2>
-    <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:28px">不是单点服务，是一套从内容到成交的完整体系。</p>
-
-    <div class="grid2">
-      <div class="gcard"><div style="font-size:28px;margin-bottom:10px">📱</div><h3 style="font-size:16px">TikTok B2B 营销</h3><p style="font-size:13px;color:var(--t2);margin:0">企业号搭建 · 入企实拍 · 内容矩阵 · 算法获客</p></div>
-      <div class="gcard"><div style="font-size:28px;margin-bottom:10px">🌐</div><h3 style="font-size:16px">海外社媒运营</h3><p style="font-size:13px;color:var(--t2);margin:0">Facebook · YouTube · Instagram · LinkedIn</p></div>
-      <div class="gcard"><div style="font-size:28px;margin-bottom:10px">🛒</div><h3 style="font-size:16px">独立站建设</h3><p style="font-size:13px;color:var(--t2);margin:0">Shopify 品牌商城 · 多语种 · SEO</p></div>
-      <div class="gcard"><div style="font-size:28px;margin-bottom:10px">📊</div><h3 style="font-size:16px">海外广告投放</h3><p style="font-size:13px;color:var(--t2);margin:0">TikTok Ads · Meta Ads · Google Ads</p></div>
-      <div class="gcard"><div style="font-size:28px;margin-bottom:10px">🎬</div><h3 style="font-size:16px">品牌内容打造</h3><p style="font-size:13px;color:var(--t2);margin:0">企业主 IP · 工厂实拍 · 微距 · 航拍</p></div>
-      <div class="gcard"><div style="font-size:28px;margin-bottom:10px">🎯</div><h3 style="font-size:16px">获客转化体系</h3><p style="font-size:13px;color:var(--t2);margin:0">SQL 商机筛选 · WhatsApp · 成交 SOP</p></div>
+    <p style="font-size:17px;color:#6e6e73;max-width:560px;margin-bottom:32px">不是单点服务。是一套从内容到成交的完整体系，500+ 工厂验证。</p>
+    <div class="svc-grid">
+      <div class="apple-card apple-card-light"><div style="font-size:32px;margin-bottom:12px">📱</div><h3 style="font-size:17px">TikTok B2B 营销</h3><p style="font-size:13px;color:#6e6e73;margin:0">企业号搭建 · 入企实拍 · 内容矩阵 · 算法获客</p></div>
+      <div class="apple-card apple-card-light"><div style="font-size:32px;margin-bottom:12px">🌐</div><h3 style="font-size:17px">海外社媒运营</h3><p style="font-size:13px;color:#6e6e73;margin:0">Facebook · YouTube · Instagram · LinkedIn</p></div>
+      <div class="apple-card apple-card-light"><div style="font-size:32px;margin-bottom:12px">🛒</div><h3 style="font-size:17px">独立站建设</h3><p style="font-size:13px;color:#6e6e73;margin:0">Shopify 品牌商城 · 多语种 · SEO</p></div>
+      <div class="apple-card apple-card-light"><div style="font-size:32px;margin-bottom:12px">📊</div><h3 style="font-size:17px">海外广告投放</h3><p style="font-size:13px;color:#6e6e73;margin:0">TikTok Ads · Meta Ads · Google Ads</p></div>
+      <div class="apple-card apple-card-light"><div style="font-size:32px;margin-bottom:12px">🎬</div><h3 style="font-size:17px">品牌内容打造</h3><p style="font-size:13px;color:#6e6e73;margin:0">企业主 IP · 工厂实拍 · 微距 · 航拍</p></div>
+      <div class="apple-card apple-card-light"><div style="font-size:32px;margin-bottom:12px">🎯</div><h3 style="font-size:17px">获客转化体系</h3><p style="font-size:13px;color:#6e6e73;margin:0">SQL 商机筛选 · WhatsApp · 成交 SOP</p></div>
     </div>
   </div>
 </section>
 
-<!-- KNOWLEDGE BASE -->
-<section id="knowledge">
-  <div class="w">
-    <div class="eyebrow">知识库</div>
+<!-- ==================== KNOWLEDGE INDEX - DARK ==================== -->
+<section id="knowledge" class="dark">
+  <div class="sec-w">
+    <div class="eyebrow" style="color:#2997ff">知识库</div>
     <h2>外贸出海系统知识</h2>
-    <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:24px">20 个模块，全部来自实战。理解这个行业，从这里开始。</p>
-
-    <div class="mgrid">
+    <p style="font-size:17px;color:#a1a1a6;max-width:560px;margin-bottom:32px">20 个模块，全部来自实战。理解这个行业，从这里开始。</p>
+    <div class="mod-grid">
       <a href="#m1"><div class="mn">01</div><div class="mt">基础入门</div><div class="md">平台逻辑 · 行业趋势</div></a>
       <a href="#m2"><div class="mn">02</div><div class="mt">设备与账号</div><div class="md">基建配置 · 矩阵布局</div></a>
       <a href="#m3"><div class="mn">03</div><div class="mt">内容方法论</div><div class="md">拍摄场景 · 文案框架</div></a>
       <a href="#m4"><div class="mn">04</div><div class="mt">全链路流程</div><div class="md">8大环节 · 转化漏斗</div></a>
       <a href="#m5"><div class="mn">05</div><div class="mt">案例拆解</div><div class="md">真实数据 · 策略复盘</div></a>
-      <a href="#m6"><div class="mn">06</div><div class="mt">政策与合规</div><div class="md">欧盟 · 美国 · 平台规则</div></a>
+      <a href="#m6"><div class="mn">06</div><div class="mt">政策与合规</div><div class="md">欧盟 · 美国 · TK规则</div></a>
       <a href="#m7"><div class="mn">07</div><div class="mt">获客转化</div><div class="md">SQL模型 · 话术框架</div></a>
       <a href="#m8"><div class="mn">08</div><div class="mt">贸易术语</div><div class="md">FOB · CIF · DDP · LC</div></a>
       <a href="#m9"><div class="mn">09</div><div class="mt">外贸英语</div><div class="md">询盘 · 谈判 · 邮件</div></a>
-      <a href="#m10"><div class="mn">10</div><div class="mt">市场准入</div><div class="md">认证 · 关税 · 文化差异</div></a>
+      <a href="#m10"><div class="mn">10</div><div class="mt">市场准入</div><div class="md">认证 · 关税 · 文化</div></a>
       <a href="#m11"><div class="mn">11</div><div class="mt">跨境物流</div><div class="md">报关 · 海运 · 海外仓</div></a>
       <a href="#m12"><div class="mn">12</div><div class="mt">AI 赋能</div><div class="md">工具 · 方法 · 边界</div></a>
-      <a href="#m13"><div class="mn">13</div><div class="mt">常见问题</div><div class="md">高频问题 · 避坑指南</div></a>
+      <a href="#m13"><div class="mn">13</div><div class="mt">常见问题</div><div class="md">FAQ · 避坑指南</div></a>
       <a href="#m14"><div class="mn">14</div><div class="mt">报价与定价</div><div class="md">FOB报价 · 利润核算</div></a>
       <a href="#m15"><div class="mn">15</div><div class="mt">开发信与邮件</div><div class="md">冷启动 · 跟进序列</div></a>
       <a href="#m16"><div class="mn">16</div><div class="mt">谈判实战</div><div class="md">价格博弈 · 异议处理</div></a>
       <a href="#m17"><div class="mn">17</div><div class="mt">TK直播B2B</div><div class="md">工厂直播 · 同声传译</div></a>
       <a href="#m18"><div class="mn">18</div><div class="mt">品牌出海</div><div class="md">OEM → 自主品牌</div></a>
-      <a href="#m19"><div class="mn">19</div><div class="mt">知识产权保护</div><div class="md">商标 · 专利 · 维权</div></a>
+      <a href="#m19"><div class="mn">19</div><div class="mt">知识产权</div><div class="md">商标 · 专利 · 维权</div></a>
       <a href="#m20"><div class="mn">20</div><div class="mt">团队搭建</div><div class="md">招人 · 考核 · 管理</div></a>
     </div>
   </div>
 </section>
 
-<!-- MODULES -->
-<section id="m1" class="bg-sub"><div class="w">
-  <div class="eyebrow">Module 01</div><h2>TikTok 外贸基础入门</h2>
-  <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:28px">理解平台本质和行业趋势，是所有决策的基础。</p>
-  <div class="gcard"><h3>理解 TikTok</h3><p>TikTok 覆盖 <strong>150+ 国家，75 种语言</strong>，下载量超 57 亿，月活超 19 亿。核心差异：<strong>"货找人"</strong>——算法主动将工厂内容推给潜在采购商。</p><div class="note tip"><strong>一句话</strong>亚马逊解决"卖货"（人找货），TikTok 解决"被记住"（货找人）。</div></div>
-  <div class="gcard"><h3>获客渠道演变</h3><div class="tl"><div class="tl-i"><h4>1.0 展会时代</h4><p>广交会、行业展。单次 18-30 万，3-5 天。</p></div><div class="tl-i"><h4>2.0 B2B 平台时代</h4><p>阿里国际站。竞价排名，内卷严重。</p></div><div class="tl-i"><h4>3.0 搜索+社媒时代</h4><p>Google + Facebook + LinkedIn。</p></div><div class="tl-i"><h4>4.0 短视频时代 · 现在</h4><p>算法推荐。一条视频 = 365 天在线展会。</p></div></div></div>
-  <div class="gcard"><h3>关键数据</h3><table class="tbl"><tr><th>指标</th><th>数据</th><th>含义</th></tr><tr><td>#factory</td><td>100亿+ 播放</td><td>海外用户对工厂内容有巨大需求</td></tr><tr><td>#tiktokmademebuyit</td><td>90亿+</td><td>用户因视频产生采购意愿</td></tr><tr><td>商家TK引流</td><td>49%</td><td>近半数跨境商家已布局</td></tr><tr><td>愿直接联系工厂</td><td>21%</td><td>看到视频后主动询盘</td></tr></table></div>
+<!-- ==================== MODULES ==================== -->
+<!-- M1: LIGHT -->
+<section id="m1" class="light2"><div class="sec-w">
+  <div class="eyebrow" style="color:#0071e3">Module 01</div><h2>TikTok 外贸基础入门</h2>
+  <p style="font-size:17px;color:#6e6e73;max-width:560px;margin-bottom:32px">理解平台本质和行业趋势，是所有决策的基础。</p>
+  <div class="apple-card apple-card-light" style="margin-bottom:16px"><h3>理解 TikTok</h3><p>TikTok 覆盖 <strong>150+ 国家，75 种语言</strong>，下载量超 57 亿，月活超 19 亿。核心差异：<strong>"货找人"</strong>——算法主动将工厂内容推给潜在采购商。亚马逊解决"卖货"（人找货），TikTok 解决"被记住"（货找人）。</p><div class="note tip"><strong>一句话</strong>两者互补，不是替代。</div></div>
+  <div class="apple-card apple-card-light" style="margin-bottom:16px"><h3>获客渠道演变</h3><div class="tl"><div class="tl-i"><h4>1.0 展会时代</h4><p>广交会、行业展。单次 18-30 万，3-5 天。</p></div><div class="tl-i"><h4>2.0 B2B平台时代</h4><p>阿里国际站。竞价排名，内卷严重。</p></div><div class="tl-i"><h4>3.0 搜索+社媒时代</h4><p>Google + Facebook + LinkedIn。</p></div><div class="tl-i"><h4>4.0 短视频时代 · 现在</h4><p>算法推荐。一条视频 = 365 天在线展会。</p></div></div></div>
+  <div class="apple-card apple-card-light"><h3>关键数据</h3><table class="tbl"><tr><th>指标</th><th>数据</th><th>含义</th></tr><tr><td>#factory</td><td>100亿+ 播放</td><td>海外用户对工厂内容有巨大需求</td></tr><tr><td>#tiktokmademebuyit</td><td>90亿+</td><td>用户因视频产生采购意愿</td></tr><tr><td>商家TK引流</td><td>49%</td><td>近半数跨境商家已布局</td></tr><tr><td>愿直接联系工厂</td><td>21%</td><td>看到视频后主动询盘</td></tr></table></div>
 </div></section>
 
-<section id="m2"><div class="w">
-  <div class="eyebrow">Module 02</div><h2>设备配置与账号搭建</h2>
-  <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:28px">90% 的限流和封号源于基建不当。</p>
-  <div class="gcard"><h3>设备选型</h3><table class="tbl"><tr><th>配置</th><th>推荐</th><th>原因</th></tr><tr><td>手机</td><td>iPhone 12+</td><td>TikTok for iOS 优化最充分</td></tr><tr><td>网络</td><td>独立专线 IP</td><td>IP 稳定性是安全第一要素</td></tr><tr><td>数量</td><td>一机一号</td><td>多账号共用触发关联封禁</td></tr></table><div class="note warn"><strong>致命错误</strong>普通 VPN 频繁切换节点 → 0 播放或永久限流。独立专线 IP 是唯一正确方案。</div></div>
-  <div class="gcard"><h3>多平台矩阵</h3><table class="tbl"><tr><th>平台</th><th>角色</th><th>内容</th></tr><tr><td>TikTok</td><td>获客主引擎</td><td>15-60秒竖版短视频 + 直播</td></tr><tr><td>YouTube</td><td>深度内容沉淀</td><td>3-10分钟横版产品介绍</td></tr><tr><td>Facebook</td><td>信任资产</td><td>图文 + 客户案例</td></tr><tr><td>LinkedIn</td><td>B2B决策者直达</td><td>行业洞察 + 公司动态</td></tr><tr><td>Instagram</td><td>品牌视觉</td><td>精修图 + Reels</td></tr></table></div>
-  <div class="gcard"><h3>养号期完整操作指南（前 7 天）</h3><table class="tbl"><tr><th>天数</th><th>操作</th><th>注意事项</th></tr><tr><td>Day 1</td><td>注册账号，完善资料（头像+Bio+链接）</td><td>不要发任何内容</td></tr><tr><td>Day 2-3</td><td>每天刷 30-40 分钟，正常点赞收藏评论</td><td>刷的内容要和你的行业相关</td></tr><tr><td>Day 4-5</td><td>关注 5-10 个同行账号，看热门内容</td><td>保持正常使用节奏，不要操作过快</td></tr><tr><td>Day 6</td><td>发布第一条视频（不要带链接和广告）</td><td>内容选择生产过程或产品展示</td></tr><tr><td>Day 7</td><td>发布第二条，观察播放量是否 > 200</td><td>如果 < 200，检查网络环境是否干净</td></tr></table><div class="note warn"><strong>判断是否被限流</strong>发布后 24 小时内播放量 < 100 = 大概率被限流。先检查 IP 是否稳定，再检查内容是否涉及平台敏感词。如果连续 3 条视频都 < 100，换 IP 重新养号。</div></div>
+<!-- M2: DARK -->
+<section id="m2" class="dark"><div class="sec-w">
+  <div class="eyebrow" style="color:#2997ff">Module 02</div><h2>设备配置与账号搭建</h2>
+  <p style="font-size:17px;color:#a1a1a6;max-width:560px;margin-bottom:32px">90% 的限流和封号源于基建不当。</p>
+  <div class="apple-card apple-card-dark" style="margin-bottom:16px"><h3>设备选型</h3><table class="tbl"><tr><th>配置</th><th>推荐</th><th>原因</th></tr><tr><td>手机</td><td>iPhone 12+</td><td>TikTok for iOS 优化最充分</td></tr><tr><td>网络</td><td>独立专线 IP</td><td>IP 稳定性是安全第一要素</td></tr><tr><td>数量</td><td>一机一号</td><td>多账号共用触发关联封禁</td></tr></table><div class="note warn"><strong>致命错误</strong>普通 VPN 频繁切换节点 → 0 播放或永久限流。独立专线 IP 是唯一正确方案。</div></div>
+  <div class="apple-card apple-card-dark" style="margin-bottom:16px"><h3>多平台矩阵</h3><table class="tbl"><tr><th>平台</th><th>角色</th><th>内容</th></tr><tr><td>TikTok</td><td>获客主引擎</td><td>15-60秒竖版短视频 + 直播</td></tr><tr><td>YouTube</td><td>深度内容沉淀</td><td>3-10分钟横版产品介绍</td></tr><tr><td>Facebook</td><td>信任资产</td><td>图文 + 客户案例</td></tr><tr><td>LinkedIn</td><td>B2B决策者直达</td><td>行业洞察 + 公司动态</td></tr><tr><td>Instagram</td><td>品牌视觉</td><td>精修图 + Reels</td></tr></table></div>
+  <div class="apple-card apple-card-dark"><h3>养号期 7 天指南</h3><table class="tbl"><tr><th>天数</th><th>操作</th></tr><tr><td>Day 1</td><td>注册账号，完善资料，不发内容</td></tr><tr><td>Day 2-3</td><td>每天刷 30-40 分钟行业相关内容</td></tr><tr><td>Day 4-5</td><td>关注 5-10 个同行账号</td></tr><tr><td>Day 6</td><td>发布第一条视频（不带广告）</td></tr><tr><td>Day 7</td><td>观察播放量 > 200 为正常</td></tr></table><div class="note warn"><strong>限流判断</strong>24 小时内 < 100 播放 = 大概率被限流。连续 3 条 < 100，换 IP 重新养号。</div></div>
 </div></section>
 
-<section id="m3" class="bg-sub"><div class="w">
-  <div class="eyebrow">Module 03</div><h2>内容创作方法论</h2>
-  <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:28px">B2B 内容的唯一目的：让采购商看完视频主动联系你。</p>
-  <div class="gcard"><h3>工厂六大必拍场景</h3><table class="tbl"><tr><th>场景</th><th>拍摄内容</th><th>传递的信息</th></tr><tr><td>企业主出镜</td><td>创始人讲产品</td><td>真实可信</td></tr><tr><td>工厂全景</td><td>航拍+车间</td><td>规模实力</td></tr><tr><td>生产设备</td><td>运转+技术参数</td><td>制造能力</td></tr><tr><td>产品工艺</td><td>微距+加工流程</td><td>品质细节</td></tr><tr><td>展厅仓库</td><td>陈列+库存实拍</td><td>现货供应</td></tr><tr><td>发货实拍</td><td>装箱+物流+集装箱</td><td>全球交付能力</td></tr></table></div>
-  <div class="gcard"><h3>B2B 短视频结构</h3><div class="note tip"><strong>黄金 6 秒</strong>第 1 秒视觉冲击 → 第 2-3 秒展示核心产品 → 第 4-6 秒暗示"后面还有更多"</div><table class="tbl"><tr><th>要素</th><th>功能</th><th>示例</th></tr><tr><td>Hook</td><td>抓住注意力</td><td>"How we manufacture steel pipes in our Hebei factory"</td></tr><tr><td>Value</td><td>建立信任</td><td>"20 years, exported to 50+ countries, ISO certified"</td></tr><tr><td>CTA</td><td>引导询盘</td><td>"DM for catalog" / "Link in bio for quote"</td></tr><tr><td>Hashtags</td><td>辅助分发</td><td>#factory #manufacturing #chinafactory</td></tr></table></div>
-  <div class="gcard"><h3>6 种高完播率开头（Hook 库）</h3><table class="tbl"><tr><th>类型</th><th>公式</th><th>示例</th></tr><tr><td>反常识</td><td>你以为的 X，其实是 Y</td><td>"Most people think all LED strips are the same. They're not — here's why."</td></tr><tr><td>过程展示</td><td>X 秒看完整个流程</td><td>"Watch this steel coil become a precision valve in 45 seconds"</td></tr><tr><td>规模震撼</td><td>我们每天生产多少</td><td>"We ship 50,000 of these every single day. This is how."</td></tr><tr><td>客户背书</td><td>XX 品牌用我们的产品</td><td>"This is the component we make for a Fortune 500 company"</td></tr><tr><td>问题解决</td><td>客户的痛点，我们这样解</td><td>"A client needed waterproof connectors for marine use — we engineered this."</td></tr><tr><td>对比测试</td><td>我们的 vs 普通的</td><td>"Our cable vs standard cable — fire resistance test. See the difference."</td></tr></table></div>
-  <div class="gcard"><h3>B2B 周内容日历</h3><table class="tbl"><tr><th>星期</th><th>内容类型</th><th>目的</th></tr><tr><td>周一</td><td>生产过程 / 车间实拍</td><td>展示制造能力，获取新流量</td></tr><tr><td>周二</td><td>产品细节 / 技术参数</td><td>吸引精准采购商，建立专业度</td></tr><tr><td>周三</td><td>客户案例 / 发货实拍</td><td>信任背书，证明真实成交</td></tr><tr><td>周四</td><td>行业知识 / 选型建议</td><td>教育客户，建立顾问形象</td></tr><tr><td>周五</td><td>企业主出镜 / 团队日常</td><td>人格化，降低信任门槛</td></tr><tr><td>周六</td><td>客户问答 / FAQ 解答</td><td>直接回应采购疑虑</td></tr><tr><td>周日</td><td>轻量内容 / 行业趋势</td><td>保持活跃，不追求爆款</td></tr></table></div>
+<!-- M3: LIGHT -->
+<section id="m3" class="light2"><div class="sec-w">
+  <div class="eyebrow" style="color:#0071e3">Module 03</div><h2>内容创作方法论</h2>
+  <p style="font-size:17px;color:#6e6e73;max-width:560px;margin-bottom:32px">B2B 内容的唯一目的：让采购商看完视频主动联系你。</p>
+  <div class="apple-card apple-card-light" style="margin-bottom:16px"><h3>工厂六大必拍场景</h3><table class="tbl"><tr><th>场景</th><th>内容</th><th>传递信息</th></tr><tr><td>企业主出镜</td><td>创始人讲产品</td><td>真实可信</td></tr><tr><td>工厂全景</td><td>航拍+车间</td><td>规模实力</td></tr><tr><td>生产设备</td><td>运转+技术参数</td><td>制造能力</td></tr><tr><td>产品工艺</td><td>微距+加工流程</td><td>品质细节</td></tr><tr><td>展厅仓库</td><td>陈列+库存实拍</td><td>现货供应</td></tr><tr><td>发货实拍</td><td>装箱+物流+集装箱</td><td>全球交付</td></tr></table><div class="note tip"><strong>黄金 6 秒</strong>第 1 秒视觉冲击 → 第 2-3 秒展示产品 → 第 4-6 秒暗示更多</div></div>
+  <div class="apple-card apple-card-light" style="margin-bottom:16px"><h3>6 种高完播率 Hook</h3><table class="tbl"><tr><th>类型</th><th>示例</th></tr><tr><td>反常识</td><td>"Most people think all LED strips are the same. They're not."</td></tr><tr><td>过程展示</td><td>"Watch this steel coil become a precision valve in 45 seconds"</td></tr><tr><td>规模震撼</td><td>"We ship 50,000 of these every single day."</td></tr><tr><td>客户背书</td><td>"This is the component we make for a Fortune 500 company"</td></tr><tr><td>问题解决</td><td>"A client needed waterproof connectors — we engineered this."</td></tr><tr><td>对比测试</td><td>"Our cable vs standard cable — fire resistance test"</td></tr></table></div>
+  <div class="apple-card apple-card-light"><h3>B2B 周内容日历</h3><table class="tbl"><tr><th>星期</th><th>内容</th><th>目的</th></tr><tr><td>周一</td><td>生产过程 / 车间实拍</td><td>展示制造能力</td></tr><tr><td>周二</td><td>产品细节 / 技术参数</td><td>建立专业度</td></tr><tr><td>周三</td><td>客户案例 / 发货实拍</td><td>信任背书</td></tr><tr><td>周四</td><td>行业知识 / 选型建议</td><td>顾问形象</td></tr><tr><td>周五</td><td>企业主出镜 / 团队日常</td><td>人格化</td></tr><tr><td>周六</td><td>客户问答 / FAQ</td><td>回应疑虑</td></tr><tr><td>周日</td><td>行业趋势 / 轻量内容</td><td>保持活跃</td></tr></table></div>
 </div></section>
 
-<section id="m4"><div class="w">
-  <div class="eyebrow">Module 04</div><h2>外贸全链路</h2>
-  <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:28px">外贸不只是拿订单。理解完整链路，在每个环节做正确决策。</p>
-  <div class="gcard"><h3>八大核心环节</h3><div class="tl"><div class="tl-i"><h4>市场洞察 & 账号基建</h4><p>目标市场 → 竞品调研 → 账号定位 → 独立站</p></div><div class="tl-i"><h4>内容生产 & 矩阵搭建</h4><p>入企实拍 → 六大场景 → 脚本策划 → 多语种翻译</p></div><div class="tl-i"><h4>流量获取 & 精准触达</h4><p>自然流 → TikTok Ads → 直播 → 多平台分发</p></div><div class="tl-i"><h4>询盘获取 & 线索转化</h4><p>Get Quote → 私信 → WhatsApp → SQL筛选</p></div><div class="tl-i"><h4>商务谈判 & 订单成交</h4><p>报价 → 打样 → 验厂 → PI合同 → TT/LC付款</p></div><div class="tl-i"><h4>跨境物流 & 关务交付</h4><p>生产排期 → 质检 → 报关 → 海运/空运 → 海外仓</p></div><div class="tl-i"><h4>收汇结算 & 资金回笼</h4><p>20+货币 → 合规结汇 → T+1回款 → 多层风控</p></div><div class="tl-i"><h4>售后服务 & 复购裂变</h4><p>客诉处理 → 定期回访 → 转介绍 → 品牌资产沉淀</p></div></div></div>
-  <div class="gcard"><h3>转化漏斗参考</h3><table class="tbl"><tr><th>层级</th><th>阶段</th><th>转化率</th></tr><tr><td>①</td><td>内容曝光</td><td>100%（基准）</td></tr><tr><td>②</td><td>主页/独立站访问</td><td>3-5%</td></tr><tr><td>③</td><td>互动询盘</td><td>1-2%</td></tr><tr><td>④</td><td>SQL有效线索</td><td>0.3-0.8%</td></tr><tr><td>⑤</td><td>样品/验厂</td><td>0.1-0.3%</td></tr><tr><td>⑥</td><td>成交订单</td><td>0.05-0.15%</td></tr></table></div>
+<!-- M4: DARK -->
+<section id="m4" class="dark"><div class="sec-w">
+  <div class="eyebrow" style="color:#2997ff">Module 04</div><h2>外贸全链路</h2>
+  <p style="font-size:17px;color:#a1a1a6;max-width:560px;margin-bottom:32px">外贸不只是拿订单。理解完整链路，在每个环节做正确决策。</p>
+  <div class="apple-card apple-card-dark" style="margin-bottom:16px"><h3>八大核心环节</h3><div class="tl"><div class="tl-i"><h4>市场洞察 & 账号基建</h4><p>目标市场 → 竞品调研 → 账号定位 → 独立站</p></div><div class="tl-i"><h4>内容生产 & 矩阵搭建</h4><p>入企实拍 → 六大场景 → 脚本策划 → 多语种翻译</p></div><div class="tl-i"><h4>流量获取 & 精准触达</h4><p>自然流 → TikTok Ads → 直播 → 多平台分发</p></div><div class="tl-i"><h4>询盘获取 & 线索转化</h4><p>Get Quote → 私信 → WhatsApp → SQL筛选</p></div><div class="tl-i"><h4>商务谈判 & 订单成交</h4><p>报价 → 打样 → 验厂 → PI合同 → TT/LC付款</p></div><div class="tl-i"><h4>跨境物流 & 关务交付</h4><p>生产排期 → 质检 → 报关 → 海运/空运 → 海外仓</p></div><div class="tl-i"><h4>收汇结算 & 资金回笼</h4><p>20+货币 → 合规结汇 → T+1回款 → 多层风控</p></div><div class="tl-i"><h4>售后服务 & 复购裂变</h4><p>客诉处理 → 定期回访 → 转介绍 → 品牌资产沉淀</p></div></div></div>
+  <div class="apple-card apple-card-dark"><h3>转化漏斗参考</h3><table class="tbl"><tr><th>层级</th><th>阶段</th><th>转化率</th></tr><tr><td>①</td><td>内容曝光</td><td>100%（基准）</td></tr><tr><td>②</td><td>主页/独立站访问</td><td>3-5%</td></tr><tr><td>③</td><td>互动询盘</td><td>1-2%</td></tr><tr><td>④</td><td>SQL有效线索</td><td>0.3-0.8%</td></tr><tr><td>⑤</td><td>样品/验厂</td><td>0.1-0.3%</td></tr><tr><td>⑥</td><td>成交订单</td><td>0.05-0.15%</td></tr></table></div>
 </div></section>
 
-<section id="m5" class="bg-sub"><div class="w">
-  <div class="eyebrow">Module 05</div><h2>案例拆解</h2>
-  <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:28px">真实案例，真实数据。策略可复用。</p>
-  <div class="gcard"><h3>三一重工 <span class="tag b">重型机械</span></h3><p>TikTok 企业号矩阵展示全球工程案例。<strong>单视频最高 30 万播放，累计粉丝 30 万+。</strong>策略：不追求单条爆款，持续高质量内容建立品牌信任。</p></div>
-  <div class="gcard"><h3>海康威视 <span class="tag b">安防电子</span></h3><p>产品应用场景实拍 + 技术展示。<strong>单视频 134 万播放，粉丝 15 万+。</strong></p></div>
-  <div class="gcard"><h3>广东沐梵光电 <span class="tag b">LED 光电</span></h3><p><strong>一条 57 万播放视频 → 173 条有效询盘。</strong>超过阿里国际站 2 个月询盘量。</p><div class="note tip"><strong>核心洞察</strong>B2B 的"爆款"标准不同。57 万播放不重要——重要的是看这条视频的人是经销商、工程商、进口商。追求"播放质量"，不是"播放量"。</div></div>
+<!-- M5-M20: Alternating dark/light, compact -->
+<section id="m5" class="light2"><div class="sec-w">
+  <div class="eyebrow" style="color:#0071e3">Module 05</div><h2>案例拆解</h2>
+  <p style="font-size:17px;color:#6e6e73;max-width:560px;margin-bottom:32px">真实案例，真实数据。策略可复用。</p>
+  <div class="apple-card apple-card-light" style="margin-bottom:16px"><h3>三一重工 <span class="tag">重型机械</span></h3><p>TikTok 企业号矩阵。<strong>单视频最高 30 万播放，粉丝 30 万+。</strong>策略：持续高质量内容建立品牌信任。</p></div>
+  <div class="apple-card apple-card-light" style="margin-bottom:16px"><h3>海康威视 <span class="tag">安防电子</span></h3><p><strong>单视频 134 万播放，粉丝 15 万+。</strong></p></div>
+  <div class="apple-card apple-card-light"><h3>广东沐梵光电 <span class="tag">LED 光电</span></h3><p><strong>一条 57 万播放视频 → 173 条有效询盘。</strong>超过阿里国际站 2 个月询盘量。</p><div class="note tip"><strong>核心洞察</strong>B2B 追求"播放质量"，不是"播放量"。看视频的人是经销商、工程商、进口商。</div></div>
 </div></section>
 
-<section id="m6"><div class="w">
-  <div class="eyebrow">Module 06</div><h2>政策与合规</h2>
-  <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:28px">合规是底线。不了解规则，积累的一切都可能归零。</p>
-  <div class="gcard"><h3>欧盟市场</h3><table class="tbl"><tr><th>法规</th><th>要求</th><th>生效</th></tr><tr><td>小额包裹关税</td><td>150欧以下加征3欧/件</td><td>2026.7.1</td></tr><tr><td>CE/UKCA认证</td><td>电子电器、纺织品必须提交</td><td>2026.7.30</td></tr><tr><td>GPSR</td><td>平台为责任主体</td><td>已生效</td></tr><tr><td>存量回扫</td><td>未补齐将被下架</td><td>2026.9.30</td></tr></table></div>
-  <div class="gcard"><h3>TikTok 平台红线</h3><ol><li>一机一号一IP，严禁共用</li><li>内容必须原创，搬运=降权</li><li>AI生成内容必须标注</li><li>同场直播禁止多平台联播</li><li>直播拍卖=最终销售</li><li>账号归属权须在合同中明确约定</li></ol></div>
+<section id="m6" class="dark"><div class="sec-w">
+  <div class="eyebrow" style="color:#2997ff">Module 06</div><h2>政策与合规</h2>
+  <p style="font-size:17px;color:#a1a1a6;max-width:560px;margin-bottom:32px">合规是底线。不了解规则，积累的一切都可能归零。</p>
+  <div class="apple-card apple-card-dark" style="margin-bottom:16px"><h3>欧盟市场</h3><table class="tbl"><tr><th>法规</th><th>要求</th><th>生效</th></tr><tr><td>小额包裹关税</td><td>150欧以下加征3欧/件</td><td>2026.7.1</td></tr><tr><td>CE/UKCA认证</td><td>电子电器、纺织品必须提交</td><td>2026.7.30</td></tr><tr><td>GPSR</td><td>平台为责任主体</td><td>已生效</td></tr><tr><td>存量回扫</td><td>未补齐将被下架</td><td>2026.9.30</td></tr></table></div>
+  <div class="apple-card apple-card-dark"><h3>TikTok 平台红线</h3><ol><li>一机一号一IP，严禁共用</li><li>内容必须原创，搬运=降权</li><li>AI生成内容必须标注</li><li>同场直播禁止多平台联播</li><li>直播拍卖=最终销售</li><li>账号归属权须在合同中明确约定</li></ol></div>
 </div></section>
 
-<section id="m7" class="bg-sub"><div class="w">
-  <div class="eyebrow">Module 07</div><h2>获客转化：SQL 模型</h2>
-  <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:28px">流量是手段，询盘是中间结果，成交才是目的。</p>
-  <div class="gcard"><h3>SQL 8 问筛选法</h3><ol><li>What product are you interested in?</li><li>What quantity do you need?</li><li>Which country will the goods ship to?</li><li>When do you need the goods?</li><li>Have you imported from China before?</li><li>What's your budget range?</li><li>Do you have certification requirements?</li><li>Would you like a sample first?</li></ol><div class="note tip"><strong>效果</strong>SQL筛选后，业务员跟进的不是泛流量，转化效率提升 3-5 倍。</div></div>
-  <div class="gcard"><h3>WhatsApp 承接流程</h3><table class="tbl"><tr><th>阶段</th><th>任务</th></tr><tr><td>初次回复</td><td>5分钟内响应，自我介绍+工厂年限</td></tr><tr><td>需求确认</td><td>追问规格、数量、交期</td></tr><tr><td>价值展示</td><td>工厂实拍视频 > 图片 > 文字</td></tr><tr><td>推动成交</td><td>样品方案 + 报价 + 准备PI</td></tr></table></div>
-  <div class="gcard"><h3>询盘跟进节奏：7 天跟进序列</h3><table class="tbl"><tr><th>天数</th><th>动作</th><th>内容</th></tr><tr><td>Day 1</td><td>即时响应</td><td>自我介绍 + 确认需求 + 承诺 24 小时内报价</td></tr><tr><td>Day 2</td><td>发送报价</td><td>完整报价单（含产品规格、交期、付款方式、有效期）</td></tr><tr><td>Day 3</td><td>价值补充</td><td>发一段工厂实拍视频或质检报告，强化信任</td></tr><tr><td>Day 5</td><td>温和跟进</td><td>"Just checking if you had a chance to review the quote. Happy to adjust."</td></tr><tr><td>Day 7</td><td>提供新信息</td><td>发一个客户案例或新产品，"Thought this might be relevant"</td></tr><tr><td>Day 14</td><td>最后跟进</td><td>简短确认是否还在关注，如果没有回复则归档到月度激活列表</td></tr></table></div>
-  <div class="gcard"><h3>提高转化率的 5 个细节</h3><ol><li><strong>回复速度</strong>：5 分钟内回复的询盘，成交率是 30 分钟后回复的 5 倍。WhatsApp Business 设置自动回复话术。</li><li><strong>视频优先</strong>：第一封回复就附带一段 30 秒以内的工厂视频。视频询盘的成交率比纯文字高 3 倍。</li><li><strong>每次只问一个问题</strong>：不要一次扔 5 个问题。每次沟通只推进一件事，降低客户回复门槛。</li><li><strong>用 Loom 录屏报价</strong>：录一段 2 分钟的视频，对着屏幕讲解报价单的每一项。比纯发 PDF 亲切 10 倍。</li><li><strong>建立客户分级</strong>：A 级（已报价，有明确需求）、B 级（已互动，需求模糊）、C 级（仅点赞/关注）。80% 的精力给 A 级。</li></ol></div>
+<section id="m7" class="light2"><div class="sec-w">
+  <div class="eyebrow" style="color:#0071e3">Module 07</div><h2>获客转化：SQL 模型</h2>
+  <p style="font-size:17px;color:#6e6e73;max-width:560px;margin-bottom:32px">流量是手段，询盘是中间结果，成交才是目的。</p>
+  <div class="apple-card apple-card-light" style="margin-bottom:16px"><h3>SQL 8 问筛选法</h3><ol><li>What product are you interested in?</li><li>What quantity do you need?</li><li>Which country will the goods ship to?</li><li>When do you need the goods?</li><li>Have you imported from China before?</li><li>What's your budget range?</li><li>Do you have certification requirements?</li><li>Would you like a sample first?</li></ol><div class="note tip"><strong>效果</strong>转化效率提升 3-5 倍。</div></div>
+  <div class="apple-card apple-card-light" style="margin-bottom:16px"><h3>7 天跟进序列</h3><table class="tbl"><tr><th>天数</th><th>动作</th></tr><tr><td>Day 1</td><td>5分钟内响应 + 确认需求</td></tr><tr><td>Day 2</td><td>发送完整报价单</td></tr><tr><td>Day 3</td><td>发工厂实拍视频强化信任</td></tr><tr><td>Day 5</td><td>温和跟进，询问是否需调整</td></tr><tr><td>Day 7</td><td>提供新信息（案例/新产品）</td></tr><tr><td>Day 14</td><td>最后确认，归档或纳入月度激活</td></tr></table></div>
+  <div class="apple-card apple-card-light"><h3>提高转化率的 5 个细节</h3><ol><li>回复速度：5 分钟内回复成交率是 30 分钟后的 5 倍</li><li>视频优先：附带视频的询盘成交率高 3 倍</li><li>每次只问一个问题：降低客户回复门槛</li><li>用 Loom 录屏讲解报价单</li><li>客户分级：A级80%精力</li></ol></div>
 </div></section>
 
-<section id="m8"><div class="w">
-  <div class="eyebrow">Module 08</div><h2>贸易术语精要</h2>
-  <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:28px">每个术语背后是成本和风险的分配。</p>
-  <div class="gcard"><table class="tbl"><tr><th>术语</th><th>含义</th><th>卖方责任到</th></tr><tr><td>EXW</td><td>工厂交货</td><td>工厂门口</td></tr><tr><td>FOB</td><td>装运港船上交货</td><td>货物越过船舷</td></tr><tr><td>CIF</td><td>成本+保险+运费</td><td>目的港</td></tr><tr><td>DDP</td><td>完税后交货</td><td>买方指定地点</td></tr></table></div>
-  <div class="gcard"><h3>付款方式风险</h3><table class="tbl"><tr><th>方式</th><th>风险</th><th>适用</th></tr><tr><td>TT 30/70</td><td>中</td><td>最普遍的B2B方式</td></tr><tr><td>LC 信用证</td><td>低</td><td>大额、新客户</td></tr><tr><td>100% TT预付</td><td>零</td><td>小单、样品、老客户</td></tr><tr><td>OA 赊销</td><td>高</td><td>仅限老客户+信用保险</td></tr></table><div class="note warn"><strong>风险提示</strong>新客户坚持 TT 30/70 或 LC。OA 仅适用于合作一年以上且有信用保险的客户。</div></div>
+<section id="m8" class="dark"><div class="sec-w">
+  <div class="eyebrow" style="color:#2997ff">Module 08</div><h2>贸易术语精要</h2>
+  <p style="font-size:17px;color:#a1a1a6;max-width:560px;margin-bottom:32px">每个术语背后是成本和风险的分配。</p>
+  <div class="apple-card apple-card-dark" style="margin-bottom:16px"><table class="tbl"><tr><th>术语</th><th>含义</th><th>卖方责任到</th></tr><tr><td>EXW</td><td>工厂交货</td><td>工厂门口</td></tr><tr><td>FOB</td><td>装运港船上交货</td><td>货物越过船舷</td></tr><tr><td>CIF</td><td>成本+保险+运费</td><td>目的港</td></tr><tr><td>DDP</td><td>完税后交货</td><td>买方指定地点</td></tr></table></div>
+  <div class="apple-card apple-card-dark"><h3>付款方式风险</h3><table class="tbl"><tr><th>方式</th><th>风险</th><th>适用</th></tr><tr><td>TT 30/70</td><td>中</td><td>最普遍B2B</td></tr><tr><td>LC 信用证</td><td>低</td><td>大额、新客户</td></tr><tr><td>100% TT预付</td><td>零</td><td>小单、老客户</td></tr><tr><td>OA 赊销</td><td>高</td><td>仅限老客户+保险</td></tr></table><div class="note warn"><strong>风险提示</strong>新客户坚持 TT 30/70 或 LC。</div></div>
 </div></section>
 
-<section id="m9" class="bg-sub"><div class="w">
-  <div class="eyebrow">Module 09</div><h2>外贸英语实战</h2>
-  <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:28px">不需要流利，需要在正确场景说正确的话。</p>
-  <div class="gcard"><table class="tbl"><tr><th>场景</th><th>话术</th></tr><tr><td>收到询盘</td><td>"Thanks for your inquiry. We're a [X]-year factory specializing in [product]. Happy to provide a quotation — could you share the specifications and quantity you need?"</td></tr><tr><td>发送报价</td><td>"Please find attached the quotation for [product]. Key details: FOB [port], lead time [X] days, MOQ [X] pcs. This quote is valid for 15 days. Let me know if you have any questions."</td></tr><tr><td>价格异议</td><td>"I understand price is important. Could you share what target price you're working with? We can explore options on materials or specifications to get closer to your budget."</td></tr><tr><td>客户要折扣</td><td>"For orders above [quantity], I can offer a [X]% discount. Alternatively, if we adjust the payment terms to 50% deposit, I can apply an additional 2% off."</td></tr><tr><td>样品寄出</td><td>"Sample shipped via DHL. Tracking: [number]. ETA: [date]. Please inspect and let me know your feedback. If everything looks good, we can proceed with the bulk order."</td></tr><tr><td>客户确认订单</td><td>"Great, I'll prepare the PI (Proforma Invoice) now. Please confirm: [product] × [qty], [trade term], [port], [payment term]. I'll send it over within 1 hour."</td></tr><tr><td>长期不回复</td><td>"Hi [name], just touching base. Is [product] still on your radar? Happy to update the quote if needed. No pressure at all."</td></tr><tr><td>节日问候</td><td>"Wishing you and your team a wonderful holiday season! Looking forward to working together in the coming year. If any urgent needs, I'm always available on WhatsApp."</td></tr></table></div>
-  <div class="gcard"><h3>邮件主题行公式（提高打开率）</h3><table class="tbl"><tr><th>公式</th><th>示例</th></tr><tr><td>Quotation: [产品] — [公司]</td><td>"Quotation: Stainless Steel Valves — Hebei XX Factory"</td></tr><tr><td>Re: [客户之前提过的话题]</td><td>"Re: Your inquiry about waterproof LED strips"</td></tr><tr><td>[数字] + [价值]</td><td>"3 reasons our bolts last 40% longer than standard"</td></tr><tr><td>[产品] factory update</td><td>"PVC hose factory — new production line video inside"</td></tr><tr><td>Quick question about [客户项目]</td><td>"Quick question about your Middle East project"</td></tr></table></div>
+<section id="m9" class="light2"><div class="sec-w">
+  <div class="eyebrow" style="color:#0071e3">Module 09</div><h2>外贸英语实战</h2>
+  <p style="font-size:17px;color:#6e6e73;max-width:560px;margin-bottom:32px">不需要流利，需要在正确场景说正确的话。</p>
+  <div class="apple-card apple-card-light" style="margin-bottom:16px"><h3>8 个高频场景话术</h3><table class="tbl"><tr><th>场景</th><th>话术</th></tr><tr><td>收到询盘</td><td>"Thanks for your inquiry. We're a [X]-year factory specializing in [product]. Could you share the specifications and quantity?"</td></tr><tr><td>发送报价</td><td>"Please find attached the quotation. Key details: FOB [port], lead time [X] days, MOQ [X]. Valid for 15 days."</td></tr><tr><td>价格异议</td><td>"Could you share your target price? We can explore options on materials or specifications."</td></tr><tr><td>客户要折扣</td><td>"For orders above [qty], I can offer [X]% off. Or with 50% deposit, an additional 2%."</td></tr><tr><td>样品寄出</td><td>"Sample shipped via DHL. Tracking: [no.]. ETA: [date]. Looking forward to your feedback."</td></tr><tr><td>确认订单</td><td>"I'll prepare the PI now. Please confirm: [product] × [qty], [trade term], [port], [payment]."</td></tr><tr><td>长期不回复</td><td>"Hi [name], just touching base. Is [product] still on your radar? Happy to update the quote."</td></tr><tr><td>节日问候</td><td>"Wishing you a wonderful holiday! Looking forward to working together in the coming year."</td></tr></table></div>
+  <div class="apple-card apple-card-light"><h3>邮件主题行公式</h3><table class="tbl"><tr><th>公式</th><th>示例</th></tr><tr><td>Quotation: [产品] — [公司]</td><td>"Quotation: Stainless Steel Valves — Hebei XX Factory"</td></tr><tr><td>Re: [客户之前提过的]</td><td>"Re: Your inquiry about waterproof LED strips"</td></tr><tr><td>[数字] + [价值]</td><td>"3 reasons our bolts last 40% longer"</td></tr><tr><td>[产品] factory update</td><td>"PVC hose factory — new production line video"</td></tr></table></div>
 </div></section>
 
-<section id="m10"><div class="w">
-  <div class="eyebrow">Module 10</div><h2>各国市场准入</h2>
-  <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:28px">不同市场，不同认证、关税和文化。</p>
-  <div class="gcard"><table class="tbl"><tr><th>市场</th><th>认证</th><th>关税</th><th>特点</th></tr><tr><td>🇪🇺 欧盟</td><td>CE, RoHS, REACH</td><td>3-12%</td><td>重合规，决策慢但稳定</td></tr><tr><td>🇺🇸 美国</td><td>FCC, FDA, UL</td><td>0-25%</td><td>重效率，法律意识强</td></tr><tr><td>🇯🇵 日本</td><td>PSE, VCCI</td><td>0-10%</td><td>重品质，长期关系导向</td></tr><tr><td>🇸🇦 中东</td><td>SASO, SABER</td><td>5-15%</td><td>关系驱动，价格敏感</td></tr><tr><td>🇧🇷 巴西</td><td>INMETRO</td><td>10-35%</td><td>关税高，需本地代理</td></tr></table></div>
+<section id="m10" class="dark"><div class="sec-w">
+  <div class="eyebrow" style="color:#2997ff">Module 10</div><h2>各国市场准入</h2><p style="font-size:17px;color:#a1a1a6;max-width:560px;margin-bottom:32px">不同市场，不同认证、关税和文化。</p>
+  <div class="apple-card apple-card-dark"><table class="tbl"><tr><th>市场</th><th>认证</th><th>关税</th><th>特点</th></tr><tr><td>🇪🇺 欧盟</td><td>CE, RoHS, REACH</td><td>3-12%</td><td>重合规，决策慢但稳定</td></tr><tr><td>🇺🇸 美国</td><td>FCC, FDA, UL</td><td>0-25%</td><td>重效率，法律意识强</td></tr><tr><td>🇯🇵 日本</td><td>PSE, VCCI</td><td>0-10%</td><td>重品质，长期关系导向</td></tr><tr><td>🇸🇦 中东</td><td>SASO, SABER</td><td>5-15%</td><td>关系驱动，价格敏感</td></tr><tr><td>🇧🇷 巴西</td><td>INMETRO</td><td>10-35%</td><td>关税高，需本地代理</td></tr></table></div>
 </div></section>
 
-<section id="m11" class="bg-sub"><div class="w">
-  <div class="eyebrow">Module 11</div><h2>跨境物流手册</h2>
-  <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:28px">物流成本占货值 5-20%。选对方式，一年省出可观利润。</p>
-  <div class="gcard"><table class="tbl"><tr><th>方式</th><th>时效</th><th>成本</th><th>适合</th></tr><tr><td>海运整柜 FCL</td><td>25-40天</td><td>最低</td><td>大批量、不紧急</td></tr><tr><td>海运拼箱 LCL</td><td>30-45天</td><td>低</td><td>不足一个柜</td></tr><tr><td>空运</td><td>3-7天</td><td>高</td><td>样品、急单</td></tr><tr><td>中欧班列</td><td>15-20天</td><td>中</td><td>欧洲、中等时效</td></tr><tr><td>国际快递</td><td>3-5天</td><td>最高</td><td>样品、文件</td></tr></table></div>
+<section id="m11" class="light2"><div class="sec-w">
+  <div class="eyebrow" style="color:#0071e3">Module 11</div><h2>跨境物流手册</h2><p style="font-size:17px;color:#6e6e73;max-width:560px;margin-bottom:32px">物流成本占货值 5-20%。</p>
+  <div class="apple-card apple-card-light"><table class="tbl"><tr><th>方式</th><th>时效</th><th>成本</th><th>适合</th></tr><tr><td>海运整柜 FCL</td><td>25-40天</td><td>最低</td><td>大批量</td></tr><tr><td>海运拼箱 LCL</td><td>30-45天</td><td>低</td><td>不足一个柜</td></tr><tr><td>空运</td><td>3-7天</td><td>高</td><td>样品、急单</td></tr><tr><td>中欧班列</td><td>15-20天</td><td>中</td><td>欧洲</td></tr><tr><td>国际快递</td><td>3-5天</td><td>最高</td><td>样品、文件</td></tr></table></div>
 </div></section>
 
-<section id="m12"><div class="w">
-  <div class="eyebrow">Module 12</div><h2>AI 赋能外贸</h2>
-  <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:28px">AI 让你在同样时间产出 5 倍内容，覆盖 5 倍市场。</p>
-  <div class="gcard"><table class="tbl"><tr><th>场景</th><th>AI 能做什么</th><th>推荐工具</th></tr><tr><td>翻译</td><td>中→英/西/法/阿多语种</td><td>DeepL, Claude</td></tr><tr><td>配音</td><td>AI 生成 40+ 语言配音</td><td>ElevenLabs</td></tr><tr><td>虚拟主播</td><td>数字人 24 小时直播</td><td>HeyGen</td></tr><tr><td>邮件</td><td>个性化开发信</td><td>Claude, ChatGPT</td></tr><tr><td>数据分析</td><td>账号+竞品分析</td><td>Kalodata</td></tr><tr><td>客服</td><td>WhatsApp 自动回复</td><td>ManyChat</td></tr></table><div class="note warn"><strong>红线</strong>永远不要用 AI 生成虚假工厂视频或伪造客户评价。发现 = 账号永久封禁 + 信誉归零。</div></div>
+<section id="m12" class="dark"><div class="sec-w">
+  <div class="eyebrow" style="color:#2997ff">Module 12</div><h2>AI 赋能外贸</h2><p style="font-size:17px;color:#a1a1a6;max-width:560px;margin-bottom:32px">AI 让你同样时间产出 5 倍内容。</p>
+  <div class="apple-card apple-card-dark"><table class="tbl"><tr><th>场景</th><th>AI 能做什么</th><th>推荐工具</th></tr><tr><td>翻译</td><td>多语种即时翻译</td><td>DeepL, Claude</td></tr><tr><td>配音</td><td>AI 生成 40+ 语言配音</td><td>ElevenLabs</td></tr><tr><td>虚拟主播</td><td>数字人 24h 直播</td><td>HeyGen</td></tr><tr><td>邮件</td><td>个性化开发信</td><td>Claude, ChatGPT</td></tr><tr><td>数据分析</td><td>账号+竞品分析</td><td>Kalodata</td></tr><tr><td>客服</td><td>WhatsApp 自动回复</td><td>ManyChat</td></tr></table><div class="note warn"><strong>红线</strong>永远不要用 AI 生成虚假工厂视频。发现 = 账号永久封禁 + 信誉归零。</div></div>
 </div></section>
 
-<section id="m13" class="bg-sub"><div class="w">
-  <div class="eyebrow">Module 13</div><h2>常见问题</h2>
-  <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:24px">500+ 工厂最常问的问题，答案经过实战检验。</p>
-  <div class="faq open"><div class="faq-q">TikTok 外贸多久能看到效果？</div><div class="faq-a">第1个月基建，第2-3个月优化。<strong>第4个月起通常有稳定询盘。</strong>超过6个月无数据需重新评估。</div></div>
-  <div class="faq"><div class="faq-q">不会英语怎么办？</div><div class="faq-a">翻译工具 + AI配音 + TikTok内置75种语言。2026年，语言不是根本性障碍。</div></div>
-  <div class="faq"><div class="faq-q">自己做 vs 找服务商？</div><div class="faq-a">三问：有团队吗？懂算法吗？能接受前3个月无明显效果吗？<strong>三个"否"→ 找服务商更划算。</strong></div></div>
-  <div class="faq"><div class="faq-q">什么产品最适合？</div><div class="faq-a">几乎所有工业品。效果最好：机械设备、建材五金、电子元器件、汽车零部件。关键是拍出"解压感"和"专业感"。</div></div>
-  <div class="faq"><div class="faq-q">账号被封怎么办？</div><div class="faq-a">80%+是网络问题 → 换专线IP。预防：一机一号一IP、100%原创、不买粉刷数据。</div></div>
-  <div class="faq"><div class="faq-q">询盘到成交要多久？</div><div class="faq-a">标件1-4周，定制2-6个月，大项目6-18个月。<strong>平均3-12个月。</strong>需要持续运营系统。</div></div>
+<section id="m13" class="light2"><div class="sec-w">
+  <div class="eyebrow" style="color:#0071e3">Module 13</div><h2>常见问题</h2><p style="font-size:17px;color:#6e6e73;max-width:560px;margin-bottom:24px">500+ 工厂最常问。</p>
+  <div class="apple-card apple-card-light"><div class="faq open"><div class="faq-q">TikTok 外贸多久能看到效果？</div><div class="faq-a">第1个月基建，第2-3个月优化。<strong>第4个月起通常有稳定询盘。</strong></div></div><div class="faq"><div class="faq-q">不会英语怎么办？</div><div class="faq-a">翻译工具 + AI配音 + TikTok内置75种语言。2026年语言不是根本性障碍。</div></div><div class="faq"><div class="faq-q">自己做 vs 找服务商？</div><div class="faq-a"><strong>年费3-12万 vs 自建团队35-70万。</strong></div></div><div class="faq"><div class="faq-q">什么产品最适合？</div><div class="faq-a">机械设备、建材五金、电子元器件、汽车零部件。关键是拍出"解压感"和"专业感"。</div></div><div class="faq"><div class="faq-q">账号被封怎么办？</div><div class="faq-a">80%+是网络问题 → 换专线IP。预防：一机一号一IP、100%原创。</div></div><div class="faq"><div class="faq-q">询盘到成交要多久？</div><div class="faq-a">标件1-4周，定制2-6个月，大项目6-18个月。<strong>平均3-12个月。</strong></div></div></div>
 </div></section>
 
-<!-- M14 -->
-<section id="m14"><div class="w">
-  <div class="eyebrow">Module 14</div><h2>外贸报价与定价策略</h2>
-  <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:28px">报价是外贸中最关键的一步。报高了吓跑客户，报低了亏本。掌握定价逻辑，让每一单都有利润。</p>
-  <div class="gcard"><h3>报价前必须确认的 5 件事</h3><ol><li>贸易术语（FOB / CIF / DDP？）</li><li>付款方式（TT / LC？账期多久？）</li><li>包装要求（中性包装还是客户定制？）</li><li>认证需求（CE、FDA 等额外成本）</li><li>数量阶梯（MOQ 多少？大货价和样品价差多少？）</li></ol><div class="note tip"><strong>核心原则</strong>永远不要在没有确认以上 5 点的情况下报价。模糊报价 = 后期扯皮 = 利润被吃掉。</div></div>
-  <div class="gcard"><h3>FOB 报价构成</h3><table class="tbl"><tr><th>成本项</th><th>说明</th><th>占比参考</th></tr><tr><td>原材料成本</td><td>含损耗率（通常 +3-5%）</td><td>50-65%</td></tr><tr><td>人工成本</td><td>计件或计时折算</td><td>10-20%</td></tr><tr><td>包装费用</td><td>内包装+外箱+托盘+唛头</td><td>3-8%</td></tr><tr><td>内陆运费</td><td>工厂→港口的拖车费</td><td>2-5%</td></tr><tr><td>报关报检</td><td>报关行费用+商检费</td><td>1-2%</td></tr><tr><td>利润</td><td>建议不低于 15%</td><td>15-30%</td></tr></table></div>
-  <div class="gcard"><h3>报价技巧</h3><ul><li><strong>阶梯报价法</strong>：给 3 个数量级的价格（MOQ / 2×MOQ / 5×MOQ），引导客户增加订单量</li><li><strong>有效期限制</strong>：报价单注明有效期（通常 7-15 天），防止原材料波动吃掉利润</li><li><strong>拆分报价</strong>：把运费、认证费单独列出来，让客户看到"裸价"有竞争力</li><li><strong>首次合作让利</strong>：首单可以利润薄一点（10-12%），复购再恢复到正常利润</li></ul></div>
+<section id="m14" class="dark"><div class="sec-w">
+  <div class="eyebrow" style="color:#2997ff">Module 14</div><h2>外贸报价与定价策略</h2><p style="font-size:17px;color:#a1a1a6;max-width:560px;margin-bottom:32px">报价是最关键一步。报高了吓跑客户，报低了亏本。</p>
+  <div class="apple-card apple-card-dark" style="margin-bottom:16px"><h3>报价前必须确认的 5 件事</h3><ol><li>贸易术语（FOB / CIF / DDP）</li><li>付款方式（TT / LC？账期？）</li><li>包装要求（中性还是定制）</li><li>认证需求（额外成本）</li><li>数量阶梯（MOQ和大货价差）</li></ol></div>
+  <div class="apple-card apple-card-dark" style="margin-bottom:16px"><h3>FOB 报价构成</h3><table class="tbl"><tr><th>成本项</th><th>占比参考</th></tr><tr><td>原材料（含损耗3-5%）</td><td>50-65%</td></tr><tr><td>人工</td><td>10-20%</td></tr><tr><td>包装</td><td>3-8%</td></tr><tr><td>内陆运费</td><td>2-5%</td></tr><tr><td>报关报检</td><td>1-2%</td></tr><tr><td>利润（建议 ≥15%）</td><td>15-30%</td></tr></table></div>
+  <div class="apple-card apple-card-dark"><h3>报价技巧</h3><ul><li><strong>阶梯报价</strong>：给3个数量级价格，引导增加订单</li><li><strong>有效期限制</strong>：7-15天，防原材料波动</li><li><strong>拆分报价</strong>：运费/认证单独列出</li><li><strong>首单让利</strong>：10-12%利润，复购恢复</li></ul></div>
 </div></section>
 
-<!-- M15 -->
-<section id="m15" class="bg-sub"><div class="w">
-  <div class="eyebrow">Module 15</div><h2>客户开发信与邮件营销</h2>
-  <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:28px">开发信是外贸人的基本功。一封好的开发信不是推销，是帮客户发现一个靠谱的供应商。</p>
-  <div class="gcard"><h3>开发信核心结构（5 句话原则）</h3><ol><li><strong>我是谁</strong>：工厂名称 + 年限 + 主营产品（1 句）</li><li><strong>为什么联系你</strong>：看到你的采购需求 / 你的行业我们刚好对口（1 句）</li><li><strong>我的优势</strong>：产能/认证/大客户背书，用数字说话（1-2 句）</li><li><strong>行动号召</strong>：能否发一份询盘？可否加 WhatsApp？（1 句）</li><li><strong>签名档</strong>：姓名+职位+电话+WhatsApp+网站（标准化）</li></ol><div class="note tip"><strong>黄金法则</strong>一封开发信不超过 120 个英文单词。采购商每天收几十封供应商邮件，30 秒决定是否回复。短 = 被读完 = 有机会。</div></div>
-  <div class="gcard"><h3>开发信模板</h3><table class="tbl"><tr><th>场景</th><th>邮件内容</th></tr><tr><td>初次开发</td><td>"Hi [Name], I'm [Your Name] from [Factory], a [X]-year manufacturer of [product]. We've been supplying [big client / country] for X years. I noticed your company imports [product] — would you be open to receiving a quote? Best regards, [Name] [WhatsApp]"</td></tr><tr><td>展会跟进</td><td>"Great meeting you at [Exhibition]! As discussed, here's our catalog for [product]. Our MOQ is [X], lead time is [X] days. Let me know if any items catch your eye — happy to quote. [WhatsApp]"</td></tr><tr><td>沉默客户激活</td><td>"Hi [Name], hope you're well. It's been a while since we last spoke. We've recently upgraded our [equipment / certification / capacity]. If you have any upcoming requirements for [product], I'd love to re-quote. No pressure at all."</td></tr></table></div>
+<section id="m15" class="light2"><div class="sec-w">
+  <div class="eyebrow" style="color:#0071e3">Module 15</div><h2>客户开发信与邮件营销</h2><p style="font-size:17px;color:#6e6e73;max-width:560px;margin-bottom:32px">开发信是基本功。不是推销，是帮客户发现靠谱供应商。</p>
+  <div class="apple-card apple-card-light" style="margin-bottom:16px"><h3>5 句话原则（≤120词）</h3><ol><li><strong>我是谁</strong>：工厂名称 + 年限 + 主营产品</li><li><strong>为什么联系你</strong>：你的行业我们刚好对口</li><li><strong>我的优势</strong>：产能/认证/客户背书，用数字</li><li><strong>行动号召</strong>：能否加 WhatsApp？</li><li><strong>签名档</strong>：姓名+职位+电话+WhatsApp+网站</li></ol></div>
+  <div class="apple-card apple-card-light"><h3>3 套模板</h3><table class="tbl"><tr><th>场景</th><th>邮件</th></tr><tr><td>初次开发</td><td>"Hi [Name], I'm [You] from [Factory], a [X]-year manufacturer of [product]. We've been supplying [big client] for X years. Would you be open to receiving a quote?"</td></tr><tr><td>展会跟进</td><td>"Great meeting you at [Exhibition]! As discussed, here's our catalog. MOQ [X], lead time [X] days. Happy to quote any items."</td></tr><tr><td>沉默激活</td><td>"Hi [Name], hope you're well. We've recently upgraded our [equipment]. If you have any upcoming requirements for [product], I'd love to re-quote."</td></tr></table></div>
 </div></section>
 
-<!-- M16 -->
-<section id="m16"><div class="w">
-  <div class="eyebrow">Module 16</div><h2>外贸谈判实战技巧</h2>
-  <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:28px">谈判不是压价，是找到双方都能接受的条件组合。价格只是其中一个变量。</p>
-  <div class="gcard"><h3>价格谈判 5 种应对策略</h3><table class="tbl"><tr><th>客户说</th><th>不要直接降价，而是</th></tr><tr><td>"太贵了"</td><td>"相比哪家？我们的价格包含了 XX 认证和 XX 质保，拆开看每一项都是合理的。您方便分享目标价吗？我看看能不能调整配置。"</td></tr><tr><td>"XX 供应商比你便宜 20%"</td><td>"完全理解。不同配置/材质/包装成本差异很大。我建议我们逐项对比一下，避免您买到不符合要求的产品。"</td></tr><tr><td>"量大能便宜多少"</td><td>"量大的话我可以在 XX 方面帮您省——比如用更高效的模具分摊、优化包装、或者调整付款方式来降成本。"</td></tr><tr><td>"先做一单小的试试"</td><td>"可以先从样品单开始。样品按正常价，如果后续大货确认，样品费可以抵扣。"</td></tr><tr><td>"别的都能接受，就价格不行"</td><td>"如果价格是唯一障碍，我们看看能不能调整付款方式或者交期来平衡。比如 50% 预付的话我可以申请 3% 折扣。"</td></tr></table></div>
-  <div class="gcard"><h3>谈判中的交换逻辑</h3><p>永远不要无条件让步。每一次让步都要换回一个条件：</p><ul><li>降价 5% → 要求提高订单量 30% 或缩短付款账期</li><li>承担样品费 → 要求客户承担快递费</li><li>缩短交期 → 要求加急费或提高定金比例</li><li>免费修改设计 → 要求签独家供应协议</li></ul><div class="note tip"><strong>核心心法</strong>谈判的目标不是"赢"，是让对方觉得"这个供应商靠谱，可以长期合作"。B2B 是长期关系，不要为了一单的利润毁掉一个客户。</div></div>
+<section id="m16" class="dark"><div class="sec-w">
+  <div class="eyebrow" style="color:#2997ff">Module 16</div><h2>外贸谈判实战技巧</h2><p style="font-size:17px;color:#a1a1a6;max-width:560px;margin-bottom:32px">永远不要无条件让步。每一次让步都要换回条件。</p>
+  <div class="apple-card apple-card-dark" style="margin-bottom:16px"><h3>5 种价格异议应对</h3><table class="tbl"><tr><th>客户说</th><th>应对</th></tr><tr><td>"太贵了"</td><td>"相比哪家？我们的价格包含了 XX 认证和质保。您方便分享目标价吗？"</td></tr><tr><td>"XX供应商便宜20%"</td><td>"不同配置成本差异大。建议逐项对比，避免买到不合规产品。"</td></tr><tr><td>"量大能便宜多少"</td><td>"量大的话我可以在模具分摊、包装优化方面帮您降成本。"</td></tr><tr><td>"先做一单小的"</td><td>"可以先从样品单开始。样品费大货确认后可抵扣。"</td></tr><tr><td>"就价格不行"</td><td>"我们看看能不能调整付款方式或交期。50%预付可申请3%折扣。"</td></tr></table></div>
+  <div class="apple-card apple-card-dark"><h3>让步交换逻辑</h3><ul><li>降价 5% → 要求提高订单量 30% 或缩短账期</li><li>承担样品费 → 要求客户承担快递费</li><li>缩短交期 → 要求加急费或提高定金</li><li>免费修改设计 → 要求签独家协议</li></ul><div class="note tip"><strong>核心心法</strong>谈判目标不是"赢"，是让客户觉得"这个供应商靠谱，可以长期合作"。</div></div>
 </div></section>
 
-<!-- M17 -->
-<section id="m17" class="bg-sub"><div class="w">
-  <div class="eyebrow">Module 17</div><h2>TikTok 直播 B2B 实战</h2>
-  <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:28px">工厂直播是 2026 年 B2B 出海最大的新机会。车间就是直播间，技术员就是主播。</p>
-  <div class="gcard"><h3>B2B 工厂直播的 4 种模式</h3><table class="tbl"><tr><th>模式</th><th>内容</th><th>适合场景</th></tr><tr><td>车间巡游</td><td>边走边拍，展示生产线全貌</td><td>展示规模和设备实力</td></tr><tr><td>产品拆解</td><td>对着镜头拆解产品，讲工艺和用料</td><td>展示品质和技术壁垒</td></tr><tr><td>生产跟拍</td><td>从一个订单的原料到成品全程直播</td><td>建立信任，"所见即所得"</td></tr><tr><td>问答互动</td><td>技术员/老板坐播，回答评论区问题</td><td>直接获客，即时转化询盘</td></tr></table></div>
-  <div class="gcard"><h3>B2B 直播必备配置</h3><table class="tbl"><tr><th>配置</th><th>推荐方案</th><th>参考预算</th></tr><tr><td>专线网络</td><td>10M 独立专线</td><td>2000元/月</td></tr><tr><td>同声传译</td><td>AI 实时翻译+人工校对</td><td>5800-15280元/年</td></tr><tr><td>AI 虚拟主播</td><td>数字人 24 小时轮播</td><td>500-2000元/月</td></tr><tr><td>多机位</td><td>手机+微距镜头+无线麦克风</td><td>3000-8000元</td></tr></table><div class="note tip"><strong>数据验证</strong>河北一家叉车工厂通过每天 9 小时 TikTok 工厂直播，上半年外贸增长 50%，月销售额超 300 万。他们用 AI 虚拟主播在非工作时间接替真人直播。</div></div>
+<section id="m17" class="light2"><div class="sec-w">
+  <div class="eyebrow" style="color:#0071e3">Module 17</div><h2>TikTok 直播 B2B 实战</h2><p style="font-size:17px;color:#6e6e73;max-width:560px;margin-bottom:32px">车间就是直播间，技术员就是主播。</p>
+  <div class="apple-card apple-card-light" style="margin-bottom:16px"><h3>4 种直播模式</h3><table class="tbl"><tr><th>模式</th><th>内容</th><th>适合</th></tr><tr><td>车间巡游</td><td>边走边拍生产线全貌</td><td>展示规模和设备</td></tr><tr><td>产品拆解</td><td>拆解产品，讲工艺用料</td><td>展示品质和技术壁垒</td></tr><tr><td>生产跟拍</td><td>从原料到成品全程直播</td><td>建立信任</td></tr><tr><td>问答互动</td><td>技术员坐播，回答评论区</td><td>直接获客，即时转化</td></tr></table></div>
+  <div class="apple-card apple-card-light"><h3>直播配置预算</h3><table class="tbl"><tr><th>配置</th><th>方案</th><th>预算</th></tr><tr><td>专线网络</td><td>10M 独立专线</td><td>2000元/月</td></tr><tr><td>同声传译</td><td>AI 实时翻译+人工校对</td><td>5800-15280元/年</td></tr><tr><td>AI 虚拟主播</td><td>数字人 24h 轮播</td><td>500-2000元/月</td></tr><tr><td>多机位</td><td>手机+微距+麦克风</td><td>3000-8000元</td></tr></table><div class="note tip"><strong>案例</strong>河北叉车厂每天 9h 直播，上半年外贸增长 50%，月销 300 万。非工作时间 AI 主播接替。</div></div>
 </div></section>
 
-<!-- M18 -->
-<section id="m18"><div class="w">
-  <div class="eyebrow">Module 18</div><h2>品牌出海：从 OEM 到自主品牌</h2>
-  <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:28px">OEM 的终点是价格战，品牌的终点是溢价权。转型不是放弃代工，是两条腿走路。</p>
-  <div class="gcard"><h3>OEM → 品牌四阶段路径</h3><div class="tl"><div class="tl-i"><h4>第一阶段：OEM 优化</h4><p>做好代工，积累客户资源和行业口碑。用 TikTok 展示制造能力，让更多品牌方找到你。</p></div><div class="tl-i"><h4>第二阶段：ODM 升级</h4><p>参与设计，提供改进建议。客户逐渐依赖你的研发能力，议价权开始转移。</p></div><div class="tl-i"><h4>第三阶段：联合品牌</h4><p>和海外客户合作推出联名产品线。你制造，他们分销。品牌露出从零到一。</p></div><div class="tl-i"><h4>第四阶段：自主品牌</h4><p>在 TikTok/独立站推出自有品牌。代工收入养品牌，品牌起来后反哺代工议价。</p></div></div></div>
-  <div class="gcard"><h3>品牌出海的第一步</h3><ol><li><strong>注册海外商标</strong>：至少覆盖目标市场（美国 USPTO / 欧盟 EUIPO），费用 3000-8000 元/类</li><li><strong>搭建品牌独立站</strong>：Shopify 起步，月费 $29，用 TikTok 给独立站引流</li><li><strong>讲好品牌故事</strong>：创始人出镜、工厂实拍、客户证言——真实 > 精美</li><li><strong>积累用户评价</strong>：每成交一单，请客户在社媒上留评价。Trustpilot、Google Reviews 都是免费信任资产</li></ol></div>
+<section id="m18" class="dark"><div class="sec-w">
+  <div class="eyebrow" style="color:#2997ff">Module 18</div><h2>品牌出海：从 OEM 到自主品牌</h2><p style="font-size:17px;color:#a1a1a6;max-width:560px;margin-bottom:32px">OEM 终点是价格战，品牌终点是溢价权。两条腿走路。</p>
+  <div class="apple-card apple-card-dark"><div class="tl"><div class="tl-i"><h4>第一阶段：OEM 优化</h4><p>做好代工积累客户资源。用 TikTok 展示制造能力。</p></div><div class="tl-i"><h4>第二阶段：ODM 升级</h4><p>参与设计，客户依赖你的研发能力。</p></div><div class="tl-i"><h4>第三阶段：联合品牌</h4><p>和海外客户合作推出联名产品线。</p></div><div class="tl-i"><h4>第四阶段：自主品牌</h4><p>TikTok/独立站推自有品牌。代工养品牌，品牌反哺代工。</p></div></div><ol style="margin-top:20px"><li>注册海外商标：USPTO/EUIPO，3000-8000元/类</li><li>搭建品牌独立站：Shopify，$29/月起</li><li>讲好品牌故事：创始人出镜 > 精美广告</li><li>积累评价：Trustpilot、Google Reviews 免费信任资产</li></ol></div>
 </div></section>
 
-<!-- M19 -->
-<section id="m19" class="bg-sub"><div class="w">
-  <div class="eyebrow">Module 19</div><h2>知识产权保护指南</h2>
-  <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:28px">出海不做 IP 保护 = 裸奔。商标被抢注、产品被仿冒、Listing 被投诉下架——每一样都能让几年的积累归零。</p>
-  <div class="gcard"><h3>出海必做的 3 项 IP 保护</h3><table class="tbl"><tr><th>保护类型</th><th>保护什么</th><th>注册渠道</th><th>参考费用</th></tr><tr><td>商标 Trademark</td><td>品牌名、Logo、Slogan</td><td>美国 USPTO / 欧盟 EUIPO / 马德里体系</td><td>3000-8000元/类</td></tr><tr><td>外观专利 Design Patent</td><td>产品外观设计</td><td>各国专利局 / 海牙体系</td><td>5000-20000元</td></tr><tr><td>版权 Copyright</td><td>产品图片、视频、说明书</td><td>自动获得（但建议登记）</td><td>500-2000元</td></tr></table><div class="note warn"><strong>血的教训</strong>中国工厂在亚马逊上被投诉侵权导致 Listing 下架、账户冻结的案例数不胜数。一旦你的产品图片或设计被竞争对手抢注版权，对方可以合法要求平台下架你的商品。产品图和视频发布前先做版权登记。</div></div>
-  <div class="gcard"><h3>跨境 IP 防护清单</h3><ol><li><strong>出海前先查</strong>：目标市场是否有人已注册你的商标/专利？用 USPTO、EUIPO、WIPO 数据库免费查</li><li><strong>先注册再公开</strong>：产品外观和品牌名在公开前完成注册</li><li><strong>图片加水印</strong>：所有产品图、视频加品牌水印，增加盗用成本</li><li><strong>监控侵权</strong>：用 Google Alerts + 亚马逊 Brand Registry 监控是否有人盗用你的内容</li><li><strong>TikTok 原创标记</strong>：发布时开启原创保护，防止视频被搬运</li></ol></div>
+<section id="m19" class="light2"><div class="sec-w">
+  <div class="eyebrow" style="color:#0071e3">Module 19</div><h2>知识产权保护指南</h2><p style="font-size:17px;color:#6e6e73;max-width:560px;margin-bottom:32px">出海不做 IP 保护 = 裸奔。商标被抢注、Listing 被投诉下架都能让积累归零。</p>
+  <div class="apple-card apple-card-light" style="margin-bottom:16px"><h3>3 项必做 IP 保护</h3><table class="tbl"><tr><th>类型</th><th>保护内容</th><th>渠道</th><th>费用</th></tr><tr><td>商标</td><td>品牌名、Logo</td><td>USPTO / EUIPO / 马德里</td><td>3000-8000元/类</td></tr><tr><td>外观专利</td><td>产品外观设计</td><td>各国专利局 / 海牙体系</td><td>5000-20000元</td></tr><tr><td>版权</td><td>图片、视频、说明书</td><td>自动获得（建议登记）</td><td>500-2000元</td></tr></table><div class="note warn"><strong>教训</strong>产品图片被竞对抢注版权 → 对方合法要求平台下架你的商品。图片和视频发布前先做版权登记。</div></div>
+  <div class="apple-card apple-card-light"><h3>IP 防护清单</h3><ol><li>出海前先查目标市场是否有人已注册</li><li>先注册再公开产品外观</li><li>所有图片视频加品牌水印</li><li>用 Google Alerts + Amazon Brand Registry 监控侵权</li><li>TikTok 发布时开启原创保护</li></ol></div>
 </div></section>
 
-<!-- M20 -->
-<section id="m20"><div class="w">
-  <div class="eyebrow">Module 20</div><h2>外贸团队搭建与管理</h2>
-  <p style="font-size:16px;color:var(--t2);max-width:480px;margin-bottom:28px">从一个人做到一个团队，是工厂出海规模化的必经之路。搭团队比做内容更难，但做好了是真正的护城河。</p>
-  <div class="gcard"><h3>最小可行外贸团队（3-5人）</h3><table class="tbl"><tr><th>岗位</th><th>核心职责</th><th>月薪参考（石家庄）</th></tr><tr><td>外贸经理</td><td>策略制定、大客户谈判、团队管理</td><td>8000-15000</td></tr><tr><td>运营专员</td><td>TikTok/社媒内容发布、数据监控</td><td>5000-8000</td></tr><tr><td>视频拍摄+剪辑</td><td>入企拍摄、后期制作（可兼岗）</td><td>6000-10000</td></tr><tr><td>外贸业务员</td><td>询盘跟进、WhatsApp 沟通、跟单</td><td>4000-7000 + 提成</td></tr><tr><td>投流优化师</td><td>TikTok Ads / Google Ads（可外包）</td><td>6000-12000</td></tr></table></div>
-  <div class="gcard"><h3>考核与激励</h3><ul><li><strong>业务员</strong>：底薪 + 询盘量提成 + 成交额提成。不要只考核成交——询盘量、回复速度、客户满意度也要纳入</li><li><strong>运营</strong>：播放量 + 询盘量 + 粉丝增长。避免单纯看播放量（容易被刷量欺骗）</li><li><strong>拍摄</strong>：视频产出数量 + 爆款率（1万播放以上占比）。质量 > 数量</li></ul><div class="note tip"><strong>管理心法</strong>3人以下不需要管理，靠自觉。5人以上需要流程和考核。10人以上需要中层。工厂出海团队通常卡在 5-8 人这个阶段——创始人既要管生产又要管外贸，精力不够。建议在 3 人阶段就开始培养一个能独当一面的外贸经理。</div></div>
+<section id="m20" class="dark"><div class="sec-w">
+  <div class="eyebrow" style="color:#2997ff">Module 20</div><h2>外贸团队搭建与管理</h2><p style="font-size:17px;color:#a1a1a6;max-width:560px;margin-bottom:32px">从一个人做到一个团队，是规模化的必经之路。</p>
+  <div class="apple-card apple-card-dark" style="margin-bottom:16px"><h3>最小可行团队（3-5人）</h3><table class="tbl"><tr><th>岗位</th><th>职责</th><th>月薪参考</th></tr><tr><td>外贸经理</td><td>策略+大客户谈判+管理</td><td>8000-15000</td></tr><tr><td>运营专员</td><td>TikTok/社媒内容发布</td><td>5000-8000</td></tr><tr><td>拍摄+剪辑</td><td>入企拍摄+后期</td><td>6000-10000</td></tr><tr><td>外贸业务员</td><td>询盘跟进+WhatsApp沟通</td><td>4000-7000+提成</td></tr><tr><td>投流优化师</td><td>TikTok Ads/Google Ads</td><td>6000-12000</td></tr></table></div>
+  <div class="apple-card apple-card-dark"><h3>考核与激励</h3><ul><li><strong>业务员</strong>：底薪+询盘量提成+成交额提成。不只考核成交。</li><li><strong>运营</strong>：播放量+询盘量+粉丝增长。避免只看播放量。</li><li><strong>拍摄</strong>：视频产出数+爆款率。质量>数量。</li></ul><div class="note tip"><strong>管理心法</strong>3人以下靠自觉。5人以上要流程和考核。10人以上需要中层。建议3人阶段就培养外贸经理。</div></div>
 </div></section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="w">
-    <div class="eyebrow">关于</div>
+<!-- ==================== ABOUT - DARK ==================== -->
+<section id="about" class="dark">
+  <div class="sec-w">
+    <div class="eyebrow" style="color:#2997ff">关于</div>
     <h2>一个石家庄人，<br>在帮中国工厂连接全球</h2>
-    <div class="profile" style="margin-top:28px">
+    <div class="profile" style="margin-top:32px">
       <div class="avatar">王</div>
       <div>
-        <p style="font-size:16px;color:var(--t2);line-height:1.8">
+        <p style="font-size:17px;color:#a1a1a6;line-height:1.8">
           本科毕业后进入跨境出海行业，专注 TikTok B2B 工厂获客方向。服务过机械设备、建材五金、电子元器件、汽车零部件等产业集群的客户，帮助传统制造企业从零搭建海外社媒获客体系。
         </p>
-        <p style="font-size:16px;color:var(--t2);line-height:1.8">
-          好的内容比广告更持久，真实的工厂比精致的宣传片更有说服力。做这个知识库是因为——真正有价值的东西应该被更多人知道。工厂老板不需要被推销，他们需要被启发。
+        <p style="font-size:17px;color:#a1a1a6;line-height:1.8">
+          好的内容比广告更持久，真实的工厂比宣传片更有说服力。做知识库的原因很简单——有价值的东西应该被更多人知道。工厂老板不需要被推销，他们需要被启发。
         </p>
-        <p style="font-size:13px;color:var(--t3);margin-top:8px">📍 河北石家庄 · 📞 19933103902</p>
+        <p style="font-size:14px;color:#86868b;margin-top:8px">📍 河北石家庄 · 📞 19933103902</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" style="padding-bottom:120px;background:var(--mesh);position:relative">
-  <div class="w" style="text-align:center;position:relative;z-index:1">
-    <div class="eyebrow">联系</div>
+<!-- ==================== CONTACT - LIGHT ==================== -->
+<section id="contact" class="light" style="padding-bottom:120px">
+  <div class="sec-w" style="text-align:center">
+    <div class="eyebrow" style="color:#0071e3">联系</div>
     <h2>开始你的全球化之旅</h2>
-    <p style="font-size:17px;color:var(--t2);max-width:400px;margin:0 auto 32px;line-height:1.7">不管是刚准备启动，还是已经在做但遇到瓶颈——我们可以聊聊。</p>
-    <div class="ct">
-      <div class="ct-i" onclick="copy('19933103902')"><div class="cv">19933103902</div><div class="cl">点击复制手机号 / 微信</div></div>
-      <div class="ct-i" onclick="copy('jiahao@shidaifeng.com')"><div class="cv">王嘉豪</div><div class="cl">点击复制邮箱 · 24 小时内回复</div></div>
+    <p style="font-size:17px;color:#6e6e73;max-width:400px;margin:0 auto 32px">不管是刚启动还是遇到瓶颈——我们可以聊聊。</p>
+    <div class="contact-grid">
+      <div class="contact-item" onclick="copy('19933103902')"><div class="cv">19933103902</div><div class="cl">点击复制手机号 / 微信</div></div>
+      <div class="contact-item" onclick="copy('jiahao@shidaifeng.com')"><div class="cv">王嘉豪</div><div class="cl">点击复制邮箱 · 24h 回复</div></div>
     </div>
-    <p style="margin-top:24px;font-size:13px;color:var(--t3)">📍 河北 · 石家庄 &nbsp;|&nbsp; 🕐 周一至周五 9:00 – 18:00</p>
+    <p style="margin-top:24px;font-size:14px;color:#86868b">📍 河北 · 石家庄 &nbsp;|&nbsp; 🕐 周一至周五 9:00 – 18:00</p>
   </div>
 </section>
 
@@ -483,22 +469,26 @@
 </footer>
 
 <script>
-document.querySelectorAll('.faq').forEach(f=>{f.querySelector('.faq-q').addEventListener('click',()=>f.classList.toggle('open'))});
-function copy(t){navigator.clipboard.writeText(t).then(()=>{const e=document.createElement('div');e.textContent='已复制 ✓';e.style.cssText='position:fixed;top:72px;left:50%;transform:translateX(-50%);background:#2c2416;color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;z-index:999;pointer-events:none';document.body.appendChild(e);setTimeout(()=>{e.style.opacity='0';e.style.transition='opacity 0.3s';setTimeout(()=>e.remove(),300)},1500)})}
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
-
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:0.08});
-document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
-
-document.querySelectorAll('.gcard').forEach(card=>{
-  card.addEventListener('mousemove',e=>{
-    const r=card.getBoundingClientRect();
-    const x=((e.clientX-r.left)/r.width)*100;
-    const y=((e.clientY-r.top)/r.height)*100;
-    card.style.background=`radial-gradient(ellipse at ${x}% ${y}%, rgba(199,125,75,0.05) 0%, rgba(255,253,250,0.7) 60%)`;
+// Nav color on dark sections
+const nav=document.getElementById('navbar');
+const darkSections=document.querySelectorAll('.dark');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting&&e.target.classList.contains('dark'))nav.classList.add('dark-nav');
+    else if(e.target===document.querySelector('.light2')||e.target===document.querySelector('.light'))nav.classList.remove('dark-nav');
   });
-  card.addEventListener('mouseleave',()=>{card.style.background=''});
-});
+},{threshold:0.3});
+darkSections.forEach(s=>obs.observe(s));
+document.querySelectorAll('.light,.light2').forEach(s=>obs.observe(s));
+
+// FAQ
+document.querySelectorAll('.faq').forEach(f=>{f.querySelector('.faq-q').addEventListener('click',()=>f.classList.toggle('open'))});
+
+// Copy
+function copy(t){navigator.clipboard.writeText(t).then(()=>{const e=document.createElement('div');e.textContent='已复制 ✓';e.style.cssText='position:fixed;top:72px;left:50%;transform:translateX(-50%);background:#1d1d1f;color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;z-index:999;pointer-events:none';document.body.appendChild(e);setTimeout(()=>{e.style.opacity='0';e.style.transition='opacity 0.3s';setTimeout(()=>e.remove(),300)},1500)})}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
 </script>
 </body>
 </html>
