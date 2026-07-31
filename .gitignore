@@ -1,0 +1,13 @@
+.DS_Store
+*.pdf
+*.pptx
+*.docx
+*.doc
+*.xlsx
+*.png
+*.jpeg
+*.jpg
+*.md
+!index.html
+!story.html
+!evolution.html
