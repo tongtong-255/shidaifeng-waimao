@@ -37,7 +37,8 @@ li{margin-bottom:4px}
 
 /* Hero */
 .hero-bg{position:relative;overflow:hidden}
-.hero-bg::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=80') center/cover no-repeat;opacity:0.08;z-index:0}
+.hero-bg::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=80') center/cover no-repeat;opacity:0.06;z-index:0}
+.hero-bg::after{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#0ea5e9,#22d3ee,#0ea5e9);z-index:0}
 .hero-bg>*{position:relative;z-index:1}
 
 /* Module grid */
@@ -69,8 +70,8 @@ li{margin-bottom:4px}
 
 /* Callout */
 .note{padding:16px 22px;margin:18px 0;border-radius:12px;font-size:14px;line-height:1.7;color:#555;background:#f8f9fb;border-left:3px solid #ddd}
-.note.tip{border-left-color:#06f;background:#f5f8ff}
-.note.warn{border-left-color:#e55;background:#fef9f8}
+.note.tip{border-left-color:#0ea5e9;background:#f0f9ff}
+.note.warn{border-left-color:#f43f5e;background:#fff5f5}
 .note strong{display:block;margin-bottom:3px;font-size:13px}
 
 /* Timeline */
@@ -83,7 +84,7 @@ li{margin-bottom:4px}
 /* FAQ */
 .faq{border-bottom:1px solid #eee;cursor:pointer}
 .faq-q{padding:18px 0;font-size:15px;font-weight:500;display:flex;justify-content:space-between;align-items:center;user-select:none;transition:color 0.15s}
-.faq-q:hover{color:#06f}
+.faq-q:hover{color:#0ea5e9}
 .faq-q::after{content:'+';font-size:20px;font-weight:300;color:#999}
 .faq.open .faq-q::after{content:'−'}
 .faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s;font-size:14px;color:#6e6e73;line-height:1.7}
@@ -102,7 +103,7 @@ li{margin-bottom:4px}
 
 .ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
 .ct-item{background:#f8f9fb;border:1px solid #eee;border-radius:18px;padding:28px;text-align:center;cursor:pointer;transition:all 0.3s}
-.ct-item:hover{border-color:#06f;box-shadow:0 2px 14px rgba(0,0,0,0.04)}
+.ct-item:hover{border-color:#0ea5e9;box-shadow:0 2px 14px rgba(14,165,233,0.08)}
 .ct-item .cv{font-size:18px;font-weight:600}
 .ct-item .cl{font-size:11px;color:#999;margin-top:4px;letter-spacing:0.5px}
 
@@ -172,20 +173,60 @@ footer{padding:32px 24px;text-align:center;font-size:12px;color:#999;line-height
 <!-- DAILY -->
 <section id="daily" class="sub" style="padding:48px 24px">
   <div class="sec-w">
-    <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1200&q=80" class="img-strip" alt="Shipping">
-    <div class="daily-card">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
-        <span style="font-size:11px;font-weight:600;letter-spacing:2px;color:#06f;text-transform:uppercase">今日外贸晨报</span>
-        <span style="font-size:13px;color:#999">2026.07.31</span>
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px">
+      <span style="font-size:12px;font-weight:600;letter-spacing:2px;color:#0ea5e9;text-transform:uppercase">今日外贸晨报</span>
+      <span style="font-size:13px;color:#94a3b8">2026.07.31 周四</span>
+      <span style="flex:1;height:1px;background:#e2e8f0"></span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 32px">
+      <!-- Left column -->
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:12px;font-weight:600;color:#0ea5e9;letter-spacing:1px;margin-bottom:4px">📊 宏观数据</div>
+        <div style="font-size:13px;color:#555;line-height:1.7">上半年进出口总值 <strong>25.47万亿</strong>（+16.9%），出口 14.73万亿（+13.4%）</div>
+        <div style="font-size:13px;color:#555;line-height:1.7">6月单月进出口 4.78万亿，同比大涨 <strong>24.2%</strong></div>
+        <div style="font-size:13px;color:#555;line-height:1.7">民企进出口 14.53万亿（+17%），贡献近 <strong>6成</strong> 外贸增量</div>
+        <div style="font-size:13px;color:#555;line-height:1.7">机电产品出口 9.36万亿（+20.1%），占出口总额 <strong>63.5%</strong></div>
+        <div style="font-size:13px;color:#555;line-height:1.7">高技术产品出口 3.26万亿，同比增长 <strong>39%</strong></div>
+
+        <div style="font-size:12px;font-weight:600;color:#0ea5e9;letter-spacing:1px;margin:8px 0 4px">🇪🇺 欧盟政策</div>
+        <div style="font-size:13px;color:#555;line-height:1.7"><strong>CE/UKCA 合规今日生效</strong>：电子电器、纺织品新品须提交资质</div>
+        <div style="font-size:13px;color:#555;line-height:1.7">GPSR 全量核查已启动，<strong>9月30日</strong> 前存量商品须补齐，否则下架</div>
+        <div style="font-size:13px;color:#555;line-height:1.7">小额包裹免税取消：150欧以下加征 <strong>3欧/件</strong> 固定关税</div>
+        <div style="font-size:13px;color:#555;line-height:1.7">顺丰国际落地 TikTok Shop 欧洲 <strong>12国</strong> 3PL 国内直发服务</div>
+
+        <div style="font-size:12px;font-weight:600;color:#0ea5e9;letter-spacing:1px;margin:8px 0 4px">🇺🇸 美国动态</div>
+        <div style="font-size:13px;color:#555;line-height:1.7">TikTok 保证金三级架构：最高 <strong>$10,000</strong> 浮动风险保证金</div>
+        <div style="font-size:13px;color:#555;line-height:1.7">CPSC eFiling 强制生效：$800以下小包 <strong>同样监管</strong></div>
+        <div style="font-size:13px;color:#555;line-height:1.7">直播拍卖列为"最终销售"，不支持无理由退货</div>
       </div>
-      <div class="daily-grid">
-        <div>📊 上半年进出口 <strong>25.47万亿</strong>（+16.9%），机电产品出口增 20.1%</div>
-        <div>🇪🇺 欧盟 CE/UKCA 合规已生效，9月30日前存量须补齐资质</div>
-        <div>🇺🇸 美区保证金新规：最高 $10,000 浮动</div>
-        <div>🔥 河北"厂播"爆发：AI 虚拟主播 24h 直播成趋势</div>
-        <div>🤖 "新新三样"出口持续攀升，机器人出口增 18.6%</div>
-        <div>🌏 TikTok 欧洲 8 个新站点开放：波兰、荷兰、比利时等</div>
+
+      <!-- Right column -->
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:12px;font-weight:600;color:#0ea5e9;letter-spacing:1px;margin-bottom:4px">🔥 行业趋势</div>
+        <div style="font-size:13px;color:#555;line-height:1.7">河北"厂播"全面爆发：石家庄 <strong>780+</strong> 企业开播，AI 虚拟主播 24h 轮播</div>
+        <div style="font-size:13px;color:#555;line-height:1.7">叉车厂 TikTok 直播每天 9h，上半年外贸增长 <strong>50%</strong>，月销 300 万</div>
+        <div style="font-size:13px;color:#555;line-height:1.7">"新新三样"成出口新名片：<strong>AI + 机器人 + 创新药</strong></div>
+        <div style="font-size:13px;color:#555;line-height:1.7">机器人出口 199.9亿元（+39.5%），中国成全球 <strong>第二大</strong> 机器人出口国</div>
+        <div style="font-size:13px;color:#555;line-height:1.7">94% 海外采购商先用 AI 评估供应商，考察名单缩至 <strong>3.5家</strong></div>
+
+        <div style="font-size:12px;font-weight:600;color:#0ea5e9;letter-spacing:1px;margin:8px 0 4px">🌏 TikTok 平台动态</div>
+        <div style="font-size:13px;color:#555;line-height:1.7">欧洲 <strong>8个</strong> 新站点开放：波兰、荷兰、比利时、捷克、奥地利等</div>
+        <div style="font-size:13px;color:#555;line-height:1.7">欧洲 POP 入驻标准放宽：第三方平台经验 <strong>改为可选</strong></div>
+        <div style="font-size:13px;color:#555;line-height:1.7">东南亚跨境结算优化：运费补贴 <strong>3个自然日</strong> 内到账</div>
+        <div style="font-size:13px;color:#555;line-height:1.7">印尼认证本土商家减免 <strong>50%</strong> 服务费，跨境卖家需差异化竞争</div>
+        <div style="font-size:13px;color:#555;line-height:1.7">禁止多平台联播 + AI内容须标注，东南亚站全面收紧</div>
+
+        <div style="font-size:12px;font-weight:600;color:#0ea5e9;letter-spacing:1px;margin:8px 0 4px">🤖 AI + 出海</div>
+        <div style="font-size:13px;color:#555;line-height:1.7">阿里国际站发布 Accio Work 智能体，实现 B2B 的 A2A 交易模式</div>
+        <div style="font-size:13px;color:#555;line-height:1.7">飞书深诺 Marvy2.0：广告投放运营效率提升 <strong>20倍</strong></div>
+        <div style="font-size:13px;color:#555;line-height:1.7">AI客服可处理 <strong>85%</strong> 以上常规咨询，多语种翻译覆盖 20+ 语言</div>
+        <div style="font-size:13px;color:#555;line-height:1.7">2026全球跨境电商交易博览会杭州启幕，首设 AI+跨境展区</div>
       </div>
+    </div>
+
+    <div style="margin-top:24px;padding-top:20px;border-top:1px solid #e2e8f0;font-size:12px;color:#94a3b8;text-align:center">
+      数据来源：海关总署、商务部、TikTok Shop 官方公告、36氪、雨果跨境 &nbsp;|&nbsp; 此栏目每日更新
     </div>
   </div>
 </section>
