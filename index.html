@@ -5,231 +5,279 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>工作台 · 王嘉豪</title>
 <style>
-:root{--bg:#f8f9fb;--card:#fff;--text:#1d1d1f;--t2:#6b7280;--t3:#9ca3af;--blue:#0ea5e9;--border:#e5e7eb;--shadow:0 1px 3px rgba(0,0,0,0.04)}
+:root{--bg:#f5f5f7;--card:#fff;--text:#1d1d1f;--t2:#6b7280;--t3:#9ca3af;--blue:#0ea5e9;--border:#e5e7eb}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
 body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
 
-/* Top bar */
-.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:0 20px;height:44px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.topbar .tb-left{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600}
-.topbar .tb-right{display:flex;align-items:center;gap:16px;font-size:12px;color:var(--t2)}
-.topbar .tb-right a{color:var(--t2);text-decoration:none;transition:color 0.15s}
-.topbar .tb-right a:hover{color:var(--text)}
-.topbar .dot{width:7px;height:7px;border-radius:50%;background:#34c759;display:inline-block;margin-right:6px}
+/* Topbar */
+.topbar{background:rgba(255,255,255,0.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.06);padding:0 24px;height:46px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.topbar .tb-l{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600}
+.topbar .tb-r{display:flex;align-items:center;gap:20px;font-size:12px;color:var(--t2)}
+.topbar .tb-r a{color:var(--t2);text-decoration:none;transition:color 0.15s;font-weight:500}
+.topbar .tb-r a:hover{color:var(--text)}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#34c759;animation:pulse 2s infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
 
-/* Layout */
-.wrap{max-width:960px;margin:0 auto;padding:0 20px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
 
-/* Cards */
-.c{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;transition:all 0.2s}
-.c:hover{box-shadow:var(--shadow);border-color:#d1d5db}
+.c{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all 0.35s cubic-bezier(0.2,0,0,1)}
+.c:hover{box-shadow:0 1px 3px rgba(0,0,0,0.03),0 8px 24px rgba(0,0,0,0.05);border-color:#d1d5db;transform:translateY(-1px)}
 
-/* Section header */
-.sh{display:flex;align-items:center;justify-content:space-between;margin:32px 0 14px}
-.sh h2{font-size:18px;font-weight:600;letter-spacing:-0.3px}
-.sh .sh-r{font-size:12px;color:var(--t3)}
+.sh{display:flex;align-items:center;justify-content:space-between;margin:40px 0 16px}
+.sh h2{font-size:22px;font-weight:600;letter-spacing:-0.5px}
+.sh .shr{font-size:12px;color:var(--t3);text-decoration:none;transition:color 0.15s}
+.sh .shr:hover{color:var(--blue)}
 
-/* Daily briefing */
-.daily-section{margin:24px 0}
-.daily-header{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.daily-header .dh-date{font-size:24px;font-weight:600;letter-spacing:-0.5px}
-.daily-header .dh-day{font-size:13px;color:var(--t2)}
-.daily-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-.daily-tag{padding:4px 12px;border-radius:12px;font-size:11px;font-weight:600;letter-spacing:0.5px;cursor:pointer;transition:all 0.15s;border:1px solid transparent}
-.daily-tag.active{background:#e0f2fe;color:#0284c7;border-color:#bae6fd}
-.daily-tag:not(.active){background:var(--card);color:var(--t2);border-color:var(--border)}
-.daily-tag:not(.active):hover{border-color:#d1d5db}
-.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px}
-.news-item{font-size:13px;color:var(--t2);line-height:1.65;padding:5px 0}
-.news-item strong{color:var(--text);font-weight:600}
-.news-item .cat{font-size:10px;font-weight:600;letter-spacing:0.5px;margin-right:6px}
+/* Hero area */
+.hero-panel{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin:28px 0;display:grid;grid-template-columns:1fr 1fr}
+.hero-panel .hp-left{padding:36px 40px;display:flex;flex-direction:column;justify-content:center}
+.hero-panel .hp-right{background:url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80') center/cover;min-height:240px}
+.hero-panel .hp-name{font-size:15px;font-weight:600;margin-bottom:4px}
+.hero-panel .hp-role{font-size:13px;color:var(--t2);margin-bottom:20px}
+.hero-panel .hp-title{font-size:clamp(28px,4vw,42px);font-weight:600;letter-spacing:-1px;line-height:1.1;margin-bottom:8px}
+.hero-panel .hp-sub{font-size:15px;color:var(--t2);line-height:1.6}
+.hero-stats{display:flex;gap:32px;margin-top:24px}
+.hero-stat .hs-n{font-size:36px;font-weight:600;letter-spacing:-1px;color:var(--blue)}
+.hero-stat .hs-l{font-size:10px;color:var(--t3);letter-spacing:1px;text-transform:uppercase}
 
-/* Module quick grid */
-.mod-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-.mod-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 14px;text-decoration:none;color:var(--text);transition:all 0.2s;display:block}
-.mod-card:hover{border-color:var(--blue);box-shadow:0 0 0 2px rgba(14,165,233,0.1)}
-.mod-card .mc-emoji{font-size:20px;margin-bottom:6px}
-.mod-card .mc-num{font-size:9px;color:var(--t3);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
-.mod-card .mc-title{font-size:13px;font-weight:600;letter-spacing:-0.2px}
+/* Daily */
+.daily-header{display:flex;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.daily-header .dh-date{font-size:15px;font-weight:600;color:var(--t3);letter-spacing:0.5px}
+.daily-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.dt{padding:4px 12px;border-radius:12px;font-size:11px;font-weight:600;letter-spacing:0.3px;cursor:pointer;transition:all 0.2s;border:1px solid var(--border);background:var(--card);color:var(--t2)}
+.dt.active,.dt:hover{background:#e0f2fe;color:#0284c7;border-color:#bae6fd}
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px 24px}
+.ni{font-size:13px;color:var(--t2);line-height:1.65;padding:6px 0;transition:opacity 0.2s}
+.ni strong{color:var(--text);font-weight:600}
+.ni .nc{font-size:10px;font-weight:600;letter-spacing:0.5px;margin-right:6px}
+.ni.hidden{display:none}
 
-/* Quick tools */
-.tool-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;text-decoration:none;color:var(--text);transition:all 0.2s;display:flex;align-items:center;gap:12px}
-.tool-card:hover{border-color:var(--blue)}
-.tool-card .tc-icon{font-size:24px;flex-shrink:0}
-.tool-card .tc-info{font-size:12px;color:var(--t2);line-height:1.5}
-.tool-card .tc-name{font-size:14px;font-weight:600;color:var(--text)}
+/* Module grid */
+.mod-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 16px;text-decoration:none;color:var(--text);transition:all 0.3s cubic-bezier(0.2,0,0,1);display:block}
+.mod-card:hover{border-color:var(--blue);box-shadow:0 0 0 3px rgba(14,165,233,0.08);transform:translateY(-2px)}
+.mod-card .mc-e{font-size:24px;margin-bottom:8px}
+.mod-card .mc-n{font-size:9px;color:var(--t3);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:6px}
+.mod-card .mc-t{font-size:13px;font-weight:600;letter-spacing:-0.2px;margin-bottom:2px}
+.mod-card .mc-d{font-size:11px;color:var(--t3);line-height:1.4}
 
-/* Stats mini */
-.stat-mini{text-align:center;padding:8px}
-.stat-mini .sm-num{font-size:28px;font-weight:600;letter-spacing:-1px;color:var(--blue)}
-.stat-mini .sm-lab{font-size:10px;color:var(--t3);letter-spacing:0.5px;text-transform:uppercase}
+/* Ref cards */
+.ref-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px 24px;transition:all 0.3s}
+.ref-card:hover{box-shadow:0 2px 12px rgba(0,0,0,0.04);border-color:#d1d5db}
+.ref-card h4{font-size:14px;font-weight:600;margin-bottom:10px;letter-spacing:-0.2px}
+.ref-card p{font-size:13px;color:var(--t2);line-height:1.7}
+.ref-card .rv{font-size:22px;font-weight:600;color:var(--blue);margin:6px 0}
+.ref-card ul{list-style:none;padding:0;font-size:13px;color:var(--t2);line-height:1.8}
 
-/* Quick ref cards */
-.ref-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
-.ref-card h4{font-size:13px;font-weight:600;margin-bottom:8px;letter-spacing:-0.2px}
-.ref-card p{font-size:12px;color:var(--t2);line-height:1.65}
-.ref-card .ref-val{font-size:20px;font-weight:600;color:var(--blue);margin:4px 0}
+/* Tool cards */
+.tool-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;text-decoration:none;color:var(--text);transition:all 0.3s;display:flex;align-items:center;gap:14px}
+.tool-card:hover{border-color:var(--blue);box-shadow:0 0 0 2px rgba(14,165,233,0.08)}
+.tool-card .tc-icon{font-size:28px;flex-shrink:0}
+.tool-card .tc-n{font-size:14px;font-weight:600}
+.tool-card .tc-d{font-size:11px;color:var(--t3)}
 
-.profile-row{display:flex;align-items:center;gap:14px;margin-bottom:24px}
-.avatar{width:48px;height:48px;border-radius:50%;background:#e5e7eb;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:#9ca3af;flex-shrink:0}
+/* Image accents */
+.img-accent{width:100%;height:160px;object-fit:cover;border-radius:14px;margin:10px 0;opacity:0.85}
 
-footer{text-align:center;padding:24px;font-size:11px;color:var(--t3);border-top:1px solid var(--border);margin-top:40px}
+footer{text-align:center;padding:32px 24px;font-size:11px;color:var(--t3);border-top:1px solid var(--border);margin-top:48px;line-height:1.8}
+
+.sec-bg{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:48px 0;margin:32px 0}
 
 @media(max-width:768px){
   .grid2,.grid3{grid-template-columns:1fr}
   .grid4{grid-template-columns:1fr 1fr}
-  .mod-grid{grid-template-columns:repeat(3,1fr)}
+  .grid5{grid-template-columns:repeat(3,1fr)}
   .news-grid{grid-template-columns:1fr}
-  .topbar .tb-right{display:none}
+  .hero-panel{grid-template-columns:1fr}
+  .hero-panel .hp-right{min-height:160px}
+  .topbar .tb-r{display:none}
+  .hero-stats{gap:20px}
+  .hero-stat .hs-n{font-size:28px}
 }
 </style>
 </head>
 <body>
 
-<!-- Top Bar -->
 <div class="topbar">
-  <div class="tb-left"><span class="dot"></span> 工作台</div>
-  <div class="tb-right">
-    <span>2026.07.31 周四</span>
-    <a href="knowledge.html">知识库 →</a>
-    <a href="#tools">工具箱</a>
-    <a href="#ref">速查</a>
-  </div>
+  <div class="tb-l"><span class="live-dot"></span> 工作台</div>
+  <div class="tb-r"><span>2026.07.31 周四</span><a href="knowledge.html">知识库</a><a href="#ref">速查</a><a href="#tools">工具箱</a></div>
 </div>
 
 <div class="wrap">
 
-<!-- Profile + Stats -->
-<div style="display:flex;align-items:center;justify-content:space-between;margin:28px 0 0;flex-wrap:wrap;gap:16px">
-  <div class="profile-row">
-    <div class="avatar">王</div>
-    <div>
-      <div style="font-weight:600;font-size:15px">王嘉豪</div>
-      <div style="font-size:12px;color:var(--t2)">中国制造出海顾问 · 19933103902</div>
+<!-- ===== HERO PANEL ===== -->
+<div class="hero-panel">
+  <div class="hp-left">
+    <div class="hp-name">王嘉豪</div>
+    <div class="hp-role">中国制造出海顾问 · 河北石家庄 · 19933103902</div>
+    <div class="hp-title">帮助中国制造<br>连接全球市场</div>
+    <p class="hp-sub">TikTok 海外营销 · 社媒运营 · 数字化获客体系</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hs-n">500+</div><div class="hs-l">服务企业</div></div>
+      <div class="hero-stat"><div class="hs-n">$10亿+</div><div class="hs-l">客户 GMV</div></div>
+      <div class="hero-stat"><div class="hs-n">80+</div><div class="hs-l">覆盖国家</div></div>
     </div>
   </div>
-  <div style="display:flex;gap:20px">
-    <div class="stat-mini"><div class="sm-num">500+</div><div class="sm-lab">企业</div></div>
-    <div class="stat-mini"><div class="sm-num">$10亿+</div><div class="sm-lab">GMV</div></div>
-    <div class="stat-mini"><div class="sm-num">20</div><div class="sm-lab">模块</div></div>
-  </div>
+  <div class="hp-right"></div>
 </div>
 
 <!-- ===== DAILY BRIEFING ===== -->
-<div class="daily-section">
-  <div class="sh" style="margin-top:20px">
-    <h2>📰 今日外贸晨报</h2>
-    <span class="sh-r">数据来源：海关总署 · TikTok官方 · 雨果跨境</span>
-  </div>
+<div class="sh" style="margin-top:32px"><h2>📰 今日外贸晨报</h2><span class="shr">海关总署 · TikTok官方 · 雨果跨境</span></div>
 
-  <div class="daily-tags">
-    <span class="daily-tag active" onclick="filterNews('all')">全部</span>
-    <span class="daily-tag" onclick="filterNews('macro')">📊 宏观</span>
-    <span class="daily-tag" onclick="filterNews('eu')">🇪🇺 欧盟</span>
-    <span class="daily-tag" onclick="filterNews('us')">🇺🇸 美国</span>
-    <span class="daily-tag" onclick="filterNews('trend')">🔥 趋势</span>
-    <span class="daily-tag" onclick="filterNews('tk')">🌏 TikTok</span>
-    <span class="daily-tag" onclick="filterNews('ai')">🤖 AI</span>
-  </div>
+<div class="daily-tags">
+  <span class="dt active" onclick="filterNews('all')">全部</span>
+  <span class="dt" onclick="filterNews('macro')">📊 宏观</span>
+  <span class="dt" onclick="filterNews('eu')">🇪🇺 欧盟</span>
+  <span class="dt" onclick="filterNews('us')">🇺🇸 美国</span>
+  <span class="dt" onclick="filterNews('trend')">🔥 趋势</span>
+  <span class="dt" onclick="filterNews('tk')">🌏 TikTok</span>
+  <span class="dt" onclick="filterNews('ai')">🤖 AI</span>
+</div>
 
-  <div class="c">
-    <div class="news-grid" id="newsContainer">
-      <div class="news-item" data-cat="macro"><span class="cat" style="color:#0ea5e9">宏观</span>上半年进出口总值 <strong>25.47万亿</strong>（+16.9%），出口 14.73万亿（+13.4%）</div>
-      <div class="news-item" data-cat="macro"><span class="cat" style="color:#0ea5e9">宏观</span>6月单月进出口 4.78万亿，同比大涨 <strong>24.2%</strong></div>
-      <div class="news-item" data-cat="macro"><span class="cat" style="color:#0ea5e9">宏观</span>民企贡献近 <strong>6成</strong> 外贸增量，有进出口记录民企超 66万家</div>
-      <div class="news-item" data-cat="macro"><span class="cat" style="color:#0ea5e9">宏观</span>机电产品出口 9.36万亿（+20.1%），高技术产品增 <strong>39%</strong></div>
-      <div class="news-item" data-cat="eu"><span class="cat" style="color:#6366f1">欧盟</span>CE/UKCA 合规今日生效，电子电器、纺织品新品须提交资质</div>
-      <div class="news-item" data-cat="eu"><span class="cat" style="color:#6366f1">欧盟</span>GPSR 全量核查已启动，<strong>9月30日</strong>前存量商品须补齐资质</div>
-      <div class="news-item" data-cat="eu"><span class="cat" style="color:#6366f1">欧盟</span>小额包裹免税取消：150欧以下加征 <strong>3欧/件</strong></div>
-      <div class="news-item" data-cat="eu"><span class="cat" style="color:#6366f1">欧盟</span>顺丰国际落地 TikTok Shop 欧洲 <strong>12国</strong> 3PL 直发</div>
-      <div class="news-item" data-cat="us"><span class="cat" style="color:#f43f5e">美国</span>TikTok 保证金三级架构：最高 <strong>$10,000</strong> 浮动</div>
-      <div class="news-item" data-cat="us"><span class="cat" style="color:#f43f5e">美国</span>CPSC eFiling 强制生效，$800以下小包 <strong>同样监管</strong></div>
-      <div class="news-item" data-cat="us"><span class="cat" style="color:#f43f5e">美国</span>直播拍卖列为"最终销售"，不支持无理由退货</div>
-      <div class="news-item" data-cat="trend"><span class="cat" style="color:#f59e0b">趋势</span>河北"厂播"爆发：石家庄 <strong>780+</strong> 企业开播，AI虚拟主播24h轮播</div>
-      <div class="news-item" data-cat="trend"><span class="cat" style="color:#f59e0b">趋势</span>叉车厂 TikTok 直播每天 9h，上半年外贸增 <strong>50%</strong>，月销300万</div>
-      <div class="news-item" data-cat="trend"><span class="cat" style="color:#f59e0b">趋势</span>"新新三样"（AI+机器人+创新药）成出口新名片</div>
-      <div class="news-item" data-cat="trend"><span class="cat" style="color:#f59e0b">趋势</span>94% 海外采购商先用 AI 评估供应商，考察名单缩至 <strong>3.5家</strong></div>
-      <div class="news-item" data-cat="tk"><span class="cat" style="color:#8b5cf6">TK</span>欧洲 <strong>8个</strong> 新站点开放入驻，POP 入驻标准放宽</div>
-      <div class="news-item" data-cat="tk"><span class="cat" style="color:#8b5cf6">TK</span>东南亚跨境结算优化，运费补贴 <strong>3个自然日</strong>到账</div>
-      <div class="news-item" data-cat="tk"><span class="cat" style="color:#8b5cf6">TK</span>印尼认证本土商家减免 <strong>50%</strong> 服务费</div>
-      <div class="news-item" data-cat="ai"><span class="cat" style="color:#10b981">AI</span>阿里国际站发布 Accio Work 智能体，B2B进入 A2A 交易模式</div>
-      <div class="news-item" data-cat="ai"><span class="cat" style="color:#10b981">AI</span>飞书深诺 Marvy2.0：广告投放运营效率提升 <strong>20倍</strong></div>
-      <div class="news-item" data-cat="ai"><span class="cat" style="color:#10b981">AI</span>AI客服可处理 <strong>85%</strong> 以上常规咨询，翻译覆盖20+语言</div>
-      <div class="news-item" data-cat="ai"><span class="cat" style="color:#10b981">AI</span>77% B2B采购流程使用AI，不被AI收录=不被采购商看到</div>
-    </div>
+<div class="c">
+  <div class="news-grid" id="newsContainer">
+    <div class="ni" data-cat="macro"><span class="nc" style="color:#0ea5e9">宏观</span>上半年进出口总值 <strong>25.47万亿</strong>（+16.9%），出口 14.73万亿（+13.4%）</div>
+    <div class="ni" data-cat="macro"><span class="nc" style="color:#0ea5e9">宏观</span>6月单月进出口 4.78万亿，同比大涨 <strong>24.2%</strong></div>
+    <div class="ni" data-cat="macro"><span class="nc" style="color:#0ea5e9">宏观</span>民企贡献近 <strong>6成</strong> 外贸增量，有进出口记录民企超 66万家</div>
+    <div class="ni" data-cat="macro"><span class="nc" style="color:#0ea5e9">宏观</span>机电产品出口 9.36万亿（+20.1%），高技术产品增 <strong>39%</strong></div>
+    <div class="ni" data-cat="eu"><span class="nc" style="color:#6366f1">欧盟</span>CE/UKCA 合规今日生效，电子电器、纺织品新品须提交资质</div>
+    <div class="ni" data-cat="eu"><span class="nc" style="color:#6366f1">欧盟</span>GPSR 全量核查启动，<strong>9月30日</strong>前存量商品须补齐</div>
+    <div class="ni" data-cat="eu"><span class="nc" style="color:#6366f1">欧盟</span>小额包裹免税取消：150欧以下加征 <strong>3欧/件</strong></div>
+    <div class="ni" data-cat="eu"><span class="nc" style="color:#6366f1">欧盟</span>顺丰国际落地 TK Shop 欧洲 <strong>12国</strong> 3PL 直发</div>
+    <div class="ni" data-cat="us"><span class="nc" style="color:#f43f5e">美国</span>TikTok 保证金三级架构：最高 <strong>$10,000</strong> 浮动</div>
+    <div class="ni" data-cat="us"><span class="nc" style="color:#f43f5e">美国</span>CPSC eFiling 强制生效，$800以下小包 <strong>同样监管</strong></div>
+    <div class="ni" data-cat="us"><span class="nc" style="color:#f43f5e">美国</span>直播拍卖列为"最终销售"，不支持无理由退货</div>
+    <div class="ni" data-cat="trend"><span class="nc" style="color:#f59e0b">趋势</span>河北"厂播"爆发：石家庄 <strong>780+</strong> 企业开播，AI主播 24h 轮播</div>
+    <div class="ni" data-cat="trend"><span class="nc" style="color:#f59e0b">趋势</span>叉车厂每天 9h TK直播，上半年外贸增 <strong>50%</strong>，月销 300 万</div>
+    <div class="ni" data-cat="trend"><span class="nc" style="color:#f59e0b">趋势</span>"新新三样"（AI+机器人+创新药）成出口新名片</div>
+    <div class="ni" data-cat="trend"><span class="nc" style="color:#f59e0b">趋势</span>机器人出口 199.9亿（+39.5%），中国成全球第二大机器人出口国</div>
+    <div class="ni" data-cat="trend"><span class="nc" style="color:#f59e0b">趋势</span>94% 海外采购商先用 AI 评估供应商，考察名单缩至 <strong>3.5家</strong></div>
+    <div class="ni" data-cat="tk"><span class="nc" style="color:#8b5cf6">TK</span>欧洲 <strong>8个</strong> 新站点开放入驻，POP 入驻标准放宽</div>
+    <div class="ni" data-cat="tk"><span class="nc" style="color:#8b5cf6">TK</span>东南亚跨境结算优化，运费补贴 <strong>3个自然日</strong>到账</div>
+    <div class="ni" data-cat="tk"><span class="nc" style="color:#8b5cf6">TK</span>印尼认证本土商家减免 <strong>50%</strong> 服务费</div>
+    <div class="ni" data-cat="ai"><span class="nc" style="color:#10b981">AI</span>阿里国际站 Accio Work 智能体，B2B 进入 A2A 交易模式</div>
+    <div class="ni" data-cat="ai"><span class="nc" style="color:#10b981">AI</span>飞书深诺 Marvy2.0：广告投放效率提升 <strong>20倍</strong></div>
+    <div class="ni" data-cat="ai"><span class="nc" style="color:#10b981">AI</span>AI客服处理 <strong>85%</strong> 以上常规咨询，翻译覆盖 20+ 语言</div>
+    <div class="ni" data-cat="ai"><span class="nc" style="color:#10b981">AI</span>77% B2B采购使用AI，不被 AI 收录 = 不被采购商看到</div>
+    <div class="ni" data-cat="ai"><span class="nc" style="color:#10b981">AI</span>2026全球跨境电商交易博览会杭州启幕，首设 AI+跨境展区</div>
   </div>
 </div>
 
-<!-- ===== KNOWLEDGE QUICK ACCESS ===== -->
-<div class="sh">
-  <h2>📚 知识库速查</h2>
-  <a href="knowledge.html" class="sh-r" style="text-decoration:none">查看全部 20 模块 →</a>
-</div>
-<div class="mod-grid">
-  <a href="knowledge.html#m1" class="mod-card"><div class="mc-emoji">🌍</div><div class="mc-num">01</div><div class="mc-title">基础入门</div></a>
-  <a href="knowledge.html#m2" class="mod-card"><div class="mc-emoji">🔧</div><div class="mc-num">02</div><div class="mc-title">设备账号</div></a>
-  <a href="knowledge.html#m3" class="mod-card"><div class="mc-emoji">🎬</div><div class="mc-num">03</div><div class="mc-title">内容方法</div></a>
-  <a href="knowledge.html#m4" class="mod-card"><div class="mc-emoji">🔗</div><div class="mc-num">04</div><div class="mc-title">全链路</div></a>
-  <a href="knowledge.html#m7" class="mod-card"><div class="mc-emoji">🎯</div><div class="mc-num">07</div><div class="mc-title">获客转化</div></a>
-  <a href="knowledge.html#m9" class="mod-card"><div class="mc-emoji">🗣️</div><div class="mc-num">09</div><div class="mc-title">外贸英语</div></a>
-  <a href="knowledge.html#m14" class="mod-card"><div class="mc-emoji">💰</div><div class="mc-num">14</div><div class="mc-title">报价定价</div></a>
-  <a href="knowledge.html#m16" class="mod-card"><div class="mc-emoji">🤝</div><div class="mc-num">16</div><div class="mc-title">谈判实战</div></a>
-  <a href="knowledge.html#m8" class="mod-card"><div class="mc-emoji">📋</div><div class="mc-num">08</div><div class="mc-title">贸易术语</div></a>
-  <a href="knowledge.html#m15" class="mod-card"><div class="mc-emoji">✉️</div><div class="mc-num">15</div><div class="mc-title">开发信</div></a>
+<!-- ===== KNOWLEDGE ===== -->
+<div class="sh"><h2>📚 知识库速查</h2><a href="knowledge.html" class="shr">查看全部 20 模块 →</a></div>
+<div class="grid5">
+  <a href="knowledge.html#m1" class="mod-card"><div class="mc-e">🌍</div><div class="mc-n">01</div><div class="mc-t">基础入门</div><div class="mc-d">平台逻辑·趋势</div></a>
+  <a href="knowledge.html#m2" class="mod-card"><div class="mc-e">🔧</div><div class="mc-n">02</div><div class="mc-t">设备账号</div><div class="mc-d">基建·养号</div></a>
+  <a href="knowledge.html#m3" class="mod-card"><div class="mc-e">🎬</div><div class="mc-n">03</div><div class="mc-t">内容方法</div><div class="mc-d">场景·文案</div></a>
+  <a href="knowledge.html#m7" class="mod-card"><div class="mc-e">🎯</div><div class="mc-n">07</div><div class="mc-t">获客转化</div><div class="mc-d">SQL·跟进</div></a>
+  <a href="knowledge.html#m9" class="mod-card"><div class="mc-e">🗣️</div><div class="mc-n">09</div><div class="mc-t">外贸英语</div><div class="mc-d">话术·邮件</div></a>
+  <a href="knowledge.html#m14" class="mod-card"><div class="mc-e">💰</div><div class="mc-n">14</div><div class="mc-t">报价定价</div><div class="mc-d">FOB·利润</div></a>
+  <a href="knowledge.html#m16" class="mod-card"><div class="mc-e">🤝</div><div class="mc-n">16</div><div class="mc-t">谈判实战</div><div class="mc-d">博弈·异议</div></a>
+  <a href="knowledge.html#m8" class="mod-card"><div class="mc-e">📋</div><div class="mc-n">08</div><div class="mc-t">贸易术语</div><div class="mc-d">FOB·CIF</div></a>
+  <a href="knowledge.html#m15" class="mod-card"><div class="mc-e">✉️</div><div class="mc-n">15</div><div class="mc-t">开发信</div><div class="mc-d">模板·跟进</div></a>
+  <a href="knowledge.html#m17" class="mod-card"><div class="mc-e">📡</div><div class="mc-n">17</div><div class="mc-t">TK直播</div><div class="mc-d">厂播·同传</div></a>
 </div>
 
 <!-- ===== QUICK REFERENCE ===== -->
-<div class="sh" id="ref">
-  <h2>⚡ 常用速查</h2>
-</div>
-<div class="grid3">
-  <div class="ref-card">
-    <h4>📞 最常用话术</h4>
-    <p style="margin-bottom:6px">收到询盘：<br>"Thanks for your inquiry. We're a [X]-year factory specializing in [product]. Could you share specs and quantity?"</p>
-    <p>价格异议：<br>"Could you share your target price? We can explore options on materials."</p>
-  </div>
-  <div class="ref-card">
-    <h4>💰 FOB 报价速算</h4>
-    <p>原材料(50-65%) + 人工(10-20%) + 包装(3-8%) + 运费(2-5%) + 报关(1-2%) + <strong>利润≥15%</strong></p>
-    <div class="ref-val">利润底线 15%</div>
-  </div>
-  <div class="ref-card">
-    <h4>🚢 物流时效速查</h4>
-    <p>海运 FCL 25-40天 | LCL 30-45天<br>空运 3-7天 | 中欧班列 15-20天<br>国际快递 3-5天</p>
+<div class="sec-bg">
+  <div class="wrap" style="padding:0">
+    <div class="sh" style="margin-top:0" id="ref"><h2>⚡ 常用速查</h2></div>
+    <div class="grid3">
+      <div class="ref-card">
+        <h4>📞 询盘话术模板</h4>
+        <p style="margin-bottom:8px"><strong>收到询盘：</strong><br>"Thanks for your inquiry. We're a [X]-year factory specializing in [product]. Could you share the specs and quantity you need?"</p>
+        <p style="margin-bottom:8px"><strong>价格异议：</strong><br>"Could you share your target price? We can explore options on materials or specifications."</p>
+        <p><strong>长期不回复：</strong><br>"Hi [name], just touching base. Is [product] still on your radar? Happy to update the quote."</p>
+      </div>
+      <div class="ref-card">
+        <h4>💰 FOB 报价速算</h4>
+        <ul>
+          <li>原材料（含损耗 3-5%）<strong>50-65%</strong></li>
+          <li>人工 <strong>10-20%</strong></li>
+          <li>包装 <strong>3-8%</strong></li>
+          <li>内陆运费 <strong>2-5%</strong></li>
+          <li>报关报检 <strong>1-2%</strong></li>
+        </ul>
+        <div class="rv">利润底线 ≥ 15%</div>
+        <p style="font-size:12px;color:var(--t3)">阶梯报价 · 7-15天有效期 · 拆分报价</p>
+      </div>
+      <div class="ref-card">
+        <h4>🚢 物流时效</h4>
+        <ul>
+          <li>海运整柜 FCL <strong>25-40天</strong></li>
+          <li>海运拼箱 LCL <strong>30-45天</strong></li>
+          <li>空运 <strong>3-7天</strong></li>
+          <li>中欧班列 <strong>15-20天</strong></li>
+          <li>国际快递 <strong>3-5天</strong></li>
+        </ul>
+        <p style="font-size:12px;color:var(--t3);margin-top:4px">报关必备：发票·装箱单·报关单·原产地证·提单·认证文件</p>
+      </div>
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1200&q=80" class="img-accent" style="margin-top:24px" alt="Shipping">
+
+    <div class="grid3" style="margin-top:20px">
+      <div class="ref-card">
+        <h4>🌍 主要市场认证</h4>
+        <ul>
+          <li>🇪🇺 欧盟：<strong>CE, RoHS, REACH</strong></li>
+          <li>🇺🇸 美国：<strong>FCC, FDA, UL</strong></li>
+          <li>🇯🇵 日本：<strong>PSE, VCCI</strong></li>
+          <li>🇸🇦 中东：<strong>SASO, SABER</strong></li>
+          <li>🇧🇷 巴西：<strong>INMETRO</strong></li>
+        </ul>
+        <p style="font-size:12px;color:var(--t3)">关税范围 0-35%，巴西最高</p>
+      </div>
+      <div class="ref-card">
+        <h4>💳 付款方式风险</h4>
+        <ul>
+          <li>TT 30/70 — <strong>中等风险</strong>，最常用</li>
+          <li>LC 信用证 — <strong>低风险</strong>，大额新客户</li>
+          <li>100% TT预付 — <strong>零风险</strong>，小单老客户</li>
+          <li>OA 赊销 — <strong>高风险</strong>，仅老客户</li>
+        </ul>
+        <p style="font-size:12px;color:var(--t3)">新客户坚持 TT 30/70 或 LC</p>
+      </div>
+      <div class="ref-card">
+        <h4>🤖 AI 工具推荐</h4>
+        <ul>
+          <li>翻译：<strong>DeepL, Claude</strong></li>
+          <li>配音：<strong>ElevenLabs</strong></li>
+          <li>虚拟主播：<strong>HeyGen</strong></li>
+          <li>数据分析：<strong>Kalodata</strong></li>
+          <li>客服：<strong>ManyChat</strong></li>
+        </ul>
+        <p style="font-size:12px;color:var(--t3)">⚠️ 严禁AI生成虚假工厂视频</p>
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- ===== TOOLS ===== -->
-<div class="sh" id="tools">
-  <h2>🛠️ 常用工具</h2>
-</div>
+<div class="sh" id="tools"><h2>🛠️ 常用工具</h2></div>
 <div class="grid4">
-  <a href="https://www.deepl.com/translator" target="_blank" class="tool-card"><div class="tc-icon">🌐</div><div class="tc-info"><div class="tc-name">DeepL</div>翻译</div></a>
-  <a href="https://www.shopify.com" target="_blank" class="tool-card"><div class="tc-icon">🛒</div><div class="tc-info"><div class="tc-name">Shopify</div>独立站</div></a>
-  <a href="https://ads.tiktok.com" target="_blank" class="tool-card"><div class="tc-icon">📊</div><div class="tc-info"><div class="tc-name">TikTok Ads</div>广告后台</div></a>
-  <a href="https://www.kalodata.com" target="_blank" class="tool-card"><div class="tc-icon">📈</div><div class="tc-info"><div class="tc-name">Kalodata</div>数据分析</div></a>
+  <a href="https://www.deepl.com/translator" target="_blank" class="tool-card"><div class="tc-icon">🌐</div><div><div class="tc-n">DeepL</div><div class="tc-d">最准的翻译</div></div></a>
+  <a href="https://www.shopify.com" target="_blank" class="tool-card"><div class="tc-icon">🛒</div><div><div class="tc-n">Shopify</div><div class="tc-d">品牌独立站</div></div></a>
+  <a href="https://ads.tiktok.com" target="_blank" class="tool-card"><div class="tc-icon">📊</div><div><div class="tc-n">TikTok Ads</div><div class="tc-d">广告后台</div></div></a>
+  <a href="https://www.kalodata.com" target="_blank" class="tool-card"><div class="tc-icon">📈</div><div><div class="tc-n">Kalodata</div><div class="tc-d">数据分析</div></div></a>
+  <a href="https://www.canva.com" target="_blank" class="tool-card"><div class="tc-icon">🎨</div><div><div class="tc-n">Canva</div><div class="tc-d">封面设计</div></div></a>
+  <a href="https://web.whatsapp.com" target="_blank" class="tool-card"><div class="tc-icon">💬</div><div><div class="tc-n">WhatsApp</div><div class="tc-d">客户沟通</div></div></a>
+  <a href="https://www.17track.net" target="_blank" class="tool-card"><div class="tc-icon">📦</div><div><div class="tc-n">17TRACK</div><div class="tc-d">物流追踪</div></div></a>
+  <a href="https://www.capcut.com" target="_blank" class="tool-card"><div class="tc-icon">✂️</div><div><div class="tc-n">CapCut</div><div class="tc-d">视频剪辑</div></div></a>
 </div>
 
 </div>
 
-<footer>王嘉豪 · 19933103902 · 时代风科技 · TikTok 官方认证服务商</footer>
+<footer>王嘉豪 · 19933103902 · 时代风科技 · TikTok 官方认证服务商<br>此工作台每日更新 · 内容基于实战经验</footer>
 
 <script>
-function filterNews(cat) {
-  document.querySelectorAll('.daily-tag').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.daily-tag').forEach(t => {
-    if ((cat === 'all' && t.textContent.trim() === '全部') || t.textContent.includes(cat.toUpperCase()) || (cat === 'eu' && t.textContent.includes('欧盟')) || (cat === 'us' && t.textContent.includes('美国')) || (cat === 'trend' && t.textContent.includes('趋势')) || (cat === 'tk' && t.textContent.includes('TikTok')) || (cat === 'ai' && t.textContent.includes('AI'))) {
-      if (cat === 'all' && t.textContent.trim() !== '全部') return;
-      t.classList.add('active');
-    }
-  });
-  document.querySelectorAll('.news-item').forEach(item => {
-    item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
-  });
+function filterNews(cat){
+  document.querySelectorAll('.dt').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.dt').forEach(t=>{if(t.textContent.includes(cat==='all'?'全部':cat.toUpperCase())||(cat==='eu'&&t.textContent.includes('欧盟'))||(cat==='us'&&t.textContent.includes('美国'))||(cat==='trend'&&t.textContent.includes('趋势'))||(cat==='tk'&&t.textContent.includes('TikTok'))||(cat==='ai'&&t.textContent.includes('AI'))||(cat==='macro'&&t.textContent.includes('宏观'))){if(cat==='all'&&t.textContent.trim()!=='全部')return;t.classList.add('active')}});
+  document.querySelectorAll('.ni').forEach(item=>{item.classList.toggle('hidden',cat!=='all'&&item.dataset.cat!==cat)});
 }
 </script>
 </body>
