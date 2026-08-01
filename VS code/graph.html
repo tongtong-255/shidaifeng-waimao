@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>知识图谱 · 外贸知识网络</title>
+<script src="https://cdn.bootcdn.net/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif;background:#0d1117;overflow:hidden;height:100vh}
+nav{position:fixed;top:0;left:0;right:0;z-index:10;height:46px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:rgba(13,17,23,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06)}
+nav .nl{font-weight:600;font-size:14px;color:#c9d1d9}
+nav .nl a{color:#c9d1d9;text-decoration:none}
+nav .nr{display:flex;gap:16px;align-items:center;font-size:12px;color:#8b949e}
+nav .nr a{color:#58a6ff;text-decoration:none}
+#graph{width:100%;height:100%}
+.node{stroke-width:1.5px;cursor:pointer;transition:stroke-width 0.2s}
+.node:hover{stroke-width:3px}
+.node-label{font-size:10px;font-weight:600;pointer-events:none;text-anchor:middle;fill:#c9d1d9}
+.link{stroke-opacity:0.25;transition:stroke-opacity 0.2s}
+.link:hover{stroke-opacity:0.6}
+.tooltip{position:fixed;background:#161b22;border:1px solid #30363d;border-radius:8px;padding:12px 16px;pointer-events:none;opacity:0;transition:opacity 0.15s;z-index:20;max-width:200px}
+.tooltip .tt-title{font-size:14px;font-weight:600;color:#f0f6fc;margin-bottom:2px}
+.tooltip .tt-desc{font-size:11px;color:#8b949e;line-height:1.5}
+.legend{position:fixed;bottom:24px;left:24px;display:flex;flex-wrap:wrap;gap:10px;z-index:10}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:11px;color:#8b949e}
+.legend-dot{width:10px;height:10px;border-radius:50%}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nl"><a href="knowledge.html">← 返回知识库</a></div>
+  <div class="nr">Obsidian 风格 · 知识图谱 · 拖拽节点 · 悬停查看</div>
+</nav>
+
+<div id="graph"></div>
+<div class="tooltip" id="tooltip"></div>
+<div class="legend" id="legend"></div>
+
+<script>
+// Knowledge graph data
+const phases = [
+  { id:"phase1", name:"基础准备", color:"#58a6ff", bg:"#1a2b4c" },
+  { id:"phase2", name:"内容创作", color:"#f778ba", bg:"#3d1a33" },
+  { id:"phase3", name:"获客转化", color:"#3fb950", bg:"#1a3320" },
+  { id:"phase4", name:"商务成交", color:"#d29922", bg:"#332b1a" },
+  { id:"phase5", name:"交付增长", color:"#a371f7", bg:"#2a1a3d" },
+  { id:"phase6", name:"参考资料", color:"#8b949e", bg:"#1c1c1c" },
+];
+
+const nodes = [
+  // Phase 1
+  { id:"m1", name:"基础入门", phase:"phase1", desc:"TikTok是什么·为什么做·行业数据" },
+  { id:"m2", name:"设备账号", phase:"phase1", desc:"手机·网络·养号·矩阵" },
+  { id:"m6", name:"政策合规", phase:"phase1", desc:"欧盟CE·美国CPSC·TK规则" },
+  // Phase 2
+  { id:"m3", name:"内容方法", phase:"phase2", desc:"六大场景·Hook库·内容日历" },
+  { id:"m17", name:"TK直播", phase:"phase2", desc:"车间直播·同传·AI主播" },
+  // Phase 3
+  { id:"m4", name:"全链路", phase:"phase3", desc:"8大环节·转化漏斗" },
+  { id:"m7", name:"获客转化", phase:"phase3", desc:"SQL模型·跟进序列" },
+  // Phase 4
+  { id:"m14", name:"报价定价", phase:"phase4", desc:"FOB报价·利润核算" },
+  { id:"m16", name:"谈判实战", phase:"phase4", desc:"价格博弈·异议处理" },
+  { id:"m15", name:"开发信", phase:"phase4", desc:"冷启动·跟进模板" },
+  { id:"m9", name:"外贸英语", phase:"phase4", desc:"8大场景话术·邮件公式" },
+  { id:"m8", name:"贸易术语", phase:"phase4", desc:"FOB·CIF·DDP·LC" },
+  // Phase 5
+  { id:"m11", name:"跨境物流", phase:"phase5", desc:"报关·海运·海外仓" },
+  { id:"m18", name:"品牌出海", phase:"phase5", desc:"OEM→自主品牌" },
+  { id:"m19", name:"知识产权", phase:"phase5", desc:"商标·专利·维权" },
+  { id:"m12", name:"AI赋能", phase:"phase5", desc:"工具·方法·边界" },
+  { id:"m20", name:"团队搭建", phase:"phase5", desc:"招人·考核·管理" },
+  // Phase 6
+  { id:"m5", name:"案例拆解", phase:"phase6", desc:"三一·海康·沐梵" },
+  { id:"m10", name:"市场准入", phase:"phase6", desc:"认证·关税·文化" },
+  { id:"m13", name:"常见问题", phase:"phase6", desc:"FAQ·避坑指南" },
+];
+
+// Edges - related modules
+const links = [
+  // Cross-phase connections
+  { source:"m1", target:"m2" },{ source:"m1", target:"m3" },{ source:"m1", target:"m4" },
+  { source:"m2", target:"m3" },{ source:"m2", target:"m6" },
+  { source:"m3", target:"m17" },{ source:"m3", target:"m7" },
+  { source:"m4", target:"m7" },{ source:"m4", target:"m11" },{ source:"m4", target:"m8" },
+  { source:"m7", target:"m14" },{ source:"m7", target:"m15" },{ source:"m7", target:"m16" },
+  { source:"m14", target:"m16" },{ source:"m14", target:"m8" },
+  { source:"m16", target:"m15" },{ source:"m15", target:"m9" },
+  { source:"m8", target:"m14" },{ source:"m8", target:"m11" },
+  { source:"m11", target:"m20" },
+  { source:"m18", target:"m19" },{ source:"m18", target:"m12" },
+  { source:"m12", target:"m9" },{ source:"m12", target:"m17" },
+  { source:"m13", target:"m5" },{ source:"m13", target:"m10" },{ source:"m13", target:"m6" },
+  { source:"m5", target:"m3" },{ source:"m5", target:"m7" },
+  { source:"m10", target:"m6" },{ source:"m10", target:"m11" },
+  { source:"m19", target:"m6" },{ source:"m19", target:"m18" },
+  { source:"m20", target:"m17" },{ source:"m20", target:"m4" },
+  // Extra connections for density
+  { source:"m1", target:"m7" },{ source:"m3", target:"m9" },
+  { source:"m14", target:"m9" },{ source:"m18", target:"m11" },
+];
+
+// Build graph
+const color = d3.scaleOrdinal(phases.map(p=>p.color));
+const nodeMap = new Map(nodes.map(n=>[n.id,n]));
+const edges = links.map(l=>({source:l.source,target:l.target}));
+
+// Legend
+const legend = d3.select("#legend");
+phases.forEach(p=>{
+  legend.append("div").attr("class","legend-item")
+    .html(`<div class="legend-dot" style="background:${p.color}"></div>${p.name}`)
+});
+
+// SVG setup
+const width = window.innerWidth, height = window.innerHeight;
+const svg = d3.select("#graph").append("svg")
+  .attr("width",width).attr("height",height);
+
+const g = svg.append("g");
+
+// Tooltip
+const tip = d3.select("#tooltip");
+
+// Force simulation
+const simulation = d3.forceSimulation(nodes)
+  .force("link",d3.forceLink(edges).id(d=>d.id).distance(100))
+  .force("charge",d3.forceManyBody().strength(-400))
+  .force("center",d3.forceCenter(width/2,height/2))
+  .force("collision",d3.forceCollide().radius(40));
+
+// Draw links
+const link = g.append("g").selectAll("line")
+  .data(edges).join("line")
+  .attr("class","link")
+  .attr("stroke","#30363d")
+  .attr("stroke-width",1.5);
+
+// Draw nodes
+const node = g.append("g").selectAll("g")
+  .data(nodes).join("g")
+  .attr("class","node-group")
+  .call(d3.drag()
+    .on("start",(e,d)=>{if(!e.active)simulation.alphaTarget(0.3).restart();d.fx=d.x;d.fy=d.y})
+    .on("drag",(e,d)=>{d.fx=e.x;d.fy=e.y})
+    .on("end",(e,d)=>{if(!e.active)simulation.alphaTarget(0);d.fx=null;d.fy=null})
+  );
+
+// Node circles
+node.append("circle")
+  .attr("class","node")
+  .attr("r",d=>d.id==="m1"||d.id==="m4"||d.id==="m7"?22:16)
+  .attr("fill",d=>{const p=phases.find(x=>x.id===d.phase);return p?p.bg:"#1c1c1c"})
+  .attr("stroke",d=>color(d.phase))
+  .on("mouseenter",function(e,d){
+    // Highlight connected
+    const connected = new Set();
+    edges.forEach(l=>{if(l.source.id===d.id)connected.add(l.target.id);if(l.target.id===d.id)connected.add(l.source.id)});
+    link.attr("stroke-opacity",l=>l.source.id===d.id||l.target.id===d.id?0.8:0.08);
+    node.select("circle").attr("stroke-opacity",n=>n.id===d.id||connected.has(n.id)?1:0.2);
+    // Tooltip
+    tip.style("opacity",1)
+      .style("left",(e.pageX+16)+"px")
+      .style("top",(e.pageY-16)+"px")
+      .html(`<div class="tt-title">${d.name}</div><div class="tt-desc">${d.desc}</div>`);
+    })
+  .on("mouseleave",function(){
+    link.attr("stroke-opacity",0.25);
+    node.select("circle").attr("stroke-opacity",1);
+    tip.style("opacity",0);
+  })
+  .on("click",(e,d)=>{window.location.href=`knowledge.html#${d.id}`});
+
+// Node labels
+node.append("text")
+  .attr("class","node-label")
+  .attr("dy",d=>d.id==="m1"||d.id==="m4"||d.id==="m7"?26:20)
+  .text(d=>d.name);
+
+// Simulation tick
+simulation.on("tick",()=>{
+  link.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y)
+      .attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
+  node.attr("transform",d=>`translate(${d.x},${d.y})`);
+});
+
+// Resize
+window.addEventListener("resize",()=>{
+  svg.attr("width",window.innerWidth).attr("height",window.innerHeight);
+  simulation.force("center",d3.forceCenter(window.innerWidth/2,window.innerHeight/2)).restart();
+});
+</script>
+</body>
+</html>

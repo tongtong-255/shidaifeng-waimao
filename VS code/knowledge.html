@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>外贸知识库 · 从入门到精通</title>
+<style>
+:root{--bg:#f5f5f7;--card:#fff;--text:#1d1d1f;--t2:#6b7280;--t3:#9ca3af;--blue:#0ea5e9;--green:#10b981;--amber:#f59e0b;--red:#ef4444;--purple:#8b5cf6;--pink:#ec4899;--border:#e5e7eb}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+nav{position:sticky;top:0;z-index:100;height:46px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(255,255,255,0.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.06)}
+nav .nl{font-weight:600;font-size:14px}
+nav .nl a{color:var(--text);text-decoration:none}
+nav .nr{display:flex;gap:20px}
+nav .nr a{font-size:12px;color:var(--t2);text-decoration:none;font-weight:500;transition:color 0.15s}
+nav .nr a:hover{color:var(--blue)}
+section{padding:72px 24px}
+.w{max-width:800px;margin:0 auto}
+.sub{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.eyebrow{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+h2{font-size:clamp(26px,4vw,38px);font-weight:600;letter-spacing:-0.8px;line-height:1.1;margin-bottom:12px}
+h3{font-size:18px;font-weight:600;letter-spacing:-0.3px;margin-bottom:8px}
+p{color:var(--t2);line-height:1.75;margin-bottom:10px;font-size:14px}
+strong{color:var(--text);font-weight:600}
+ul,ol{padding-left:20px;margin:8px 0 14px;color:var(--t2);line-height:1.8;font-size:14px}
+li{margin-bottom:3px}
+
+/* Beginner badge */
+.badge{display:inline-block;padding:4px 12px;border-radius:10px;font-size:11px;font-weight:600;letter-spacing:0.3px;margin-bottom:16px}
+.badge.blue{background:#e0f2fe;color:#0284c7}
+.badge.green{background:#d1fae5;color:#059669}
+.badge.amber{background:#fef3c7;color:#d97706}
+
+/* One-sentence summary */
+.summary{background:linear-gradient(135deg,#f0f9ff,#f5f9fd);border:1px solid #e0f2fe;border-radius:14px;padding:18px 22px;margin-bottom:24px;font-size:15px;line-height:1.7}
+.summary strong{color:#0284c7}
+
+/* Card */
+.c{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:16px;transition:all 0.3s}
+.c:hover{box-shadow:0 2px 12px rgba(0,0,0,0.04)}
+
+/* Visual framework box */
+.viz{background:var(--card);border:2px solid var(--border);border-radius:18px;padding:28px;margin:20px 0;overflow-x:auto}
+
+/* Flow diagram */
+.flow{display:flex;align-items:center;gap:0;flex-wrap:wrap;justify-content:center;padding:12px 0}
+.flow-node{background:var(--card);border:2px solid var(--border);border-radius:14px;padding:16px 18px;text-align:center;min-width:90px;transition:all 0.3s;font-size:13px;font-weight:600}
+.flow-node:hover{border-color:var(--blue);transform:translateY(-2px)}
+.flow-node.highlight{border-color:var(--blue);background:#f0f9ff}
+.flow-arrow{font-size:20px;color:var(--t3);padding:0 6px;font-weight:700}
+.flow-label{font-size:10px;color:var(--t3);text-align:center;margin-top:4px}
+
+/* Process steps */
+.proc{display:flex;gap:0;flex-wrap:wrap;justify-content:center}
+.proc-step{flex:1;min-width:110px;text-align:center;padding:20px 10px;position:relative;border:2px solid var(--border);border-radius:14px;margin:4px;background:var(--card);transition:all 0.3s}
+.proc-step:hover{border-color:var(--blue);background:#f8faff}
+.proc-step .ps-num{width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-weight:700;font-size:14px}
+.proc-step .ps-title{font-weight:600;font-size:13px;margin-bottom:4px}
+.proc-step .ps-desc{font-size:11px;color:var(--t3);line-height:1.4}
+.proc-connector{position:absolute;top:36px;right:-10px;font-size:18px;color:var(--t3);z-index:1}
+
+/* Comparison grid */
+.cmp{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2px;background:var(--border);border-radius:14px;overflow:hidden;border:2px solid var(--border)}
+.cmp>div{background:var(--card);padding:18px 16px;text-align:center;transition:all 0.3s}
+.cmp>div:hover{background:#fafbfc}
+.cmp .cmp-icon{font-size:28px;margin-bottom:6px}
+.cmp .cmp-name{font-weight:600;font-size:14px;margin-bottom:4px}
+.cmp .cmp-desc{font-size:11px;color:var(--t3);line-height:1.5}
+.cmp .cmp-best{border:2px solid var(--green);background:#f0fdf4}
+
+/* Two-column cards */
+.col2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* Table */
+.tbl{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0}
+.tbl th{text-align:left;padding:10px 14px;font-size:10px;font-weight:600;color:var(--t3);letter-spacing:1px;text-transform:uppercase;border-bottom:1.5px solid #e8e8ea}
+.tbl td{padding:12px 14px;border-bottom:1px solid #f5f5f5;color:var(--t2);line-height:1.6}
+
+/* Callout */
+.note{padding:14px 20px;margin:14px 0;border-radius:10px;font-size:13px;line-height:1.7;color:var(--t2);border-left:3px solid}
+.note.tip{border-left-color:var(--blue);background:#f0f9ff}
+.note.warn{border-left-color:var(--red);background:#fef8f7}
+.note strong{display:block;margin-bottom:2px;font-size:12px;color:var(--text)}
+
+/* FAQ */
+.faq{border-bottom:1px solid var(--border);cursor:pointer}
+.faq-q{padding:18px 0;font-size:15px;font-weight:500;display:flex;justify-content:space-between;align-items:center;user-select:none;transition:color 0.15s}
+.faq-q:hover{color:var(--blue)}
+.faq-q::after{content:'+';font-size:20px;font-weight:300;color:var(--t3)}
+.faq.open .faq-q::after{content:'−'}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s;font-size:14px;color:var(--t2);line-height:1.7}
+.faq.open .faq-a{max-height:500px;padding-bottom:18px}
+
+/* Quick nav pills */
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 32px}
+.pills a{font-size:12px;color:var(--t2);text-decoration:none;padding:5px 14px;border:1px solid var(--border);border-radius:16px;transition:all 0.2s;font-weight:500;background:var(--card)}
+.pills a:hover{color:var(--blue);border-color:var(--blue);background:#f0f9ff}
+
+footer{text-align:center;padding:28px;font-size:11px;color:var(--t3);border-top:1px solid var(--border)}
+
+@media(max-width:640px){
+  section{padding:40px 16px}
+  .col2{grid-template-columns:1fr}
+  .proc{flex-direction:column}
+  .cmp{grid-template-columns:1fr 1fr}
+  .flow{flex-direction:column;gap:4px}
+  .flow-arrow{transform:rotate(90deg)}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nl"><a href="index.html">← 返回工作台</a></div>
+  <div class="nr"><a href="#m1">入门</a><a href="#m4">全链路</a><a href="#m7">获客</a><a href="#m9">英语</a><a href="#m14">报价</a><a href="#m13">FAQ</a></div>
+</nav>
+
+<section>
+  <div class="w">
+    <div class="eyebrow" style="color:var(--blue)">Knowledge Base</div>
+    <h2>外贸出海 · 从入门到精通</h2>
+    <p style="font-size:15px;color:var(--t2);margin-bottom:8px">专为新手设计 — 每个模块都有思维导图和可视化框架</p>
+    <div class="pills">
+      <a href="#m1">01 基础入门</a><a href="#m2">02 设备账号</a><a href="#m3">03 内容方法</a><a href="#m4">04 全链路</a>
+      <a href="#m5">05 案例</a><a href="#m6">06 合规</a><a href="#m7">07 获客转化</a><a href="#m8">08 术语</a>
+      <a href="#m9">09 英语</a><a href="#m10">10 市场</a><a href="#m11">11 物流</a><a href="#m12">12 AI</a>
+      <a href="#m13">13 FAQ</a><a href="#m14">14 报价</a><a href="#m15">15 开发信</a><a href="#m16">16 谈判</a>
+      <a href="#m17">17 直播</a><a href="#m18">18 品牌</a><a href="#m19">19 知识产权</a><a href="#m20">20 团队</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== M1: 基础入门 ===== -->
+<section id="m1" class="sub"><div class="w">
+  <div class="eyebrow" style="color:var(--blue)">Module 01</div>
+  <h2>基础入门：理解 TikTok 外贸</h2>
+  <div class="badge blue">新手友好</div>
+  <div class="summary"><strong>一句话：</strong>TikTok 用算法把中国工厂的视频推给海外采购商，让他们主动来找你。这和传统"等客户搜到你"完全相反。</div>
+
+  <!-- Visual: How TikTok Works -->
+  <h3> 思维导图：TikTok 是怎么帮你找到客户的</h3>
+  <div class="viz">
+    <div class="flow">
+      <div class="flow-node highlight"><div style="font-size:24px">🏭</div>你的工厂<br><span class="flow-label">拍视频</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node"><div style="font-size:24px">🤖</div>TikTok 算法<br><span class="flow-label">识别内容</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node"><div style="font-size:24px">👤</div>推给采购商<br><span class="flow-label">行业匹配</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node"><div style="font-size:24px">💬</div>客户主动<br><span class="flow-label">发询盘</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node highlight"><div style="font-size:24px">📦</div>成交发货<br><span class="flow-label">持续循环</span></div>
+    </div>
+    <p style="text-align:center;font-size:12px;color:var(--t3);margin-top:12px">传统的"人找货"→ 客户搜你。TikTok的"货找人"→ 算法推你。这是根本区别。</p>
+  </div>
+
+  <!-- Visual: Channel evolution -->
+  <h3> 外贸获客渠道进化图</h3>
+  <div class="viz">
+    <div class="proc">
+      <div class="proc-step"><div class="ps-num">1</div><div class="ps-title">展会时代</div><div class="ps-desc">广交会·地推<br>18-30万/次<br>持续3-5天</div></div>
+      <div class="proc-step"><div class="ps-num">2</div><div class="ps-title">B2B平台</div><div class="ps-desc">阿里国际站<br>竞价排名<br>被动等询盘</div></div>
+      <div class="proc-step"><div class="ps-num">3</div><div class="ps-title">搜索社媒</div><div class="ps-desc">Google·FB<br>LinkedIn<br>内容门槛高</div></div>
+      <div class="proc-step" style="border-color:var(--blue);background:#f0f9ff"><div class="ps-num" style="background:var(--green)">4</div><div class="ps-title">短视频时代</div><div class="ps-desc">TikTok算法推荐<br>365天在线<br>成本最低</div></div>
+    </div>
+  </div>
+
+  <div class="col2">
+    <div class="c"><h3>关键数据</h3>
+      <table class="tbl"><tr><th>指标</th><th>数据</th></tr><tr><td>#factory 播放</td><td><strong>100亿+</strong></td></tr><tr><td>用户愿联系工厂</td><td><strong>21%</strong></td></tr><tr><td>商家用TK引流</td><td><strong>49%</strong></td></tr></table></div>
+    <div class="c"><h3>新手最常见误解</h3>
+      <div class="note warn"><strong>❌ "TikTok是海外抖音"</strong>它们是两套独立产品，算法逻辑相似但运营策略完全不同。</div>
+      <div class="note warn"><strong>❌ "要英语好才能做"</strong>翻译工具+AI配音，2026年语言不是障碍。</div>
+      <div class="note warn"><strong>❌ "B2B在TikTok上没人看"</strong>#factory 100亿播放，需求巨大。</div></div>
+  </div>
+</div></section>
+
+<!-- ===== M2: 设备与账号 ===== -->
+<section id="m2"><div class="w">
+  <div class="eyebrow" style="color:var(--purple)">Module 02</div>
+  <h2>设备与账号：正确的起点</h2>
+  <div class="badge amber">90%的封号源于基建错误</div>
+  <div class="summary"><strong>一句话：</strong>一机一号一IP，这是铁律。违反任何一条都可能被封号。</div>
+
+  <div class="viz">
+    <h3> 设备配置一图看懂</h3>
+    <div class="flow">
+      <div class="flow-node highlight"><div style="font-size:24px">📱</div>iPhone 12+<br><span class="flow-label">一台手机</span></div>
+      <div class="flow-arrow">+</div>
+      <div class="flow-node highlight"><div style="font-size:24px">🌐</div>独立专线IP<br><span class="flow-label">5M起·稳定</span></div>
+      <div class="flow-arrow">+</div>
+      <div class="flow-node highlight"><div style="font-size:24px">📧</div>Gmail注册<br><span class="flow-label">海外邮箱</span></div>
+      <div class="flow-arrow">=</div>
+      <div class="flow-node" style="border-color:var(--green);background:#f0fdf4"><div style="font-size:24px">✅</div>安全账号<br><span class="flow-label">不会被封</span></div>
+    </div>
+  </div>
+
+  <div class="col2">
+    <div class="c"><h3> 养号7天流程</h3><table class="tbl"><tr><th>天</th><th>做什么</th></tr><tr><td>1</td><td>注册+完善资料，不发内容</td></tr><tr><td>2-3</td><td>刷行业相关视频30-40分钟</td></tr><tr><td>4-5</td><td>关注同行账号</td></tr><tr><td>6</td><td>发第一条视频</td></tr><tr><td>7</td><td>播放>200=正常，<100=限流</td></tr></table></div>
+    <div class="c"><h3> 多平台分工</h3><table class="tbl"><tr><th>平台</th><th>角色</th></tr><tr><td>TikTok</td><td>🎯 获客主引擎</td></tr><tr><td>YouTube</td><td>📚 深度内容</td></tr><tr><td>Facebook</td><td>🏠 信任资产</td></tr><tr><td>LinkedIn</td><td>💼 决策者直达</td></tr><tr><td>Instagram</td><td>✨ 品牌视觉</td></tr></table></div>
+  </div>
+</div></section>
+
+<!-- ===== M3: 内容方法论 ===== -->
+<section id="m3" class="sub"><div class="w">
+  <div class="eyebrow" style="color:var(--pink)">Module 03</div>
+  <h2>内容方法论：拍什么、怎么拍</h2>
+  <div class="summary"><strong>一句话：</strong>B2B内容的唯一目的是让采购商看完视频主动联系你。不追求"好看"，追求"有用"。</div>
+
+  <div class="viz">
+    <h3> 工厂6大必拍场景思维导图</h3>
+    <div class="cmp">
+      <div><div class="cmp-icon">👔</div><div class="cmp-name">企业主出镜</div><div class="cmp-desc">创始人讲产品<br>建立真实信任</div></div>
+      <div><div class="cmp-icon">🚁</div><div class="cmp-name">航拍全景</div><div class="cmp-desc">车间+厂区<br>展示规模实力</div></div>
+      <div><div class="cmp-icon">⚙️</div><div class="cmp-name">生产设备</div><div class="cmp-desc">设备运转细节<br>证明制造能力</div></div>
+      <div><div class="cmp-icon">🔍</div><div class="cmp-name">产品工艺</div><div class="cmp-desc">微距+加工流程<br>展示品质细节</div></div>
+      <div><div class="cmp-icon">🏪</div><div class="cmp-name">展厅仓库</div><div class="cmp-desc">陈列+库存<br>证明现货能力</div></div>
+      <div><div class="cmp-icon">🚢</div><div class="cmp-name">发货实拍</div><div class="cmp-desc">装箱+物流<br>证明全球交付</div></div>
+    </div>
+  </div>
+
+  <div class="viz">
+    <h3> 短视频结构公式（黄金6秒）</h3>
+    <div class="flow">
+      <div class="flow-node highlight"><strong>秒1</strong><br>视觉冲击<br><span class="flow-label">火花·航拍·特写</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node"><strong>秒2-3</strong><br>核心产品<br><span class="flow-label">展示你在做什么</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node"><strong>秒4-6</strong><br>暗示更多<br><span class="flow-label">引导看完</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node" style="border-color:var(--green)"><strong>结尾</strong><br>CTA行动号召<br><span class="flow-label">DM / Link in bio</span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ===== M4: 全链路 ===== -->
+<section id="m4"><div class="w">
+  <div class="eyebrow" style="color:var(--blue)">Module 04</div>
+  <h2>全链路：从流量到交付的完整地图</h2>
+  <div class="summary"><strong>一句话：</strong>外贸不是拿到订单就完了，从客户看到你到收到货、再回购，是一个完整的8步闭环。</div>
+
+  <div class="viz">
+    <h3> 外贸全链路流程图</h3>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center">
+      <div style="background:#f0f9ff;border:2px solid #bae6fd;border-radius:14px;padding:16px;text-align:center;width:160px"><div style="font-size:12px;color:#0284c7;font-weight:600;margin-bottom:6px">阶段一</div><div style="font-weight:600;font-size:14px"> 市场洞察</div><div style="font-size:11px;color:var(--t2);margin-top:4px">调研→定位→建站</div></div>
+      <div style="color:var(--t3);display:flex;align-items:center;font-size:20px">→</div>
+      <div style="background:#f5f3ff;border:2px solid #ddd6fe;border-radius:14px;padding:16px;text-align:center;width:160px"><div style="font-size:12px;color:#7c3aed;font-weight:600;margin-bottom:6px">阶段二</div><div style="font-weight:600;font-size:14px"> 内容生产</div><div style="font-size:11px;color:var(--t2);margin-top:4px">实拍→脚本→剪辑</div></div>
+      <div style="color:var(--t3);display:flex;align-items:center;font-size:20px">→</div>
+      <div style="background:#fef3c7;border:2px solid #fde68a;border-radius:14px;padding:16px;text-align:center;width:160px"><div style="font-size:12px;color:#d97706;font-weight:600;margin-bottom:6px">阶段三</div><div style="font-weight:600;font-size:14px"> 流量获取</div><div style="font-size:11px;color:var(--t2);margin-top:4px">自然流→投流→直播</div></div>
+      <div style="color:var(--t3);display:flex;align-items:center;font-size:20px">→</div>
+      <div style="background:#d1fae5;border:2px solid #a7f3d0;border-radius:14px;padding:16px;text-align:center;width:160px"><div style="font-size:12px;color:#059669;font-weight:600;margin-bottom:6px">阶段四</div><div style="font-weight:600;font-size:14px"> 询盘转化</div><div style="font-size:11px;color:var(--t2);margin-top:4px">Get Quote→WhatsApp</div></div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:8px">
+      <div style="background:#fce7f3;border:2px solid #fbcfe8;border-radius:14px;padding:16px;text-align:center;width:160px"><div style="font-size:12px;color:#db2777;font-weight:600;margin-bottom:6px">阶段五</div><div style="font-weight:600;font-size:14px"> 谈判成交</div><div style="font-size:11px;color:var(--t2);margin-top:4px">报价→打样→PI</div></div>
+      <div style="color:var(--t3);display:flex;align-items:center;font-size:20px">→</div>
+      <div style="background:#fff7ed;border:2px solid #fed7aa;border-radius:14px;padding:16px;text-align:center;width:160px"><div style="font-size:12px;color:#ea580c;font-weight:600;margin-bottom:6px">阶段六</div><div style="font-weight:600;font-size:14px"> 物流交付</div><div style="font-size:11px;color:var(--t2);margin-top:4px">报关→海运→海外仓</div></div>
+      <div style="color:var(--t3);display:flex;align-items:center;font-size:20px">→</div>
+      <div style="background:#f0fdf4;border:2px solid #bbf7d0;border-radius:14px;padding:16px;text-align:center;width:160px"><div style="font-size:12px;color:#16a34a;font-weight:600;margin-bottom:6px">阶段七</div><div style="font-weight:600;font-size:14px"> 收汇结算</div><div style="font-size:11px;color:var(--t2);margin-top:4px">结汇→回款</div></div>
+      <div style="color:var(--t3);display:flex;align-items:center;font-size:20px">→</div>
+      <div style="background:#e0e7ff;border:2px solid #c7d2fe;border-radius:14px;padding:16px;text-align:center;width:160px"><div style="font-size:12px;color:#4338ca;font-weight:600;margin-bottom:6px">阶段八</div><div style="font-weight:600;font-size:14px"> 复购裂变</div><div style="font-size:11px;color:var(--t2);margin-top:4px">维护→转介绍</div></div>
+    </div>
+    <p style="text-align:center;font-size:12px;color:var(--t3);margin-top:12px">每个阶段下面都有对应的知识模块，点顶部导航跳转查看</p>
+  </div>
+
+  <div class="col2">
+    <div class="c"><h3>转化漏斗</h3><table class="tbl"><tr><th>层级</th><th>阶段</th><th>转化率</th></tr><tr><td>①</td><td>内容曝光</td><td>100%</td></tr><tr><td>②</td><td>主页访问</td><td>3-5%</td></tr><tr><td>③</td><td>互动询盘</td><td>1-2%</td></tr><tr><td>④</td><td>SQL有效</td><td>0.3-0.8%</td></tr><tr><td>⑤</td><td>成交订单</td><td>0.05-0.15%</td></tr></table></div>
+    <div class="c"><h3>新手必知</h3><div class="note tip"><strong>B2B成交周期3-12个月</strong>不要用消费品"爆单"的期待来衡量。TikTok是长期资产，越做越值钱。</div><div class="note tip"><strong>漏斗数据是长期积累</strong>不是发一条视频就有0.15%成交。是100条视频、持续3个月以上的累积效应。</div></div>
+  </div>
+</div></section>
+
+<!-- ===== M5-M6 ===== -->
+<section id="m5" class="sub"><div class="w">
+  <div class="eyebrow" style="color:var(--green)">Module 05</div><h2>案例拆解</h2>
+  <div class="summary"><strong>一句话：</strong>真实的案例比任何理论都有说服力。这些数据来自我们服务过的客户。</div>
+  <div class="cmp">
+    <div><div class="cmp-icon">🏗️</div><div class="cmp-name">三一重工</div><div class="cmp-desc">重型机械<br><strong>30万+粉丝</strong><br>单视频30万播放</div></div>
+    <div><div class="cmp-icon">📹</div><div class="cmp-name">海康威视</div><div class="cmp-desc">安防电子<br><strong>134万播放</strong><br>粉丝15万+</div></div>
+    <div class="cmp-best"><div class="cmp-icon">💡</div><div class="cmp-name">沐梵光电</div><div class="cmp-desc">LED光电<br><strong>173条询盘</strong><br>一条57万播放视频</div></div>
+  </div>
+  <div class="note tip" style="margin-top:16px"><strong>核心洞察</strong>B2B追求"播放质量"而非"播放量"。57万播放对消费品不算高，但看的人是经销商、工程商、进口商——每一个都是精准商业机会。</div>
+</div></section>
+
+<section id="m6"><div class="w">
+  <div class="eyebrow" style="color:var(--red)">Module 06</div><h2>政策与合规</h2>
+  <div class="summary"><strong>一句话：</strong>合规是底线。不了解规则，积累的一切都可能归零。</div>
+  <div class="col2">
+    <div class="c"><h3>欧盟市场</h3><table class="tbl"><tr><th>法规</th><th>要求</th><th>生效</th></tr><tr><td>小额关税</td><td>3欧/件</td><td>7.1</td></tr><tr><td>CE/UKCA</td><td>必须提交</td><td>7.30</td></tr><tr><td>GPSR</td><td>全量核查</td><td>已生效</td></tr><tr><td>存量回扫</td><td>未补齐下架</td><td>9.30</td></tr></table></div>
+    <div class="c"><h3>TikTok红线</h3><ol><li>一机一号一IP</li><li>内容必须原创</li><li>AI内容须标注</li><li>禁多平台联播</li><li>直播拍卖=最终销售</li><li>账号归属权写进合同</li></ol></div>
+  </div>
+</div></section>
+
+<!-- ===== M7 ===== -->
+<section id="m7" class="sub"><div class="w">
+  <div class="eyebrow" style="color:var(--blue)">Module 07</div><h2>获客转化：SQL 模型</h2>
+  <div class="summary"><strong>一句话：</strong>不是所有询盘都值得跟。用8个问题筛出真正想买的客户，转化效率提升3-5倍。</div>
+
+  <div class="viz">
+    <h3> SQL筛选漏斗</h3>
+    <div class="flow">
+      <div class="flow-node"><div style="font-size:20px">📥</div>所有询盘<br><span class="flow-label">100条</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node highlight"><div style="font-size:20px">🔍</div>SQL 8问筛选<br><span class="flow-label">过滤无效</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node" style="border-color:var(--green);background:#f0fdf4"><div style="font-size:20px">✅</div>高意向客户<br><span class="flow-label">约15-25条</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node" style="border-color:var(--green);background:#f0fdf4"><div style="font-size:20px">💰</div>重点跟进<br><span class="flow-label">转化率×3-5</span></div>
+    </div>
+  </div>
+
+  <div class="col2">
+    <div class="c"><h3>SQL 8问</h3><ol><li>感兴趣的产品？</li><li>需求数量？</li><li>目的国？</li><li>交期要求？</li><li>进口经验？</li><li>预算范围？</li><li>认证需求？</li><li>是否先打样？</li></ol></div>
+    <div class="c"><h3> 7天跟进节奏</h3><table class="tbl"><tr><th>天</th><th>动作</th></tr><tr><td>1</td><td>5分钟响应</td></tr><tr><td>2</td><td>发报价单</td></tr><tr><td>3</td><td>发工厂视频</td></tr><tr><td>5</td><td>温和跟进</td></tr><tr><td>7</td><td>新信息激活</td></tr></table></div>
+  </div>
+</div></section>
+
+<!-- ===== M8-M20: Compact but visual ===== -->
+<section id="m8"><div class="w">
+  <div class="eyebrow" style="color:var(--amber)">Module 08</div><h2>贸易术语精要</h2>
+  <div class="summary"><strong>一句话：</strong>FOB、CIF、DDP——每个术语背后是成本和风险的分配。搞错一个，利润全没。</div>
+  <div class="cmp">
+    <div><div class="cmp-icon">🏭</div><div class="cmp-name">EXW</div><div class="cmp-desc">工厂交货<br>卖方责任：工厂门口</div></div>
+    <div class="cmp-best"><div class="cmp-icon">🚢</div><div class="cmp-name">FOB</div><div class="cmp-desc">装运港交货<br>最常用·卖方到船舷</div></div>
+    <div><div class="cmp-icon">📦</div><div class="cmp-name">CIF</div><div class="cmp-desc">成本+保险+运费<br>卖方到目的港</div></div>
+    <div><div class="cmp-icon">🏠</div><div class="cmp-name">DDP</div><div class="cmp-desc">完税后交货<br>卖方全包·报价最高</div></div>
+  </div>
+  <div class="col2" style="margin-top:16px">
+    <div class="c"><h3>付款方式风险</h3><table class="tbl"><tr><th>方式</th><th>风险</th></tr><tr><td>TT 30/70</td><td>中·最常用</td></tr><tr><td>LC 信用证</td><td>低·银行担保</td></tr><tr><td>100%预付</td><td>零·小单</td></tr><tr><td>OA 赊销</td><td>高·仅老客户</td></tr></table></div>
+    <div class="c"><h3>新手建议</h3><div class="note warn"><strong>新客户首次合作</strong>坚持 TT 30/70 或 LC。永远不要给新客户OA赊销。</div><div class="note tip"><strong>报价前先确认术语</strong>同一产品，EXW和DDP价格可能差30%。不确认术语就报价=给自己挖坑。</div></div>
+  </div>
+</div></section>
+
+<section id="m9" class="sub"><div class="w">
+  <div class="eyebrow" style="color:var(--green)">Module 09</div><h2>外贸英语实战话术</h2>
+  <div class="summary"><strong>一句话：</strong>不需要流利英语，需要在正确场景说正确的话。下面这些话术直接复制用。</div>
+  <div class="col2">
+    <div class="c"><h3>📥 询盘回复</h3><p style="font-size:13px;line-height:1.7">"Thanks for your inquiry. We're a [X]-year factory specializing in [product]. Could you share the specs and quantity you need?"</p></div>
+    <div class="c"><h3>📄 发送报价</h3><p style="font-size:13px;line-height:1.7">"Please find attached the quotation. FOB [port], lead time [X] days, MOQ [X]. Valid 15 days."</p></div>
+    <div class="c"><h3>💰 价格异议</h3><p style="font-size:13px;line-height:1.7">"Could you share your target price? We can explore options on materials or specifications to get closer."</p></div>
+    <div class="c"><h3>📦 样品寄出</h3><p style="font-size:13px;line-height:1.7">"Sample shipped via DHL. Tracking: [no.]. ETA: [date]. Looking forward to your feedback."</p></div>
+    <div class="c"><h3>✅ 确认订单</h3><p style="font-size:13px;line-height:1.7">"I'll prepare the PI. Please confirm: [product] × [qty], [trade term], [port], [payment]."</p></div>
+    <div class="c"><h3>🔄 长期不回复</h3><p style="font-size:13px;line-height:1.7">"Hi [name], just touching base. Is [product] still on your radar? Happy to update the quote."</p></div>
+  </div>
+</div></section>
+
+<section id="m10"><div class="w">
+  <div class="eyebrow" style="color:var(--blue)">Module 10</div><h2>各国市场准入</h2>
+  <div class="cmp">
+    <div><div class="cmp-icon">🇪🇺</div><div class="cmp-name">欧盟</div><div class="cmp-desc">CE·RoHS·REACH<br>关税3-12%<br>重合规·决策慢</div></div>
+    <div><div class="cmp-icon">🇺🇸</div><div class="cmp-name">美国</div><div class="cmp-desc">FCC·FDA·UL<br>关税0-25%<br>重效率·法律严</div></div>
+    <div><div class="cmp-icon">🇯🇵</div><div class="cmp-name">日本</div><div class="cmp-desc">PSE·VCCI<br>关税0-10%<br>重品质·长期关系</div></div>
+    <div><div class="cmp-icon">🇸🇦</div><div class="cmp-name">中东</div><div class="cmp-desc">SASO·SABER<br>关税5-15%<br>关系驱动</div></div>
+    <div><div class="cmp-icon">🇧🇷</div><div class="cmp-name">巴西</div><div class="cmp-desc">INMETRO<br>关税10-35%<br>需本地代理</div></div>
+  </div>
+</div></section>
+
+<section id="m11" class="sub"><div class="w">
+  <div class="eyebrow" style="color:var(--amber)">Module 11</div><h2>跨境物流手册</h2>
+  <div class="cmp">
+    <div><div class="cmp-icon">🚢</div><div class="cmp-name">海运整柜</div><div class="cmp-desc">25-40天<br>成本最低<br>大批量</div></div>
+    <div><div class="cmp-icon">📦</div><div class="cmp-name">海运拼箱</div><div class="cmp-desc">30-45天<br>成本低<br>不足一柜</div></div>
+    <div><div class="cmp-icon">✈️</div><div class="cmp-name">空运</div><div class="cmp-desc">3-7天<br>成本高<br>样品·急单</div></div>
+    <div><div class="cmp-icon">🚂</div><div class="cmp-name">中欧班列</div><div class="cmp-desc">15-20天<br>成本中<br>欧洲方向</div></div>
+    <div><div class="cmp-icon">📮</div><div class="cmp-name">国际快递</div><div class="cmp-desc">3-5天<br>成本最高<br>样品·文件</div></div>
+  </div>
+</div></section>
+
+<section id="m12"><div class="w">
+  <div class="eyebrow" style="color:var(--purple)">Module 12</div><h2>AI 赋能外贸</h2>
+  <div class="summary"><strong>一句话：</strong>AI让你同样时间产出5倍内容。但永远不要用AI造假。</div>
+  <div class="cmp">
+    <div><div class="cmp-icon">🌐</div><div class="cmp-name">翻译</div><div class="cmp-desc">DeepL·Claude<br>多语种即时</div></div>
+    <div><div class="cmp-icon">🎙️</div><div class="cmp-name">配音</div><div class="cmp-desc">ElevenLabs<br>40+语言</div></div>
+    <div><div class="cmp-icon">🤖</div><div class="cmp-name">虚拟主播</div><div class="cmp-desc">HeyGen<br>24h直播</div></div>
+    <div><div class="cmp-icon">📧</div><div class="cmp-name">邮件</div><div class="cmp-desc">Claude·ChatGPT<br>开发信</div></div>
+    <div><div class="cmp-icon">📈</div><div class="cmp-name">数据分析</div><div class="cmp-desc">Kalodata<br>竞品分析</div></div>
+    <div><div class="cmp-icon">💬</div><div class="cmp-name">客服</div><div class="cmp-desc">ManyChat<br>自动回复</div></div>
+  </div>
+  <div class="note warn" style="margin-top:16px"><strong>红线</strong>严禁AI生成虚假工厂视频。发现=永久封禁+信誉归零。</div>
+</div></section>
+
+<section id="m13" class="sub"><div class="w">
+  <div class="eyebrow" style="color:var(--green)">Module 13</div><h2>常见问题</h2>
+  <div class="c"><div class="faq open"><div class="faq-q">TikTok外贸多久能看到效果？</div><div class="faq-a">第1个月基建，第2-3个月优化。<strong>第4个月起通常有稳定询盘。</strong>超过6个月无数据需重新评估。</div></div><div class="faq"><div class="faq-q">不会英语怎么办？</div><div class="faq-a">翻译工具+AI配音+TikTok内置75种语言。2026年语言不是障碍。</div></div><div class="faq"><div class="faq-q">自己做 vs 找服务商？</div><div class="faq-a"><strong>年费3-12万 vs 自建团队35-70万。</strong>三个"否"→找服务商更划算。</div></div><div class="faq"><div class="faq-q">什么产品最适合？</div><div class="faq-a">机械设备、建材五金、电子元器件、汽车零部件。关键是拍出解压感和专业感。</div></div><div class="faq"><div class="faq-q">账号被封怎么办？</div><div class="faq-a">80%+是网络问题→换专线IP。预防：一机一号一IP、100%原创、不买粉。</div></div><div class="faq"><div class="faq-q">询盘到成交要多久？</div><div class="faq-a">标件1-4周，定制2-6个月，大项目6-18个月。<strong>平均3-12个月。</strong></div></div></div>
+</div></section>
+
+<!-- M14-M20 compact visual -->
+<section id="m14"><div class="w">
+  <div class="eyebrow" style="color:var(--blue)">Module 14</div><h2>报价与定价</h2>
+  <div class="viz"><h3>FOB报价构成</h3><div class="flow"><div class="flow-node">原材料<br><strong>50-65%</strong></div><div class="flow-arrow">+</div><div class="flow-node">人工<br><strong>10-20%</strong></div><div class="flow-arrow">+</div><div class="flow-node">包装<br><strong>3-8%</strong></div><div class="flow-arrow">+</div><div class="flow-node">运费<br><strong>2-5%</strong></div><div class="flow-arrow">+</div><div class="flow-node">报关<br><strong>1-2%</strong></div><div class="flow-arrow">+</div><div class="flow-node highlight">利润<br><strong>≥15%</strong></div></div></div>
+  <div class="note tip"><strong>技巧</strong>阶梯报价（3个数量级）· 有效期7-15天 · 拆分报价（运费单独列）· 首单让利10-12%</div>
+</div></section>
+
+<section id="m15" class="sub"><div class="w"><div class="eyebrow" style="color:var(--purple)">Module 15</div><h2>开发信与邮件</h2>
+  <div class="viz"><h3>开发信5句话公式</h3><div class="flow"><div class="flow-node">我是谁<br><span class="flow-label">工厂+年限</span></div><div class="flow-arrow">→</div><div class="flow-node">为什么联系<br><span class="flow-label">行业对口</span></div><div class="flow-arrow">→</div><div class="flow-node">我的优势<br><span class="flow-label">数字说话</span></div><div class="flow-arrow">→</div><div class="flow-node">行动号召<br><span class="flow-label">加WhatsApp</span></div><div class="flow-arrow">→</div><div class="flow-node highlight">签名档<br><span class="flow-label">姓名+电话</span></div></div></div>
+  <div class="note tip"><strong>黄金法则</strong>一封开发信不超过120个英文单词。采购商30秒决定是否回复。短=被读完=有机会。</div>
+</div></section>
+
+<section id="m16"><div class="w"><div class="eyebrow" style="color:var(--amber)">Module 16</div><h2>谈判实战</h2>
+  <div class="col2"><div class="c"><h3>5种价格异议应对</h3><table class="tbl"><tr><th>客户说</th><th>你回应</th></tr><tr><td>"太贵了"</td><td>我们的价格包含认证和质保，您方便分享目标价吗？</td></tr><tr><td>"XX便宜20%"</td><td>不同配置成本差异大，建议逐项对比。</td></tr><tr><td>"量大便宜多少"</td><td>量大的话在模具、包装方面降成本。</td></tr></table></div><div class="c"><h3>让步交换原则</h3><div class="note tip"><strong>核心</strong>永远不要无条件让步。降价5%→要求订单量增30%。承担样品费→客户出快递费。</div></div></div>
+</div></section>
+
+<section id="m17" class="sub"><div class="w"><div class="eyebrow" style="color:var(--pink)">Module 17</div><h2>TikTok 直播 B2B</h2>
+  <div class="cmp"><div><div class="cmp-icon">🏭</div><div class="cmp-name">车间巡游</div><div class="cmp-desc">边走边拍<br>展示规模</div></div><div><div class="cmp-icon">🔧</div><div class="cmp-name">产品拆解</div><div class="cmp-desc">拆开讲解<br>展示品质</div></div><div><div class="cmp-icon">📹</div><div class="cmp-name">生产跟拍</div><div class="cmp-desc">原料到成品<br>建立信任</div></div><div><div class="cmp-icon">💬</div><div class="cmp-name">问答互动</div><div class="cmp-desc">坐播答疑<br>直接获客</div></div></div>
+</div></section>
+
+<section id="m18"><div class="w"><div class="eyebrow" style="color:var(--green)">Module 18</div><h2>品牌出海：OEM→自主品牌</h2>
+  <div class="viz"><div class="flow"><div class="flow-node">OEM<br>优化代工</div><div class="flow-arrow">→</div><div class="flow-node">ODM<br>参与设计</div><div class="flow-arrow">→</div><div class="flow-node">联合<br>品牌</div><div class="flow-arrow">→</div><div class="flow-node highlight">自主<br>品牌</div></div></div>
+</div></section>
+
+<section id="m19" class="sub"><div class="w"><div class="eyebrow" style="color:var(--red)">Module 19</div><h2>知识产权保护</h2>
+  <div class="col2"><div class="c"><h3>3项必做</h3><table class="tbl"><tr><th>类型</th><th>费用</th></tr><tr><td>商标</td><td>3000-8000元/类</td></tr><tr><td>外观专利</td><td>5000-20000元</td></tr><tr><td>版权登记</td><td>500-2000元</td></tr></table></div><div class="c"><div class="note warn"><strong>教训</strong>产品图片被竞对抢注版权→合法要求平台下架你的商品。发布前先登记版权。</div></div></div>
+</div></section>
+
+<section id="m20"><div class="w"><div class="eyebrow" style="color:var(--blue)">Module 20</div><h2>团队搭建</h2>
+  <div class="cmp"><div><div class="cmp-icon">👔</div><div class="cmp-name">外贸经理</div><div class="cmp-desc">策略+管理<br>8000-15000</div></div><div><div class="cmp-icon">📱</div><div class="cmp-name">运营专员</div><div class="cmp-desc">社媒发布<br>5000-8000</div></div><div><div class="cmp-icon">📸</div><div class="cmp-name">拍摄剪辑</div><div class="cmp-desc">入企实拍<br>6000-10000</div></div><div><div class="cmp-icon">💼</div><div class="cmp-name">业务员</div><div class="cmp-desc">询盘跟进<br>4000-7000+提成</div></div></div>
+</div></section>
+
+<footer>时代风科技集团 · TikTok 官方认证服务商<br>此知识库面向新手设计 · 每个模块都配有可视化框架</footer>
+
+<script>
+document.querySelectorAll('.faq').forEach(f=>{f.querySelector('.faq-q').addEventListener('click',()=>f.classList.toggle('open'))});
+</script>
+</body>
+</html>
