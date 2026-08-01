@@ -3,170 +3,370 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>工作台 · 王嘉豪</title>
+<title>晨报工作台</title>
 <style>
-:root{--bg:#f5f5f7;--card:#fff;--text:#1d1d1f;--t2:#6b7280;--t3:#9ca3af;--blue:#0ea5e9;--border:#e5e7eb}
+:root{
+  --bg:#f5f4f0;
+  --card:#fff;
+  --text:#1d1d1f;
+  --t2:#6b6b6f;
+  --t3:#aeaeb2;
+  --gold:#c9a84c;
+  --gold-light:#f0e6d2;
+  --gold-dark:#a8893a;
+  --blue:#3b82f6;
+  --border:#e5e3de;
+  --shadow:0 1px 3px rgba(0,0,0,0.03),0 4px 16px rgba(0,0,0,0.02);
+  --shadow-lg:0 4px 24px rgba(0,0,0,0.04),0 1px 4px rgba(0,0,0,0.02);
+  --radius:14px;
+  --radius-lg:20px;
+}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.5;letter-spacing:-0.1px}
 
-/* Topbar */
-.topbar{background:rgba(255,255,255,0.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.06);padding:0 24px;height:46px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.topbar .tb-l{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600}
-.topbar .tb-r{display:flex;align-items:center;gap:20px;font-size:12px;color:var(--t2)}
-.topbar .tb-r a{color:var(--t2);text-decoration:none;transition:color 0.15s;font-weight:500}
-.topbar .tb-r a:hover{color:var(--text)}
-.live-dot{width:7px;height:7px;border-radius:50%;background:#34c759;animation:pulse 2s infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+/* ========== TOPBAR ========== */
+.topbar{
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(0,0,0,0.05);
+  padding:0 28px;height:48px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:100;
+}
+.topbar .tb-l{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;letter-spacing:-0.3px}
+.topbar .tb-r{display:flex;align-items:center;gap:24px;font-size:12px;color:var(--t2)}
+.topbar .tb-r a{color:var(--t2);text-decoration:none;transition:color 0.2s;font-weight:500}
+.topbar .tb-r a:hover{color:var(--gold-dark)}
+.live-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(34,197,94,0.4)}50%{opacity:0.6;box-shadow:0 0 0 6px rgba(34,197,94,0)}}
 
-.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px}
 
-.c{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all 0.35s cubic-bezier(0.2,0,0,1)}
-.c:hover{box-shadow:0 1px 3px rgba(0,0,0,0.03),0 8px 24px rgba(0,0,0,0.05);border-color:#d1d5db;transform:translateY(-1px)}
+/* ========== SECTION HEADER ========== */
+.sh{display:flex;align-items:center;justify-content:space-between;margin:44px 0 18px}
+.sh h2{font-size:20px;font-weight:700;letter-spacing:-0.5px;display:flex;align-items:center;gap:10px}
+.sh .shr{font-size:12px;color:var(--t3);text-decoration:none;transition:color 0.2s;font-weight:500}
+.sh .shr:hover{color:var(--gold-dark)}
 
-.sh{display:flex;align-items:center;justify-content:space-between;margin:40px 0 16px}
-.sh h2{font-size:22px;font-weight:600;letter-spacing:-0.5px}
-.sh .shr{font-size:12px;color:var(--t3);text-decoration:none;transition:color 0.15s}
-.sh .shr:hover{color:var(--blue)}
+/* ========== HERO ========== */
+.hero{
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  margin:24px 0;
+  padding:28px 36px;
+  color:var(--text);
+}
+.hero::after{
+  content:'';
+  position:absolute;
+  top:0;right:0;
+  width:200px;height:100%;
+  background:linear-gradient(to right,transparent 0%,rgba(201,168,76,0.04) 100%);
+  pointer-events:none;
+}
+.hero *{position:relative;z-index:1}
+.hero-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.hero-left{display:flex;align-items:center;gap:16px}
+.hero-avatar{
+  width:48px;height:48px;
+  background:linear-gradient(135deg,#f0e6d2 0%,#e8d5a3 100%);
+  border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;
+  flex-shrink:0;
+}
+.hero-date{font-size:22px;font-weight:700;letter-spacing:-0.5px;line-height:1.2}
+.hero-date span{font-size:13px;font-weight:500;color:var(--t2);margin-left:6px}
+.hero-sub{font-size:13px;color:var(--t2);margin-top:2px}
+.hero-stats{display:flex;gap:28px}
+.hero-stat{text-align:center}
+.hero-stat .hs-n{font-size:24px;font-weight:700;letter-spacing:-0.5px;color:var(--gold)}
+.hero-stat .hs-l{font-size:10px;color:var(--t3);letter-spacing:0.5px;margin-top:1px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  background:var(--gold-light);
+  border-radius:12px;padding:3px 10px;
+  font-size:11px;font-weight:600;color:var(--gold-dark);
+  letter-spacing:0.3px;
+}
 
-/* Hero area */
-.hero-panel{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin:28px 0;display:grid;grid-template-columns:1fr 1fr}
-.hero-panel .hp-left{padding:36px 40px;display:flex;flex-direction:column;justify-content:center}
-.hero-panel .hp-right{background:url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80') center/cover;min-height:240px}
-.hero-panel .hp-name{font-size:15px;font-weight:600;margin-bottom:4px}
-.hero-panel .hp-role{font-size:13px;color:var(--t2);margin-bottom:20px}
-.hero-panel .hp-title{font-size:clamp(28px,4vw,42px);font-weight:600;letter-spacing:-1px;line-height:1.1;margin-bottom:8px}
-.hero-panel .hp-sub{font-size:15px;color:var(--t2);line-height:1.6}
-.hero-stats{display:flex;gap:32px;margin-top:24px}
-.hero-stat .hs-n{font-size:36px;font-weight:600;letter-spacing:-1px;color:var(--blue)}
-.hero-stat .hs-l{font-size:10px;color:var(--t3);letter-spacing:1px;text-transform:uppercase}
+/* ========== NEWS SECTION (核心晨报区) ========== */
+.news-wrapper{background:var(--card);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);overflow:hidden}
 
-/* Daily */
-.daily-header{display:flex;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap}
-.daily-header .dh-date{font-size:15px;font-weight:600;color:var(--t3);letter-spacing:0.5px}
-.daily-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
-.dt{padding:4px 12px;border-radius:12px;font-size:11px;font-weight:600;letter-spacing:0.3px;cursor:pointer;transition:all 0.2s;border:1px solid var(--border);background:var(--card);color:var(--t2)}
-.dt.active,.dt:hover{background:#e0f2fe;color:#0284c7;border-color:#bae6fd}
-.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px 24px}
-.ni{font-size:13px;color:var(--t2);line-height:1.65;padding:6px 0;transition:opacity 0.2s}
+/* 晨报头部 */
+.news-head{
+  background:linear-gradient(135deg,#faf9f5 0%,#f7f4ec 100%);
+  border-bottom:1px solid var(--gold-light);
+  padding:24px 32px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:16px;
+}
+.news-head-left{display:flex;align-items:center;gap:14px}
+.news-head-icon{
+  width:44px;height:44px;
+  background:linear-gradient(135deg,#f0e6d2 0%,#e8d5a3 100%);
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;
+}
+.news-head h3{font-size:18px;font-weight:700;color:var(--text);letter-spacing:-0.3px}
+.news-head .nh-sub{font-size:12px;color:var(--t2);margin-top:2px}
+.news-head-right{display:flex;align-items:center;gap:8px}
+.news-head-right span{font-size:12px;color:var(--t2)}
+
+/* 筛选标签 */
+.filter-bar{padding:16px 32px;border-bottom:1px solid var(--border);display:flex;gap:8px;flex-wrap:wrap}
+.filter-pill{
+  padding:6px 16px;border-radius:20px;font-size:12px;font-weight:600;
+  cursor:pointer;transition:all 0.25s;
+  border:1px solid var(--border);background:#fff;color:var(--t2);
+  letter-spacing:0.2px;
+}
+.filter-pill:hover{border-color:var(--gold);color:var(--gold-dark);background:var(--gold-light)}
+.filter-pill.active{background:var(--gold);color:#fff;border-color:var(--gold);box-shadow:0 2px 8px rgba(201,168,76,0.25)}
+
+/* 新闻内容区 */
+.news-body{padding:28px 32px 32px}
+
+/* 今日要闻 - 重点卡片 */
+.featured-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+.featured-card{
+  background:linear-gradient(135deg,#f8fafc 0%,#f1f5f9 100%);
+  border:1px solid var(--border);
+  border-radius:var(--radius);padding:20px 22px;
+  transition:all 0.3s;cursor:default;
+  position:relative;overflow:hidden;
+}
+.featured-card::before{
+  content:'';position:absolute;top:0;left:0;width:4px;height:100%;
+  border-radius:4px 0 0 4px;
+}
+.featured-card.fc-red::before{background:#ef4444}
+.featured-card.fc-blue::before{background:var(--gold)}
+.featured-card.fc-cyan::before{background:var(--cyan)}
+.featured-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px);border-color:#cbd5e1}
+.featured-card .fc-badge{
+  display:inline-block;padding:2px 10px;border-radius:10px;
+  font-size:10px;font-weight:700;letter-spacing:0.5px;margin-bottom:10px;
+}
+.fc-red .fc-badge{background:#fef2f2;color:#dc2626}
+.fc-blue .fc-badge{background:var(--gold-light);color:var(--gold-dark)}
+.fc-cyan .fc-badge{background:#eff6ff;color:var(--blue)}
+.featured-card h4{font-size:14px;font-weight:700;margin-bottom:6px;letter-spacing:-0.2px;line-height:1.4}
+.featured-card p{font-size:12px;color:var(--t2);line-height:1.6}
+
+/* 新闻列表 */
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 28px}
+.ni{padding:10px 0;font-size:13px;color:var(--t2);line-height:1.7;border-bottom:1px solid #f3f4f6;transition:all 0.2s}
+.ni:hover{color:var(--text)}
 .ni strong{color:var(--text);font-weight:600}
-.ni .nc{font-size:10px;font-weight:600;letter-spacing:0.5px;margin-right:6px}
+.ni .nc{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.5px;padding:1px 8px;border-radius:8px;margin-right:8px;vertical-align:middle}
 .ni.hidden{display:none}
+.cat-macro{background:#eff6ff;color:#2563eb}
+.cat-eu{background:#eef2ff;color:#6366f1}
+.cat-us{background:#fff1f2;color:#e11d48}
+.cat-trend{background:#fffbeb;color:#d97706}
+.cat-tk{background:#f5f3ff;color:#7c3aed}
+.cat-ai{background:#ecfdf5;color:#059669}
 
-/* Module grid */
-.mod-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 16px;text-decoration:none;color:var(--text);transition:all 0.3s cubic-bezier(0.2,0,0,1);display:block}
-.mod-card:hover{border-color:var(--blue);box-shadow:0 0 0 3px rgba(14,165,233,0.08);transform:translateY(-2px)}
+/* 晨报底部 */
+.news-footer{padding:14px 32px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:#faf9f6}
+.news-footer span{font-size:11px;color:var(--t3)}
+.news-footer .nf-tag{font-size:10px;font-weight:600;color:var(--gold-dark);letter-spacing:0.5px}
+
+/* ========== KNOWLEDGE GRID ========== */
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.mod-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:20px 16px;
+  text-decoration:none;color:var(--text);
+  transition:all 0.3s;display:block;
+}
+.mod-card:hover{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,0.1);transform:translateY(-2px)}
 .mod-card .mc-e{font-size:24px;margin-bottom:8px}
 .mod-card .mc-n{font-size:9px;color:var(--t3);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:6px}
 .mod-card .mc-t{font-size:13px;font-weight:600;letter-spacing:-0.2px;margin-bottom:2px}
 .mod-card .mc-d{font-size:11px;color:var(--t3);line-height:1.4}
 
-/* Ref cards */
-.ref-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px 24px;transition:all 0.3s}
-.ref-card:hover{box-shadow:0 2px 12px rgba(0,0,0,0.04);border-color:#d1d5db}
+/* ========== REFERENCE SECTION ========== */
+.sec-bg{background:#faf9f6;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:48px 0;margin:36px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ref-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:22px 24px;transition:all 0.3s;
+}
+.ref-card:hover{box-shadow:var(--shadow-lg);border-color:#d1d5db}
 .ref-card h4{font-size:14px;font-weight:600;margin-bottom:10px;letter-spacing:-0.2px}
 .ref-card p{font-size:13px;color:var(--t2);line-height:1.7}
-.ref-card .rv{font-size:22px;font-weight:600;color:var(--blue);margin:6px 0}
+.ref-card .rv{font-size:22px;font-weight:600;color:var(--gold-dark);margin:6px 0}
 .ref-card ul{list-style:none;padding:0;font-size:13px;color:var(--t2);line-height:1.8}
+.img-accent{width:100%;height:160px;object-fit:cover;border-radius:var(--radius);margin:10px 0;opacity:0.85}
 
-/* Tool cards */
-.tool-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;text-decoration:none;color:var(--text);transition:all 0.3s;display:flex;align-items:center;gap:14px}
-.tool-card:hover{border-color:var(--blue);box-shadow:0 0 0 2px rgba(14,165,233,0.08)}
+/* ========== TOOLS ========== */
+.tool-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:18px;
+  text-decoration:none;color:var(--text);
+  transition:all 0.3s;display:flex;align-items:center;gap:14px;
+}
+.tool-card:hover{border-color:var(--gold);box-shadow:0 0 0 2px rgba(201,168,76,0.1)}
 .tool-card .tc-icon{font-size:28px;flex-shrink:0}
 .tool-card .tc-n{font-size:14px;font-weight:600}
 .tool-card .tc-d{font-size:11px;color:var(--t3)}
 
-/* Image accents */
-.img-accent{width:100%;height:160px;object-fit:cover;border-radius:14px;margin:10px 0;opacity:0.85}
+/* ========== FOOTER ========== */
+footer{
+  text-align:center;padding:36px 24px;
+  font-size:12px;color:var(--t3);
+  border-top:1px solid var(--border);margin-top:48px;line-height:1.8;
+}
+footer strong{color:var(--text);font-weight:600}
 
-footer{text-align:center;padding:32px 24px;font-size:11px;color:var(--t3);border-top:1px solid var(--border);margin-top:48px;line-height:1.8}
-
-.sec-bg{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:48px 0;margin:32px 0}
-
+/* ========== RESPONSIVE ========== */
 @media(max-width:768px){
-  .grid2,.grid3{grid-template-columns:1fr}
+  .grid2,.grid3,.featured-row{grid-template-columns:1fr}
   .grid4{grid-template-columns:1fr 1fr}
   .grid5{grid-template-columns:repeat(3,1fr)}
   .news-grid{grid-template-columns:1fr}
-  .hero-panel{grid-template-columns:1fr}
-  .hero-panel .hp-right{min-height:160px}
   .topbar .tb-r{display:none}
+  .hero{padding:32px 24px 28px}
+  .hero-date{font-size:36px}
   .hero-stats{gap:20px}
-  .hero-stat .hs-n{font-size:28px}
+  .hero-stat .hs-n{font-size:24px}
+  .news-head,.filter-bar,.news-body,.news-footer{padding-left:20px;padding-right:20px}
 }
 </style>
 </head>
 <body>
 
+<!-- ========== TOPBAR ========== -->
 <div class="topbar">
-  <div class="tb-l"><span class="live-dot"></span> 工作台</div>
-  <div class="tb-r"><span>2026.07.31 周四</span><a href="knowledge.html">知识库</a><a href="graph.html">图谱</a><a href="#tools">工具箱</a></div>
+  <div class="tb-l"><span class="live-dot"></span>晨报工作台</div>
+  <div class="tb-r">
+    <span id="topDate">2026.08.01 周五</span>
+    <a href="knowledge.html">知识库</a>
+    <a href="graph.html">图谱</a>
+    <a href="#tools">工具箱</a>
+  </div>
 </div>
 
 <div class="wrap">
 
-<!-- ===== HERO PANEL ===== -->
-<div class="hero-panel">
-  <div class="hp-left">
-    <div class="hp-name">王嘉豪</div>
-    <div class="hp-role">中国制造出海顾问 · 河北石家庄 · 19933103902</div>
-    <div class="hp-title">帮助中国制造<br>连接全球市场</div>
-    <p class="hp-sub">TikTok 海外营销 · 社媒运营 · 数字化获客体系</p>
+<!-- ========== HERO ========== -->
+<div class="hero">
+  <div class="hero-row">
+    <div class="hero-left">
+      <div class="hero-avatar">🌅</div>
+      <div>
+        <div class="hero-date">2026.08.01 <span>星期五</span></div>
+        <div class="hero-sub">全球外贸资讯精选 · 一站掌握出海先机</div>
+      </div>
+    </div>
     <div class="hero-stats">
       <div class="hero-stat"><div class="hs-n">500+</div><div class="hs-l">服务企业</div></div>
       <div class="hero-stat"><div class="hs-n">$10亿+</div><div class="hs-l">客户 GMV</div></div>
       <div class="hero-stat"><div class="hs-n">80+</div><div class="hs-l">覆盖国家</div></div>
     </div>
   </div>
-  <div class="hp-right"></div>
 </div>
 
-<!-- ===== DAILY BRIEFING ===== -->
-<div class="sh" style="margin-top:32px"><h2>📰 今日外贸晨报</h2><span class="shr">海关总署 · TikTok官方 · 雨果跨境</span></div>
+<!-- ========== 今日外贸晨报 ========== -->
+<div class="sh"><h2>📰 今日外贸晨报</h2><span class="shr">海关总署 · TikTok官方 · 雨果跨境 · 36氪出海</span></div>
 
-<div class="daily-tags">
-  <span class="dt active" onclick="filterNews('all')">全部</span>
-  <span class="dt" onclick="filterNews('macro')">📊 宏观</span>
-  <span class="dt" onclick="filterNews('eu')">🇪🇺 欧盟</span>
-  <span class="dt" onclick="filterNews('us')">🇺🇸 美国</span>
-  <span class="dt" onclick="filterNews('trend')">🔥 趋势</span>
-  <span class="dt" onclick="filterNews('tk')">🌏 TikTok</span>
-  <span class="dt" onclick="filterNews('ai')">🤖 AI</span>
-</div>
+<div class="news-wrapper">
 
-<div class="c">
-  <div class="news-grid" id="newsContainer">
-    <div class="ni" data-cat="macro"><span class="nc" style="color:#0ea5e9">宏观</span>上半年进出口总值 <strong>25.47万亿</strong>（+16.9%），出口 14.73万亿（+13.4%）</div>
-    <div class="ni" data-cat="macro"><span class="nc" style="color:#0ea5e9">宏观</span>6月单月进出口 4.78万亿，同比大涨 <strong>24.2%</strong></div>
-    <div class="ni" data-cat="macro"><span class="nc" style="color:#0ea5e9">宏观</span>民企贡献近 <strong>6成</strong> 外贸增量，有进出口记录民企超 66万家</div>
-    <div class="ni" data-cat="macro"><span class="nc" style="color:#0ea5e9">宏观</span>机电产品出口 9.36万亿（+20.1%），高技术产品增 <strong>39%</strong></div>
-    <div class="ni" data-cat="eu"><span class="nc" style="color:#6366f1">欧盟</span>CE/UKCA 合规今日生效，电子电器、纺织品新品须提交资质</div>
-    <div class="ni" data-cat="eu"><span class="nc" style="color:#6366f1">欧盟</span>GPSR 全量核查启动，<strong>9月30日</strong>前存量商品须补齐</div>
-    <div class="ni" data-cat="eu"><span class="nc" style="color:#6366f1">欧盟</span>小额包裹免税取消：150欧以下加征 <strong>3欧/件</strong></div>
-    <div class="ni" data-cat="eu"><span class="nc" style="color:#6366f1">欧盟</span>顺丰国际落地 TK Shop 欧洲 <strong>12国</strong> 3PL 直发</div>
-    <div class="ni" data-cat="us"><span class="nc" style="color:#f43f5e">美国</span>TikTok 保证金三级架构：最高 <strong>$10,000</strong> 浮动</div>
-    <div class="ni" data-cat="us"><span class="nc" style="color:#f43f5e">美国</span>CPSC eFiling 强制生效，$800以下小包 <strong>同样监管</strong></div>
-    <div class="ni" data-cat="us"><span class="nc" style="color:#f43f5e">美国</span>直播拍卖列为"最终销售"，不支持无理由退货</div>
-    <div class="ni" data-cat="trend"><span class="nc" style="color:#f59e0b">趋势</span>河北"厂播"爆发：石家庄 <strong>780+</strong> 企业开播，AI主播 24h 轮播</div>
-    <div class="ni" data-cat="trend"><span class="nc" style="color:#f59e0b">趋势</span>叉车厂每天 9h TK直播，上半年外贸增 <strong>50%</strong>，月销 300 万</div>
-    <div class="ni" data-cat="trend"><span class="nc" style="color:#f59e0b">趋势</span>"新新三样"（AI+机器人+创新药）成出口新名片</div>
-    <div class="ni" data-cat="trend"><span class="nc" style="color:#f59e0b">趋势</span>机器人出口 199.9亿（+39.5%），中国成全球第二大机器人出口国</div>
-    <div class="ni" data-cat="trend"><span class="nc" style="color:#f59e0b">趋势</span>94% 海外采购商先用 AI 评估供应商，考察名单缩至 <strong>3.5家</strong></div>
-    <div class="ni" data-cat="tk"><span class="nc" style="color:#8b5cf6">TK</span>欧洲 <strong>8个</strong> 新站点开放入驻，POP 入驻标准放宽</div>
-    <div class="ni" data-cat="tk"><span class="nc" style="color:#8b5cf6">TK</span>东南亚跨境结算优化，运费补贴 <strong>3个自然日</strong>到账</div>
-    <div class="ni" data-cat="tk"><span class="nc" style="color:#8b5cf6">TK</span>印尼认证本土商家减免 <strong>50%</strong> 服务费</div>
-    <div class="ni" data-cat="ai"><span class="nc" style="color:#10b981">AI</span>阿里国际站 Accio Work 智能体，B2B 进入 A2A 交易模式</div>
-    <div class="ni" data-cat="ai"><span class="nc" style="color:#10b981">AI</span>飞书深诺 Marvy2.0：广告投放效率提升 <strong>20倍</strong></div>
-    <div class="ni" data-cat="ai"><span class="nc" style="color:#10b981">AI</span>AI客服处理 <strong>85%</strong> 以上常规咨询，翻译覆盖 20+ 语言</div>
-    <div class="ni" data-cat="ai"><span class="nc" style="color:#10b981">AI</span>77% B2B采购使用AI，不被 AI 收录 = 不被采购商看到</div>
-    <div class="ni" data-cat="ai"><span class="nc" style="color:#10b981">AI</span>2026全球跨境电商交易博览会杭州启幕，首设 AI+跨境展区</div>
+  <!-- 晨报头部 -->
+  <div class="news-head">
+    <div class="news-head-left">
+      <div class="news-head-icon">🌅</div>
+      <div>
+        <h3>2026年8月1日 · 外贸晨报</h3>
+        <div class="nh-sub">24 条要闻 · 覆盖宏观 / 欧盟 / 美国 / TikTok / AI / 趋势</div>
+      </div>
+    </div>
+    <div class="news-head-right">
+      <span>🕐 清晨 07:30 更新</span>
+    </div>
   </div>
+
+  <!-- 筛选标签 -->
+  <div class="filter-bar">
+    <span class="filter-pill active" onclick="filterNews('all')">📋 全部</span>
+    <span class="filter-pill" onclick="filterNews('macro')">📊 宏观数据</span>
+    <span class="filter-pill" onclick="filterNews('eu')">🇪🇺 欧盟新政</span>
+    <span class="filter-pill" onclick="filterNews('us')">🇺🇸 美国市场</span>
+    <span class="filter-pill" onclick="filterNews('trend')">🔥 B2B 趋势</span>
+    <span class="filter-pill" onclick="filterNews('tk')">🎵 TikTok</span>
+    <span class="filter-pill" onclick="filterNews('ai')">🤖 AI 出海</span>
+  </div>
+
+  <!-- 新闻内容 -->
+  <div class="news-body">
+
+    <!-- 今日三大要闻 -->
+    <div class="featured-row">
+      <div class="featured-card fc-red">
+        <span class="fc-badge">🚨 紧急提醒</span>
+        <h4>欧盟 PPWR 包装法规 · 倒计时 11 天</h4>
+        <p>8月12日强制实施，所有出口欧盟包装须含再生料≥30%，标签不合规直接退运。建议立即检查现有包装库存。</p>
+      </div>
+      <div class="featured-card fc-blue">
+        <span class="fc-badge">📊 宏观利好</span>
+        <h4>上半年进出口 25.47 万亿 · 同比 +16.9%</h4>
+        <p>民企贡献近6成增量，机电产品出口9.36万亿（+20.1%），高技术产品暴增39%。外贸基本面强劲。</p>
+      </div>
+      <div class="featured-card fc-cyan">
+        <span class="fc-badge">🎵 平台红利</span>
+        <h4>TikTok Shop 欧洲 8 个新站点开放入驻</h4>
+        <p>POP入驻标准放宽，顺丰国际落地TK Shop欧洲12国3PL直发。欧洲市场窗口期打开，先入先得。</p>
+      </div>
+    </div>
+
+    <!-- 全部新闻 -->
+    <div class="news-grid" id="newsContainer">
+      <div class="ni" data-cat="macro"><span class="nc cat-macro">宏观</span>上半年进出口总值 <strong>25.47万亿</strong>（+16.9%），出口 14.73万亿（+13.4%）</div>
+      <div class="ni" data-cat="macro"><span class="nc cat-macro">宏观</span>6月单月进出口 4.78万亿，同比大涨 <strong>24.2%</strong></div>
+      <div class="ni" data-cat="macro"><span class="nc cat-macro">宏观</span>民企贡献近 <strong>6成</strong> 外贸增量，有进出口记录民企超 66万家</div>
+      <div class="ni" data-cat="macro"><span class="nc cat-macro">宏观</span>机电产品出口 9.36万亿（+20.1%），高技术产品增 <strong>39%</strong></div>
+      <div class="ni" data-cat="eu"><span class="nc cat-eu">欧盟</span>CE/UKCA 合规今日生效，电子电器、纺织品新品须提交资质</div>
+      <div class="ni" data-cat="eu"><span class="nc cat-eu">欧盟</span>GPSR 全量核查启动，<strong>9月30日</strong>前存量商品须补齐</div>
+      <div class="ni" data-cat="eu"><span class="nc cat-eu">欧盟</span>小额包裹免税取消：150欧以下加征 <strong>3欧/件</strong></div>
+      <div class="ni" data-cat="eu"><span class="nc cat-eu">欧盟</span>顺丰国际落地 TK Shop 欧洲 <strong>12国</strong> 3PL 直发</div>
+      <div class="ni" data-cat="us"><span class="nc cat-us">美国</span>TikTok 保证金三级架构：最高 <strong>$10,000</strong> 浮动</div>
+      <div class="ni" data-cat="us"><span class="nc cat-us">美国</span>CPSC eFiling 强制生效，$800以下小包 <strong>同样监管</strong></div>
+      <div class="ni" data-cat="us"><span class="nc cat-us">美国</span>直播拍卖列为"最终销售"，不支持无理由退货</div>
+      <div class="ni" data-cat="trend"><span class="nc cat-trend">趋势</span>河北"厂播"爆发：石家庄 <strong>780+</strong> 企业开播，AI主播 24h 轮播</div>
+      <div class="ni" data-cat="trend"><span class="nc cat-trend">趋势</span>叉车厂每天 9h TK直播，上半年外贸增 <strong>50%</strong>，月销 300 万</div>
+      <div class="ni" data-cat="trend"><span class="nc cat-trend">趋势</span>"新新三样"（AI+机器人+创新药）成出口新名片</div>
+      <div class="ni" data-cat="trend"><span class="nc cat-trend">趋势</span>机器人出口 199.9亿（+39.5%），中国成全球第二大机器人出口国</div>
+      <div class="ni" data-cat="trend"><span class="nc cat-trend">趋势</span>94% 海外采购商先用 AI 评估供应商，考察名单缩至 <strong>3.5家</strong></div>
+      <div class="ni" data-cat="tk"><span class="nc cat-tk">TK</span>欧洲 <strong>8个</strong> 新站点开放入驻，POP 入驻标准放宽</div>
+      <div class="ni" data-cat="tk"><span class="nc cat-tk">TK</span>东南亚跨境结算优化，运费补贴 <strong>3个自然日</strong>到账</div>
+      <div class="ni" data-cat="tk"><span class="nc cat-tk">TK</span>印尼认证本土商家减免 <strong>50%</strong> 服务费</div>
+      <div class="ni" data-cat="ai"><span class="nc cat-ai">AI</span>阿里国际站 Accio Work 智能体，B2B 进入 A2A 交易模式</div>
+      <div class="ni" data-cat="ai"><span class="nc cat-ai">AI</span>飞书深诺 Marvy2.0：广告投放效率提升 <strong>20倍</strong></div>
+      <div class="ni" data-cat="ai"><span class="nc cat-ai">AI</span>AI客服处理 <strong>85%</strong> 以上常规咨询，翻译覆盖 20+ 语言</div>
+      <div class="ni" data-cat="ai"><span class="nc cat-ai">AI</span>77% B2B采购使用AI，不被 AI 收录 = 不被采购商看到</div>
+      <div class="ni" data-cat="ai"><span class="nc cat-ai">AI</span>2026全球跨境电商交易博览会杭州启幕，首设 AI+跨境展区</div>
+    </div>
+  </div>
+
+  <!-- 晨报底部 -->
+  <div class="news-footer">
+    <span>📌 数据来源：海关总署、TikTok官方公告、雨果跨境、36氪出海 | 内容仅供参考，不构成决策建议</span>
+    <span class="nf-tag">每日 07:30 更新</span>
+  </div>
+
 </div>
 
-<!-- ===== KNOWLEDGE ===== -->
+<!-- ========== 知识库速查 ========== -->
 <div class="sh"><h2>📚 知识库速查</h2><a href="knowledge.html" class="shr">查看全部 20 模块 →</a></div>
 <div class="grid5">
   <a href="knowledge.html#m1" class="mod-card"><div class="mc-e">🌍</div><div class="mc-n">01</div><div class="mc-t">基础入门</div><div class="mc-d">平台逻辑·趋势</div></a>
@@ -181,7 +381,7 @@ footer{text-align:center;padding:32px 24px;font-size:11px;color:var(--t3);border
   <a href="knowledge.html#m17" class="mod-card"><div class="mc-e">📡</div><div class="mc-n">17</div><div class="mc-t">TK直播</div><div class="mc-d">厂播·同传</div></a>
 </div>
 
-<!-- ===== QUICK REFERENCE ===== -->
+<!-- ========== 常用速查 ========== -->
 <div class="sec-bg">
   <div class="wrap" style="padding:0">
     <div class="sh" style="margin-top:0" id="ref"><h2>⚡ 常用速查</h2></div>
@@ -256,7 +456,7 @@ footer{text-align:center;padding:32px 24px;font-size:11px;color:var(--t3);border
   </div>
 </div>
 
-<!-- ===== TOOLS ===== -->
+<!-- ========== 常用工具 ========== -->
 <div class="sh" id="tools"><h2>🛠️ 常用工具</h2></div>
 <div class="grid4">
   <a href="https://www.deepl.com/translator" target="_blank" class="tool-card"><div class="tc-icon">🌐</div><div><div class="tc-n">DeepL</div><div class="tc-d">最准的翻译</div></div></a>
@@ -269,16 +469,34 @@ footer{text-align:center;padding:32px 24px;font-size:11px;color:var(--t3);border
   <a href="https://www.capcut.com" target="_blank" class="tool-card"><div class="tc-icon">✂️</div><div><div class="tc-n">CapCut</div><div class="tc-d">视频剪辑</div></div></a>
 </div>
 
-</div>
+</div><!-- .wrap -->
 
-<footer>王嘉豪 · 19933103902 · 时代风科技 · TikTok 官方认证服务商<br>此工作台每日更新 · 内容基于实战经验</footer>
+<footer>
+  <strong>时代风科技集团</strong> · TikTok 官方认证服务商<br>
+  晨报工作台每日清晨 07:30 更新 · 内容基于海关总署、TikTok官方及行业媒体公开信息整理
+</footer>
 
 <script>
 function filterNews(cat){
-  document.querySelectorAll('.dt').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.dt').forEach(t=>{if(t.textContent.includes(cat==='all'?'全部':cat.toUpperCase())||(cat==='eu'&&t.textContent.includes('欧盟'))||(cat==='us'&&t.textContent.includes('美国'))||(cat==='trend'&&t.textContent.includes('趋势'))||(cat==='tk'&&t.textContent.includes('TikTok'))||(cat==='ai'&&t.textContent.includes('AI'))||(cat==='macro'&&t.textContent.includes('宏观'))){if(cat==='all'&&t.textContent.trim()!=='全部')return;t.classList.add('active')}});
-  document.querySelectorAll('.ni').forEach(item=>{item.classList.toggle('hidden',cat!=='all'&&item.dataset.cat!==cat)});
+  // 更新筛选按钮状态
+  document.querySelectorAll('.filter-pill').forEach(t=>t.classList.remove('active'));
+  const map = {all:'全部',macro:'宏观数据',eu:'欧盟新政',us:'美国市场',trend:'B2B趋势',tk:'TikTok',ai:'AI出海'};
+  document.querySelectorAll('.filter-pill').forEach(t=>{
+    if(t.textContent.trim().includes(map[cat]||'')) t.classList.add('active');
+  });
+  // 过滤新闻
+  document.querySelectorAll('.ni').forEach(item=>{
+    item.classList.toggle('hidden',cat!=='all'&&item.dataset.cat!==cat);
+  });
 }
+
+// 自动设置今天日期
+(function(){
+  const d = new Date();
+  const week = ['周日','周一','周二','周三','周四','周五','周六'];
+  const ds = d.getFullYear()+'.'+String(d.getMonth()+1).padStart(2,'0')+'.'+String(d.getDate()).padStart(2,'0');
+  document.getElementById('topDate').textContent = ds+' '+week[d.getDay()];
+})();
 </script>
 </body>
 </html>
